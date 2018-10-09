@@ -128,9 +128,13 @@ a{
     text-transform: uppercase;
 }
 /* ===================================dashboard styles */
+.dasboardDiv{
+    display: flex;
+    align-items: flex-start;   
+}
 .dasboard-content{
     background-color: #fafafb;
-    width: 200px;
+    width: 230px;
     display: flex;
     flex-direction: column;
     color: #000a3f;
@@ -159,6 +163,20 @@ a{
 }
 .logoutDiv{
     margin: 100px 20px 0 20px !important;
+}
+.Avatar{
+    width: 50px;
+    height: auto;
+    border-radius: 50%;
+}
+.avatar-div-container{
+    display: flex;
+    justify-content: space-between; 
+    width: 100%;
+    padding: 10px 30px 2px 20px;
+    border-bottom: 2px solid #eeeeee;
+    font-size: 20px;
+    font-family: 'Exo', sans-serif;
 }
 
 /* ===================================footer styles */
