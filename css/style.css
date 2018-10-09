@@ -4,11 +4,58 @@ body{
     background-color: #000a3f;
     color: white;
 }
+.hide{
+    display: none;
+}
+a{
+    text-decoration: none;
+}
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 10px;
+    background-color: #000a3f;
+    color: white;
+    font-size: 18px;
+}
+.navLogo{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.close, .hanburgerButton{
+    display: none !important;
+    font-size: 24px !important;
+}
+.show-close-button{
+    display: flex !important;
+    color: red;
+    font-size: 20px !important;
+}
+
+.show-nav-items{
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    list-style: none;
+    color: white;   
+}
+.show-close-button:hover, .hanburgerButton:hover{
+    cursor: pointer;
+}
+.nav-items{
+    display: flex;
+    list-style: none;        
+}
+.nav-items li {
+    margin: 0 10px;
+    color: white !important;       
+}
 div{
     padding: 0;
     margin: 0;
 }
-
 .logDiv{
     margin:30vh auto 0 auto;
     text-align: center;
@@ -51,6 +98,8 @@ div{
     font-size: 18px;
 }
 
+/* =========================== na */
+
 @media (max-width: 480px) { 
     .description{
         font-size: 24px !important;
@@ -61,5 +110,17 @@ div{
         margin: 0 auto;
         margin-top: -10px !important;
         font-size: 12px;
+    }
+    .navbar{
+        display: block;
+    }
+    .hanburgerButton{
+        display: flex !important;
+    }
+    .nav-items{
+        display: none;
+    }
+    ul{        
+        padding: 0 5px !important;       
     }
 }
