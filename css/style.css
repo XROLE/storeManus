@@ -1,8 +1,13 @@
+/*================================= global styles */
 body{
     padding: 0;
     margin: 0;
     background-color: #000a3f;
     color: white;
+}
+div{
+    padding: 0;
+    margin: 0;
 }
 .hide{
     display: none;
@@ -10,6 +15,10 @@ body{
 a{
     text-decoration: none;
 }
+.link:hover{
+    cursor: pointer;
+}
+/* ================================ navbar styles */
 .navbar{
     display: flex;
     justify-content: space-between;
@@ -52,10 +61,8 @@ a{
     margin: 0 10px;
     color: white !important;       
 }
-div{
-    padding: 0;
-    margin: 0;
-}
+
+/* ================================landing page styles */
 .logDiv{
     margin:30vh auto 0 auto;
     text-align: center;
@@ -89,14 +96,46 @@ div{
     font-family: 'Exo', sans-serif;
     font-size: 18px;
 }
-.copy-right{
-    letter-spacing: 25px;
+/* ====================================signup styles */
+.signupDiv{
+    margin: 100px auto;
+    text-align: center;  
 }
+.signup-form{
+    width: 35%;
+    margin: 0 auto;
+}
+.signup-form input{
+    width: 100%;
+    font-size: 14px;
+    border: none;
+    border-bottom: 1px solid #000a3f;
+    padding: 7px;
+    margin: 5px;
+}
+.signup-button-div{
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.signup-button-div button{
+    border: none;
+    color: white;
+    background-color: #000a3f;
+    padding: 10 25px !important;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+/* ===================================footer styles */
 .footerDiv{
     margin-top: 25vh;
     text-align: center;
     font-size: 18px;
 }
+                    .copy-right{
+                        letter-spacing: 25px;
+                    }
 
 /* =========================== na */
 
