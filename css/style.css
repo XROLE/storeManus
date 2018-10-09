@@ -164,6 +164,17 @@ a{
 .logoutDiv{
     margin: 100px 20px 0 20px !important;
 }
+.avater-div{
+    display: flex;
+    align-items: flex-start;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: capitalize;
+    font-family: 'Exo', sans-serif;    
+}
+.avatar-label{
+    margin: 25px 0 0 10px;
+}
 .Avatar{
     width: 50px;
     height: auto;
@@ -174,9 +185,20 @@ a{
     justify-content: space-between; 
     width: 100%;
     padding: 10px 30px 2px 20px;
-    border-bottom: 2px solid #eeeeee;
-    font-size: 20px;
-    font-family: 'Exo', sans-serif;
+    border-bottom: 2px solid #eeeeee;   
+}
+.filter-div{
+    margin-top: 15px;    
+}
+.filter-div label{
+    font-weight: bold;
+}
+.search-sales-by-attendant-buttton{
+    background-color: #000a3f;
+    color: white;
+    border-radius: 15px;
+    border: none;
+    padding: 5px 10px;
 }
 
 /* ===================================footer styles */
@@ -255,3 +277,8 @@ a{
     } 
 
 }
+
+
+attendants
+categories
+date
