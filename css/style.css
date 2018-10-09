@@ -133,11 +133,11 @@ a{
     text-align: center;
     font-size: 18px;
 }
-                    .copy-right{
-                        letter-spacing: 25px;
-                    }
+.copy-right{
+    letter-spacing: 25px;
+}
 
-/* =========================== na */
+/* ========================================= Smallest mobile device */
 
 @media (max-width: 480px) { 
     .description{
@@ -162,4 +162,44 @@ a{
     ul{        
         padding: 0 5px !important;       
     }
+    /* sigup and signin style */
+    .signupDiv{
+        margin: 50px auto;
+   }
+    .signup-form{
+        width: 90%;
+    }
+    .signup-button-div button{
+        padding: 10 20px !important;
+        font-size: 12px;        
+    }
+    .signup-button-div p{
+        font-size: 13px;
+    }
+    .signup-footer, .signin-footer{
+        margin-top: 50vh;
+    }
+}
+/* =============================== small screen size */
+@media (min-width: 481px) and (max-width: 768px){
+     /* sigup and signin style */
+    
+    .signup-form{
+        width: 50%;
+    }   
+    .signup-footer, .signin-footer{
+        margin-top: 70vh;
+    } 
+
+}
+@media (min-width: 769px) and (max-width: 1025px){
+     /* sigup and signin style */
+    
+    .signup-form{
+        width: 50%;
+    }   
+    .signup-footer, .signin-footer{
+        margin-top: 70vh;
+    } 
+
 }
