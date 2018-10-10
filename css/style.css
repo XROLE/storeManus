@@ -242,7 +242,7 @@ tfoot {
 #all-products{
     display: none;
 }
-#table-head{    
+.table-head{    
     text-align: center;
     border-bottom: #000a3f 1px dotted;
 }
