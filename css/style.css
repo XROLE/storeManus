@@ -214,9 +214,7 @@ a{
     display: flex;
     flex-direction: column;
     justify-content: space-between; 
-    width: 100%;
-    /* padding: 10px 30px 2px 20px; */
-    /* border-bottom: 2px solid #eeeeee; */
+    width: 100%;   
 }
 .dasboard-display-div{
     text-align: center;
@@ -240,6 +238,13 @@ tfoot {
     background-color: #eee;
     color: #000a3f;
     text-align: center;
+}
+#all-products{
+    display: none;
+}
+#table-head{    
+    text-align: center;
+    border-bottom: #000a3f 1px dotted;
 }
 
 /* ===================================footer styles */
