@@ -246,6 +246,38 @@ tfoot {
     text-align: center;
     border-bottom: #000a3f 1px dotted;
 }
+/* add products form */
+#add-product{
+    margin: 50px auto;
+    text-align: left;
+    width: 50%;
+    border: #000a3f 1px solid;
+    padding: 30px;
+}
+#add-product input{
+    width: 100%;
+    border: none;
+    margin-top: 10px;
+    border-bottom: #000a3f 1px solid;
+    padding: 5px; 
+}
+.form-label{
+    margin:  0 auto;
+    border-bottom: #000a3f 1px dotted;
+    width: 100%;
+    text-align: center;
+}
+
+#add-product button{
+    width: 100%;
+    margin-top: 20px;
+    padding: 10px 0;
+    background-color: #000a3f;
+    color: white;
+    border-radius: 5px;
+    border: none;
+}
+
 
 /* ===================================footer styles */
 .footerDiv{
@@ -353,6 +385,14 @@ tfoot {
     .search-text{
         display: none;
     }
+    /* add product form */
+    #add-product{
+        margin: 20px auto;
+        text-align: left;
+        width: 90%;
+        border: 1px solid #000a3f;
+        padding: 20px 10px;
+    }
 }
 /* =============================== small screen size */
 @media (min-width: 481px) and (max-width: 768px){
@@ -364,7 +404,13 @@ tfoot {
     .signup-footer, .signin-footer{
         margin-top: 70vh;
     } 
-
+     /* add product form */
+     #add-product{
+        margin: 20px auto;    
+        width: 70%;
+        border: 1px solid #000a3f;
+        padding: 20px 10px;
+    }
 }
 @media (min-width: 769px) and (max-width: 1025px){
      /* sigup and signin style */
