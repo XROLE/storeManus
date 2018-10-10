@@ -239,7 +239,7 @@ tfoot {
     color: #000a3f;
     text-align: center;
 }
-#all-products-table, #avalaible-products-table, #add-product{
+#all-products-table, #avalaible-products-table, #add-product, #finished-products{
     display: none;
 }
 .table-head{    
@@ -247,14 +247,14 @@ tfoot {
     border-bottom: #000a3f 1px dotted;
 }
 /* add products form */
-#add-product{
+#add-product, #add-attendants{
     margin: 50px auto;
     text-align: left;
     width: 50%;
     border: #000a3f 1px solid;
     padding: 30px;
 }
-#add-product input{
+#add-product input, #add-attendants input{
     width: 100%;
     border: none;
     margin-top: 10px;
@@ -268,7 +268,7 @@ tfoot {
     text-align: center;
 }
 
-#add-product button{
+#add-product button, #add-attendants button{
     width: 100%;
     margin-top: 20px;
     padding: 10px 0;
@@ -386,12 +386,15 @@ tfoot {
         display: none;
     }
     /* add product form */
-    #add-product{
+    #add-product, #add-attendants{
         margin: 20px auto;
         text-align: left;
         width: 90%;
         border: 1px solid #000a3f;
         padding: 20px 10px;
+    }
+    #add-attendants{        
+        border: none;       
     }
 }
 /* =============================== small screen size */
@@ -405,11 +408,14 @@ tfoot {
         margin-top: 70vh;
     } 
      /* add product form */
-     #add-product{
+     #add-product, #add-attendants{
         margin: 20px auto;    
         width: 70%;
         border: 1px solid #000a3f;
         padding: 20px 10px;
+    }
+    #add-attendants{
+        border: none;
     }
 }
 @media (min-width: 769px) and (max-width: 1025px){
