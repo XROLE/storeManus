@@ -239,7 +239,7 @@ tfoot {
     color: #000a3f;
     text-align: center;
 }
-#all-products-table, #avalaible-products-table{
+#all-products-table, #avalaible-products-table, #add-product{
     display: none;
 }
 .table-head{    
