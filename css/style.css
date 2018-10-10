@@ -128,6 +128,7 @@ a{
     text-transform: uppercase;
 }
 /* ===================================dashboard styles */
+
 .dasboardDiv{
     display: flex;
     align-items: flex-start;   
@@ -148,7 +149,7 @@ a{
     flex-direction: column;
     color: #000a3f;
     padding: 0;
-    height: 100%;
+    height: 89%;
     list-style-type: none;
     border-right: solid #eeeeee;
 }
@@ -192,7 +193,7 @@ a{
 .avatar-div-container{
     display: flex;
     justify-content: space-between; 
-    width: 100%;
+    width: 95%;
     padding: 10px 30px 2px 20px;
     border-bottom: 2px solid #eeeeee;   
 }
@@ -208,6 +209,37 @@ a{
     border-radius: 15px;
     border: none;
     padding: 5px 10px;
+}
+.test{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+    width: 100%;
+    /* padding: 10px 30px 2px 20px; */
+    /* border-bottom: 2px solid #eeeeee; */
+}
+.dasboard-display-div{
+    text-align: center;
+    margin: 20px auto;
+    width: 95%;
+}
+table{
+
+    border-radius: 10px;
+    width: 100%;
+}
+.table-head{
+    text-align: center !important;
+}
+th{
+    text-align: left;
+}
+
+
+tfoot {
+    background-color: #eee;
+    color: #000a3f;
+    text-align: center;
 }
 
 /* ===================================footer styles */
