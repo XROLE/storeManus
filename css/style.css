@@ -326,6 +326,29 @@ tfoot {
     margin: 44% auto;
 }
 
+/* attendant dashboard */
+.att-dashboard-div{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;   
+    border-bottom: #eee 1px solid;
+}
+.att-dashboard-item{
+    padding: 10px;
+}
+/* .att-dashboard-item a:hover{
+    color: white;
+} */
+.att-dashboard-item:hover{
+    background-color: #eee;    
+}
+.att-dashboard-middle-item-div{
+    display: flex;
+    margin: 0 10px !important;
+    justify-content: space-between;
+    width: 55%;
+}
+
 /* ===================================footer styles */
 .footerDiv{
     margin-top: 25vh;
