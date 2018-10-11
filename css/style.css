@@ -277,6 +277,10 @@ tfoot {
     border-radius: 5px;
     border: none;
 }
+#all-attendant-div-frame{
+    margin: 0 auto ;
+    text-align: center;
+}
 
 #all-attendant-div{
     display: grid;
@@ -286,7 +290,7 @@ tfoot {
 .attendant-profile-div{
     width: 250px;
     height: auto;
-    margin-top: 15px;
+    margin: 15px auto 0 auto;
     border: #edd 5px solid;
     background-color: #eee;
     position: relative;   
@@ -440,6 +444,9 @@ tfoot {
     #add-attendants{        
         border: none;       
     }
+    #all-attendant-div{      
+        grid-template-columns: 1fr;
+    }
 }
 /* =============================== small screen size */
 @media (min-width: 481px) and (max-width: 768px){
@@ -461,6 +468,9 @@ tfoot {
     #add-attendants{
         border: none;
     }
+    #all-attendant-div{      
+        grid-template-columns: 1fr;
+    }
 }
 @media (min-width: 769px) and (max-width: 1025px){
      /* sigup and signin style */
@@ -471,10 +481,11 @@ tfoot {
     .signup-footer, .signin-footer{
         margin-top: 70vh;
     } 
+    /* dashboard */
+    #all-attendant-div{      
+        grid-template-columns: 1fr 1fr;
+    }
 
 }
 
 
-attendants
-categories
-date
