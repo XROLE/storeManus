@@ -346,6 +346,11 @@ tfoot {
     justify-content: space-between;
     width: 55%;
 }
+.attendant-display-functionality-div{
+    width: 90%;    
+    margin: 0 auto;
+    text-align: center;
+}
 
 /* ===================================footer styles */
 .footerDiv{
