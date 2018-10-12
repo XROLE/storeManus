@@ -9,6 +9,9 @@ div{
     padding: 0;
     margin: 0;
 }
+.center{
+    text-align: center;
+}
 .hide{
     display: none;
 }
@@ -351,6 +354,29 @@ tfoot {
     margin: 0 auto;
     text-align: center;
 }
+/* attendant profile update  */
+#att-pro-update-form{
+    width: 50%;
+    margin: 50px auto;
+    text-align: left;
+}
+#att-pro-update-form input{
+    width: 100%;
+    padding: 5px;
+    margin-top: 10px;
+}
+#att-pro-update-form button{
+   background-color: #000a3f;
+   border: none;
+   color: white;
+    padding: 10px 30px;
+    margin: 7px auto 0 auto !important;
+}
+.att-pro-pix-div{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
 
 /* ===================================footer styles */
 .footerDiv{
@@ -483,6 +509,17 @@ tfoot {
     .att-dashboard-middle-item-div{    
         width: auto;
     }
+    /* attendant profile update page */
+    #att-pro-update-form{
+        width: 90%;
+        margin: 20px auto;
+    }
+    #att-pro-update-form input{
+      margin-top: 5px;
+    }
+    .att-pro-pix-div{
+        display: block;
+    }
 }
 /* =============================== small screen size */
 @media (min-width: 481px) and (max-width: 768px){
@@ -507,6 +544,12 @@ tfoot {
     #all-attendant-div{      
         grid-template-columns: 1fr;
     }
+    /* attendant profile update page */
+    #att-pro-update-form{
+        width: 80%;
+    }
+    
+    
 }
 @media (min-width: 769px) and (max-width: 1025px){
      /* sigup and signin style */
@@ -520,6 +563,10 @@ tfoot {
     /* dashboard */
     #all-attendant-div{      
         grid-template-columns: 1fr 1fr;
+    }
+    /* attendant profile update page */
+    #att-pro-update-form{
+        width: 65%;
     }
 
 }
