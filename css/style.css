@@ -326,7 +326,7 @@ tfoot {
     margin: 44% auto;
 }
 
-/* attendant dashboard */
+/* ==================================  attendant dashboard */
 .att-dashboard-div{
     display: flex;
     justify-content: space-between;
@@ -336,9 +336,7 @@ tfoot {
 .att-dashboard-item{
     padding: 10px;
 }
-/* .att-dashboard-item a:hover{
-    color: white;
-} */
+
 .att-dashboard-item:hover{
     background-color: #eee;    
 }
@@ -468,6 +466,17 @@ tfoot {
     }
     #all-attendant-div{      
         grid-template-columns: 1fr;
+    }
+    /* attendant dashboard */
+    .att-dashboard-div{    
+        padding: 5px;
+        font-size: 13px;
+    }
+    .att-dashboard-item{
+        padding: 3px;       
+    }
+    .att-dashboard-middle-item-div{    
+        width: auto;
     }
 }
 /* =============================== small screen size */
