@@ -9,6 +9,15 @@ div{
     padding: 0;
     margin: 0;
 }
+.shift{
+    padding: 0 5px;
+}
+.shift-top{
+    margin-top: 5px;
+}
+.bold{
+    font-weight: bold;
+}
 .center{
     text-align: center;
 }
@@ -376,6 +385,54 @@ tfoot {
     display: flex;
     justify-content: space-between;
     margin-top: 10px;
+}
+/* ============================================ crete sales style */
+.create-sales-frame{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 10px;    
+    border: 1px solid #eee; 
+}
+.create-sales-div{
+    background-color: #eee;
+    height: 200px;
+    padding: 30px 10px 10px 10px;
+    text-align: left;
+}
+.create-sales-div button{
+    background-color: #000a3f;
+    color: white;
+    border: none;
+    /* width: 100%; */
+    margin: 5px auto ;
+    padding: 5px 10px;
+}
+.create-sales-label-div{
+    text-align: center;
+}
+.delete-cart-item{
+    background-color: red;
+    border: none;
+    padding: 5px;
+    color: white;
+}
+.edit-cart-item{
+    background-color: #000a3f;
+    border: none;
+    padding: 5px;
+    color: white;
+    margin: 0 5px;
+}
+.cart-item-div{
+    display: flex; 
+    align-items: center;
+    justify-content: space-between;
+}
+.shop-now-button{
+    background-color: #000a3f;
+    color: white;
+    padding: 10px 20px;
+    border: none;
 }
 
 /* ===================================footer styles */
