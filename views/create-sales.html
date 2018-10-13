@@ -1,0 +1,191 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+            <meta name="description" content="Store Manus is an online app that help you manage your sales">
+            <meta name="author" content="XROLE">
+            <meta name="theme-color" content="#000a3f">
+            <meta http-equiv="X-UA-Compatible" content="ie=edge">
+            <link rel="stylesheet" href="../css/style.css">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+            <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">      
+            <link href="https://fonts.googleapis.com/css?family=Exo|Poiret+One" rel="stylesheet">
+            <link rel="shortcut icon" href="../img/favicon.png" type="image/x-icon">
+            <link rel="manifest" href="./manifest.json">
+            <script type="text/javascript" src="../js/admin.js"></script>
+        <title>Store Manus</title>
+    </head>
+    <body style="background-color: white; color:#000a3f;">
+        <div>
+            <nav class="navbar">
+                    <div class="navLogo">
+                        <p><a href="../index.html" style="color: white"> <i class="fas free fa-stream" ></i> &nbsp; <span>Store Manus</span></a></p>
+                        <p>
+                            <i class="fa fa-bars hanburgerButton" ></i>
+                            <i class="fa fa-times close" ></i>
+                        </p>                 
+                    </div>
+                    <ul class="nav-items">
+                        <a href="signup.html" style="color: white"> <li>Register</li></a>
+                        <a href="signin.html" style="color: white"><li>Login</li></a>
+                    </ul>
+            </nav>
+            <!-- attendant Dashboard content div -->
+            <div class="att-dashboard-div">
+                <div class="att-dashboard-img-div">
+                    <a href=""> <img src="../img/avatar.jpg" alt="" class="Avatar"></a>&nbsp;
+                    Hi, Xrole
+                </div>
+                <div class="att-dashboard-middle-item-div">
+                        <p class="att-dashboard-item"> <a href="attendant-dashboard.html"> Dashboard</a> </p>                  
+                    <p class="att-dashboard-item"> <a href="att-pro-update.html"><i class="fas fa-pen-nib"> &nbsp;</i>Update Profile</a> </p>                  
+                    <p class="att-dashboard-item"> <a href="att-avai-products.html"><i class="fab fa-accessible-icon"></i> &nbsp; Available Product </a></p>
+                    <p class="att-dashboard-item"> <a href="att-sales-record.html"><i class="fas fa-arrows-alt"></i>&nbsp; Sales Record</a>  </p>
+                </div>
+                <div>
+                    <a href="create-sales.html">
+                        <p class="att-dashboard-item"><i class="fas fa-cart-plus"></i> &nbsp; Create Sales</p>
+                    </a>
+                </div>
+            </div>
+            <!-- display functionality content            -->
+            <div class="attendant-display-functionality-div">
+                <div class="create-sales-frame">
+                    <!-- Create sales div -->
+                    <div class="create-sales-div">
+                        <form action="">
+                            <div class="create-sales-label-div">
+                                <label for="" style="font-weight: bold;" > CREATE NEW SALES</label>
+                            </div>
+                            <div class="shift-top">
+                                <label for="">Category</label>
+                                <select name="" id="">
+                                        <option value="">-Select All-</option>
+                                        <option value="">Attendats</option>
+                                        <option value="">Categories</option>
+                                        <option value="">Date</option>
+                                    </select>
+                            </div>
+                            <div>
+                                <label for="" class="shift-top">Product</label>
+                                <select name="" id="" class="shift-top">
+                                        <option value="">-Select All-</option>
+                                        <option value="">Louis Sugar</option>
+                                        <option value="">Nivea</option>
+                                        <option value="">Peak Sarchet</option>
+                                        <option value="">Tura Soap</option>
+                                        <option value="">Skineal</option>
+                                        <option value="">Maltina</option>
+                                        <option value="">Locuzade Boost</option>
+                                        <option value="">Silver line</option>
+                                        <option value="">Rob</option>
+                                        <option value="">Tigger Battery</option>
+                                        <option value="">Luna Milk</option>
+                                        <option value="">Cream Crackers</option>
+                                        <option value="">Chicken Perry</option>
+                                        <option value="">Three Crown</option>
+                                        <option value="">Whott</option>
+                                        <option value="">Bournvita</option>
+                                        <option value="">Joy Soap</option>
+                                        <option value="">Lux</option>
+                                    </select>
+                            </div>
+                            <div>
+                                <label for="" class="shift-top">Qty</label>
+                                <input type="number" name="" id="" placeholder="000" class="shift-top">
+                            </div>
+                            <div>
+                                <label for="" class="shift-top">Price</label>
+                                <input type="number" name="" id="" placeholder="#00000" class="shift-top">
+                            </div>
+                            <div>
+                                <label for="" class="shift-top">Total</label>
+                                <input type="number" name="" id="" placeholder="#00000" class="shift-top">
+                            </div>
+                            <div class="create-sales-button-div">
+                                <button class=" link"> + Add</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="shopping-cart-div">
+                        <form action="">
+                            <Label style="font-weight: bold;">SHOPPING CART</Label>
+                            <div class="cart-item-div" >
+                                <p>
+                                    <span class="bold"></span> 1.</span> &nbsp;
+                                     <span class="shift">ITEM:  <span class="bold"> Milo</span> </span> &nbsp; 
+                                    <span class="shift">CATEGORY: <span class="bold"> Beverage </span></span>&nbsp; 
+                                    <span class="shift">QUANTITY: <span class="bold"> 32 </span></span> &nbsp; 
+                                    <span class="shift">PRICE: <span class="bold" > #50 </span></span> &nbsp;
+                                    <span class="shift">TOTAL:  <span class="bold" > #1600 </span></span> &nbsp;</p>
+                                    <div>
+                                        <button  class="edit-cart-item link">Edit</button>
+                                        <button class="delete-cart-item link">Delete</button>
+                                    </div>                                                             
+                            </div>
+                            <div class="cart-item-div" >
+                                <p>
+                                    <span class="bold"></span> 2.</span> &nbsp;
+                                     <span class="shift">ITEM:  <span class="bold"> Tura</span> </span> &nbsp; 
+                                    <span class="shift">CATEGORY: <span class="bold"> Soap </span></span>&nbsp; 
+                                    <span class="shift">QUANTITY: <span class="bold"> 2 </span></span> &nbsp; 
+                                    <span class="shift">PRICE: <span class="bold" > #150 </span></span> &nbsp;
+                                    <span class="shift">TOTAL:  <span class="bold" > #300 </span></span> &nbsp;
+                                </p>                                       
+                                <div>
+                                    <button  class="edit-cart-item  link">Edit</button>
+                                    <button class="delete-cart-item link">Delete</button>                                    
+                                </div>                      
+                            </div>
+                            <div class="cart-item-div">
+                                <p>
+                                    <span class="bold"></span> 3.</span> &nbsp;
+                                     <span class="shift">ITEM:  <span class="bold"> Neoskin</span> </span> &nbsp; 
+                                    <span class="shift">CATEGORY: <span class="bold"> Cream </span></span>&nbsp; 
+                                    <span class="shift">QUANTITY: <span class="bold"> 7 </span></span> &nbsp; 
+                                    <span class="shift">PRICE: <span class="bold" > #200 </span></span> &nbsp;
+                                    <span class="shift">TOTAL:  <span class="bold" > #1400 </span></span> &nbsp;
+                                </p>
+                                <div>
+                                    <button  class="edit-cart-item link">Edit</button>
+                                    <button class="delete-cart-item link">Delete</button>
+                                </div>                                                             
+                            </div>
+                            <div class="cart-item-div">
+                                <p>
+                                    <span class="bold"></span> 4.</span> &nbsp;
+                                     <span class="shift">ITEM:  <span class="bold"> Joy Soap</span> </span> &nbsp; 
+                                    <span class="shift">CATEGORY: <span class="bold"> Soap </span></span>&nbsp; 
+                                    <span class="shift">QUANTITY: <span class="bold"> 5 </span></span> &nbsp; 
+                                    <span class="shift">PRICE: <span class="bold" > #250 </span></span> &nbsp;
+                                    <span class="shift">TOTAL:  <span class="bold" > #1250 </span></span> &nbsp;
+                                </p>
+                                <div>
+                                    <button  class="edit-cart-item link">Edit</button>
+                                    <button class="delete-cart-item link">Delete</button>
+                                </div>                                                             
+                            </div>
+                            <div class="cart-item-div" >
+                                <p>
+                                    <span class="bold"></span> 5.</span> &nbsp;
+                                     <span class="shift">ITEM:  <span class="bold"> Peak</span> </span> &nbsp; 
+                                    <span class="shift">CATEGORY: <span class="bold"> Beverage </span></span>&nbsp; 
+                                    <span class="shift">QUANTITY: <span class="bold"> 10 </span></span> &nbsp; 
+                                    <span class="shift">PRICE: <span class="bold" > #350 </span></span> &nbsp;
+                                    <span class="shift">TOTAL:  <span class="bold" > #3500 </span></span> &nbsp;
+                                </p>  
+                                <div>
+                                    <button  class="edit-cart-item link">Edit</button>
+                                    <button class="delete-cart-item link">Delete</button>
+                                </div>                                                           
+                            </div>
+                            <div style="text-align: left;">
+                                <button class="shop-now-button link">Shop Now</button>
+                            </div>                           
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>        
+    </body>
+</html>
