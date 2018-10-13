@@ -24,7 +24,7 @@ window.onload = (() => {
     
     signinButton.addEventListener('click', (signinEvent) => {
         signinEvent.preventDefault();     
-        window.location.href = 'file:///C:/Users/XROLE%20VALSIDO%20DIAMON/Desktop/Apps/storeManus/views/adminDashboard.html';
+        window.location.href = 'https://xrole.github.io/storeManus/views/adminDashboard.html';
      })
  
      
