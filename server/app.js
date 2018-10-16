@@ -1,9 +1,8 @@
 import express from 'express';
-const app = express();
+import router from '../routes/route';
 
-app.get('/', (req, res) => {
-    res.send('Hi, you have succesfully installed expres js');
-});
+const app = express();
+app.use('/', router);
 
 const port = process.env.PORT || 5000;
 
