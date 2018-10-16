@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/XROLE/storeManus/issues"
   },
-  "homepage": "https://github.com/XROLE/storeManus#readme"
+  "homepage": "https://github.com/XROLE/storeManus#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
 }
