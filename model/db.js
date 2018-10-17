@@ -2,56 +2,79 @@ import { products } from './data';
 import { sales } from './data';
 
 export default class storeDB{
-    static getProducts(req, res){
+    static getProducts(req, res){  // 1
         return res.status(200).json({
             message: 'ALL PRODUCTS',
             products
         }); 
     }
-    static getOneProduct(req, res){  // not done 
-     console.log('  url params: ', req.params);
+    static getOneProduct(req, res){  // 2
+        const ID = req.params.id;
         return res.status(200).json({
             success: true,
             message: 'Products serverd',
-            products: products[3],
-            ProductNumber: req.params
+            products: products[ID]
         });
     }
 
-    static getSales(req, res){
+    static getSales(req, res){  //3
         return res.status(200).json({
             message: 'ALL SALES',
             sales
         });
     }
 
-    static getOneSale(req, res){ // ===================================not done
-        return res.send('class one sale');
+    static getOneSale(req, res){ // 4
+        const ID = req.params.id;
+        return res.status(200).json({
+            success: true,
+            sale: sales[ID]
+        });
     }
 
-    static postProducts(req, res){
-        products.push( req.body );      
+    static postProducts(req, res){  //========================================= not done
+            
+        var lastIndex = Object.keys(products);        
+        products[lastIndex.length + 1] = {
+            id: req.body.id, 
+            message: req.body.message            
+        };
         return res.status(200).json({
             success: true,
             message: 'Product added succesfully',
             Product: req.body
         });
     }
-    static postSales(req, res){
-        sales.push(req.body);
+    static postSales(req, res){  // ===========================================not done
+        var lastIndex = Object.keys(sales);        
+        sales[lastIndex.length + 1] = {
+            id: req.body.id, 
+            message: req.body.message            
+        };
         return res.status(200).json({
             success: true,
             message: 'Sales added succesfully',
             sale: req.body
-
         });
     }
 
     static putProducts(req, res){   // =================================== not done
-        return res.send('class edit products');
+        products[req.params.id] = {
+            id: req.params.id,
+            message: req.body.message
+        };
+        return res.status(200).json({
+            success: true,
+            message: 'Product edited successfully',
+            editedProduct: req.body
+        });
     }
 
     static deleteProduct(req, res){  // =================================== not done
-        return res.send('class delete product');
+        delete products[req.params.id];
+        return res.status(200).json({
+            success: true,
+            message: 'Product deleted succesfully'
+        });
     }
 }
