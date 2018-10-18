@@ -29,6 +29,7 @@ export default class storeDB{
         const ID = req.params.id;
         return res.status(200).json({
             success: true,
+            message: 'Single sale',
             sale: sales[ID]
         });
     }
