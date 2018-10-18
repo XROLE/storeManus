@@ -13,7 +13,8 @@ export default class storeDB{
         return res.status(200).json({
             success: true,
             message: 'Products serverd',
-            products: products[ID]
+            ID,
+            Product: products[ID]
         });
     }
 
