@@ -81,7 +81,7 @@ export default class storeDB{
         });
     }
 
-    static deleteProduct(req, res){  // =================================== not done
+    static deleteProduct(req, res){  
         delete products[req.params.id];
         return res.status(200).json({
             success: true,
