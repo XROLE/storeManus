@@ -54,7 +54,10 @@ export default class storeDB{
         var lastIndex = Object.keys(sales);        
         sales[lastIndex.length + 1] = {
             id: req.body.id, 
-            message: req.body.message            
+            Name: req.body.Name,            
+            Type: req.body.Type,            
+            Category: req.body.Category,            
+            Date: req.body.Date                  
         };
         return res.status(200).json({
             success: true,
