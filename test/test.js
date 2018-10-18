@@ -44,6 +44,22 @@ describe('STOREMANUS', () => {  // ====================================== Empty 
                 });
         });
     });
+    describe('GET \'/api/v1/products/:id\'', () => { 
+        it('Get One Product', (done) => {
+            chai.request(server)
+                .get('/api/v1/products')
+                .end((err, res) => {
+                    expect(err).to.be.null;
+                    expect(res).to.have.headers;
+                    expect(res).to.have.status(200);
+                    expect(res).to.not.redirect;
+                    expect(res.body).to.be.an('object');
+                    expect(res.body).to.have.property('products');
+                    // expect(res.body.products).to.be.empty;
+                    done();
+                });
+        });
+    });
 });
 
 
