@@ -1,7 +1,7 @@
 import chai from 'chai';
 import chaiHttp from 'chai-http';
 import { products } from '../model/data';
-// import { sales } from '../model/data';
+import { sales } from '../model/data';
 import server from '../server/app';
 
 
@@ -10,6 +10,7 @@ let expect = chai.expect;
 describe('STOREMANUS', () => {  // ====================================== Empty the database
     beforeEach((done) => {
         products[1]= {};
+        sales[1] = {};
         done();
     });
     describe('GET \'/\'', () => { 
@@ -47,14 +48,33 @@ describe('STOREMANUS', () => {  // ====================================== Empty 
     describe('GET \'/api/v1/products/:id\'', () => { 
         it('Get One Product', (done) => {
             chai.request(server)
-                .get('/api/v1/products')
+                .get('/api/v1/products/:id')
                 .end((err, res) => {
                     expect(err).to.be.null;
                     expect(res).to.have.headers;
                     expect(res).to.have.status(200);
                     expect(res).to.not.redirect;
                     expect(res.body).to.be.an('object');
-                    expect(res.body).to.have.property('products');
+                    expect(res.body).to.have.property('ID');
+                    expect(res.body).to.have.property('message');
+                    expect(res.body).to.have.property('message').eql('Products serverd');
+                    expect(res.body).to.have.property('success').eql(true);
+                    // expect(res.body.products).to.be.empty;
+                    done();
+                });
+        });
+    });
+    describe('GET \'/api/v1/sales\'', () => { 
+        it('Get All sales', (done) => {
+            chai.request(server)
+                .get('/api/v1/sales')
+                .end((err, res) => {
+                    expect(err).to.be.null;
+                    expect(res).to.have.headers;
+                    expect(res).to.have.status(200);
+                    expect(res).to.not.redirect;
+                    expect(res.body).to.be.an('object');
+                    expect(res.body).to.have.property('sales');
                     // expect(res.body.products).to.be.empty;
                     done();
                 });
