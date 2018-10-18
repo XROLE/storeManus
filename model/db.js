@@ -50,7 +50,7 @@ export default class storeDB{
             Product: req.body
         });
     }
-    static postSales(req, res){  // ===========================================not done
+    static postSales(req, res){  
         var lastIndex = Object.keys(sales);        
         sales[lastIndex.length + 1] = {
             id: req.body.id, 
@@ -66,10 +66,13 @@ export default class storeDB{
         });
     }
 
-    static putProducts(req, res){   // =================================== not done
+    static putProducts(req, res){  
         products[req.params.id] = {
             id: req.params.id,
-            message: req.body.message
+            Name: req.body.Name,            
+            Type: req.body.Type,            
+            Category: req.body.Category,            
+            Date: req.body.Date    
         };
         return res.status(200).json({
             success: true,
