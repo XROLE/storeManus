@@ -34,7 +34,7 @@ export default class storeDB{
         });
     }
 
-    static postProducts(req, res){  //========================================= not done
+    static postProducts(req, res){  
             
         var lastIndex = Object.keys(products);        
         products[lastIndex.length + 1] = {
