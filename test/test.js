@@ -136,6 +136,25 @@ describe('STOREMANUS', () => {  // ====================================== Empty 
                 });
         });
     });
+    describe('PUT \'/api/v1/products/:id\'', () => { 
+        it('Edit Products', (done) => {
+            chai.request(server)
+                .put('/api/v1/products/:id')
+                .end((err, res) => {
+                    expect(err).to.be.null;
+                    expect(res).to.have.headers;
+                    expect(res).to.have.status(200);
+                    expect(res).to.not.redirect;
+                    expect(res.body).to.be.an('object');                   
+                    expect(res.body).to.have.property('message');
+                    expect(res.body).to.have.property('message').eql('Product edited successfully');
+                    expect(res.body).to.have.property('success').eql(true);
+                    // expect(res.body.products).to.be.empty;
+                    done();
+                });
+        });
+    });
+    
 });
 
 
