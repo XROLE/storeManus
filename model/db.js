@@ -30,6 +30,7 @@ export default class storeDB{
         return res.status(200).json({
             success: true,
             message: 'Single sale',
+            ID,
             sale: sales[ID]
         });
     }

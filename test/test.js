@@ -80,6 +80,26 @@ describe('STOREMANUS', () => {  // ====================================== Empty 
                 });
         });
     });
+
+    describe('GET \'/api/v1/sales/:id\'', () => { 
+        it('Get One Sale', (done) => {
+            chai.request(server)
+                .get('/api/v1/sales/:id')
+                .end((err, res) => {
+                    expect(err).to.be.null;
+                    expect(res).to.have.headers;
+                    expect(res).to.have.status(200);
+                    expect(res).to.not.redirect;
+                    expect(res.body).to.be.an('object');
+                    expect(res.body).to.have.property('ID');
+                    expect(res.body).to.have.property('message');
+                    expect(res.body).to.have.property('message').eql('Single sale');
+                    expect(res.body).to.have.property('success').eql(true);
+                    // expect(res.body.products).to.be.empty;
+                    done();
+                });
+        });
+    });
 });
 
 
