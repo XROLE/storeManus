@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "start": "node --require babel-register server/app.js",
-    "test": "mocha --require babel-register test/test.js"   
+    "test": "mocha --require babel-register test/test.js" ,
+    "start-pro": "node server/app.js"  
   },
   "repository": {
     "type": "git",
