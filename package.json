@@ -5,8 +5,8 @@
   "main": "app.js",
   "scripts": {
     "start": "node --require babel-register server/app.js",
-    "test": "mocha --require babel-register test/test.js" ,
-    "start-pro": "node server/app.js"  
+    "test": "mocha --require babel-register test/test.js",
+    "start-pro": "node server/app.js"
   },
   "repository": {
     "type": "git",
@@ -19,13 +19,13 @@
   },
   "homepage": "https://github.com/XROLE/storeManus#readme",
   "dependencies": {
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "babel-register": "^6.26.0",
     "body-parser": "^1.18.3",
     "express": "^4.16.4"
   },
   "devDependencies": {
-    "babel-core": "^6.26.3",
-    "babel-preset-env": "^1.7.0",
-    "babel-register": "^6.26.0",
     "chai": "^4.2.0",
     "chai-http": "^4.2.0",
     "eslint": "^5.7.0",
@@ -34,4 +34,3 @@
     "mocha": "^5.2.0"
   }
 }
-
