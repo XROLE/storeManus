@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "start": "node --require babel-register server/app.js",
-    "test": "mocha --require babel-register test/test.js",
+    "test": "nyc ---reporter=html --reporter=text mocha --timeout 10000 --exit --require babel-register test/test.js",
     "start-pro": "node server/app.js"
   },
   "repository": {
@@ -23,7 +23,8 @@
     "babel-preset-env": "^1.7.0",
     "babel-register": "^6.26.0",
     "body-parser": "^1.18.3",
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "nyc": "^13.1.0"
   },
   "devDependencies": {
     "chai": "^4.2.0",
