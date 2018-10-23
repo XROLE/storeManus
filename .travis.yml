@@ -1,7 +1,7 @@
 language: node_js
 
 node_js:
-  -"8.11.1"
+  - "8.11.1"
 
 cache:
   directories:
@@ -19,3 +19,6 @@ script:
 
 after_script:
   - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
+
+after_success:
+  - npm run coveralls
