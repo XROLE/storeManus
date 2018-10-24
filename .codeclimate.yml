@@ -11,6 +11,9 @@ checks:
     enabled: false
 
 exclude_path:
-  -"node_modules/"
-  -"procfile"
-  -"js/"
+  - "node_modules/"
+  - "procfile"
+  - "js/"
+  - "css/"
+  - "img/"
+  - "views/"
