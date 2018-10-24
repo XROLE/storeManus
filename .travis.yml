@@ -3,6 +3,10 @@ language: node_js
 node_js:
   - "8.11.1"
 
+env:
+  global:
+    - CC_TEST_REPORTER_ID=796bb59091f891cc69947fad079c766816efdc83b545aa5ca37f5538a797d46c
+
 cache:
   directories:
     - node_modules
