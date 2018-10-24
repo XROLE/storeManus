@@ -12,8 +12,11 @@ checks:
 
 exclude_path:
   - "node_modules/"
-  - "procfile"
+  - "Procfile"
   - "js/"
   - "css/"
   - "img/"
   - "views/"
+  - "test/"
+  - "nyc_output/"
+  - "coverage/"
