@@ -3,7 +3,7 @@ export let products ={
         Name: 'Luna Milk',
         Type: 'Milk',
         Category: 'Beverage',
-        Date: 12098754,
+        Date: 1519211809934,
     },
     
 };
@@ -12,6 +12,6 @@ export let sales ={
         Name: 'Luna Milk',
         Type: 'Milk',
         Category: 'Beverage',
-        Date: 12098754,
+        Date: 1519211809934,
     },
 };
