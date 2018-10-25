@@ -24,6 +24,10 @@ div{
 .hide{
     display: none;
 }
+.space-content{
+    display: flex;
+    justify-content: space-between;
+}
 a{
     text-decoration: none;
     color: #000a3f;
@@ -395,20 +399,35 @@ tfoot {
 }
 .create-sales-div{
     background-color: #eee;
-    height: 200px;
+    height: 250px;
     padding: 30px 10px 10px 10px;
     text-align: left;
+}
+.create-sales-select-tag{
+    padding: 5px;
+    border: none;
+}
+.create-sales-div-group{
+    margin: 5px 0;
+}
+.create-sales-div-group input{
+    padding: 5px;
+    border: none;
+}
+.create-sales-button-div{
+    text-align: center;
 }
 .create-sales-div button{
     background-color: #000a3f;
     color: white;
     border: none;
     /* width: 100%; */
-    margin: 5px auto ;
-    padding: 5px 10px;
+    margin: 10px auto ;
+    padding: 10px 70px;
 }
 .create-sales-label-div{
     text-align: center;
+    padding-bottom: 10px;
 }
 .delete-cart-item{
     background-color: red;
