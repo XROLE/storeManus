@@ -112,7 +112,7 @@ export default class validateProduct{
                 message: 'Product id must be valid number'
             });
         }
-        return next();
+        next();
     }
 
 }
