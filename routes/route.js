@@ -1,5 +1,4 @@
 import { Router } from 'express';
-import storeDB from '../model/db';
 import validatProduct from '../middlewares/validateProduct';
 import productController from '../controller/productController';
 import validateSales from '../middlewares/validateSales';
