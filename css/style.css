@@ -602,6 +602,18 @@ tfoot {
         display: block;
     }
 }
+.att-pro-div{
+    display: flex;
+    justify-content: space-around;
+    width: 80%;
+}
+.att-pro-div img{
+    width: 50%;
+    border-radius: 50%;
+}
+.att-pro-fiel-label{
+    font-weight: bold;
+}
 /* =============================== small screen size */
 @media (min-width: 481px) and (max-width: 768px){
      /* sigup and signin style */
