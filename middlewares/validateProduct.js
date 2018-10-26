@@ -76,7 +76,7 @@ export default class validateProduct{
             });
         }
 
-        if(isNumber(product_id)){
+        if(!isNumber(product_id)){
             return res.status(400).json({
                 success: false,
                 message: 'Product id must be valid number'
