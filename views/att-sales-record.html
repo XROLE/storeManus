@@ -25,9 +25,8 @@
                             <i class="fa fa-times close" ></i>
                         </p>                 
                     </div>
-                    <ul class="nav-items">
-                        <a href="signup.html" style="color: white"> <li>Register</li></a>
-                        <a href="signin.html" style="color: white"><li>Login</li></a>
+                    <ul class="nav-items">                   
+                        <a href="../index.html" style="color: white"><li>Logout</li></a>
                     </ul>
             </nav>
             <!-- attendant Dashboard content div -->
@@ -39,7 +38,6 @@
                 <div class="att-dashboard-middle-item-div">
                         <p class="att-dashboard-item"> <a href="attendant-dashboard.html"> Dashboard</a> </p>                  
                     <p class="att-dashboard-item"> <a href="att-pro-update.html"><i class="fas fa-pen-nib"> &nbsp;</i>Update Profile</a> </p>                  
-                    <p class="att-dashboard-item"> <a href="att-avai-products.html"><i class="fab fa-accessible-icon"></i> &nbsp; Available Product </a></p>
                     <p class="att-dashboard-item"> <a href="att-sales-record.html"><i class="fas fa-arrows-alt"></i>&nbsp; Sales Record</a>  </p>
                 </div>
                 <div>
@@ -54,32 +52,46 @@
                 <table id="avalaible-products-table">
                     <thead>
                         <tr>
-                            <th colspan="4" class="table-head"><i class="fas fa-arrows-alt"></i>&nbsp; SALES RECORD </th>
+                            <th colspan="6" class="table-head"><i class="fas fa-arrows-alt"></i>&nbsp; SALES RECORD </th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <th>Names</th>
+                            <th>Price</th>
                             <th>Quantity</th>
+                            <th>Total</th>
                             <th>Types</th>
                             <th>Categories</th>                                    
                         </tr>
                         <tr>
                             <td>Luis Sugar</td>
                             <td>200</td>
+                            <td>5</td>
+                            <td>1000</td>
                             <td>Sugar</td>
                             <td>Beverages</td>
                         </tr>
                         <tr>
                             <td>Cowbell</td>
                             <td>600</td>
+                            <td>3</td>
+                            <td>18000</td>
                             <td>Milk</td>
                             <td>Beverages</td>
+                        </tr>
+                        <tr style="font-weight: bold">
+                            <td>TOTAL</td>
+                            <td></td>
+                            <td></td>
+                            <td>2800</td>
+                            <td></td>
+                            <td></td>
                         </tr>
                     </tbody>
                     <tfoot>
                         <tr>
-                            <td colspan="4">List of products available</td>
+                            <td colspan="6">Attendant's sales record</td>
                         </tr>
                     </tfoot>
                 </table>                                      
