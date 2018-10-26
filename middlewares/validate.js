@@ -6,11 +6,9 @@ export  default class validate {
     static isNumber(number) {
         return !isNaN(number);
     }
-
     static isValidNum(number) {
         return number.length === 13;
-    }  
-    
+    }
     static isEmpty(value) {
         return (typeof value === 'undefined' || value.trim === '' || value.length === 0);
     }
