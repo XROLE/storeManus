@@ -5,6 +5,10 @@ body{
     background-color: #000a3f;
     color: white;
 }
+.att-pro-div{
+    display: flex; 
+    justify-content: space-around;
+}
 div{
     padding: 0;
     margin: 0;
@@ -458,7 +462,40 @@ tfoot {
     padding: 10px 20px;
     border: none;
 }
+/* Attendant profile style */
 
+/*  Attendant profile styles */
+.att-pro-div-main{
+    text-align: center;
+}
+.att-pro-div-main h2{
+    text-transform: uppercase;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.att-pro-main-paragraph{
+    width:50%;
+}
+.att-pro-paragraph{
+    display: flex;
+    /* width: 90%;    */
+}
+.att-pro-paragraph-info{
+    margin-left: 20%;
+}
+.att-pro-div-img-div{
+    background-color: white;
+}
+.att-pro-div img{
+    width: 50%;
+    border-radius: 50%;
+}
+.att-pro-field-label{
+    font-weight: bold;
+    text-transform: uppercase;
+}
 /* ===================================footer styles */
 .footerDiv{
     margin-top: 25vh;
@@ -598,21 +635,27 @@ tfoot {
     #att-pro-update-form input{
       margin-top: 5px;
     }
+    /* Attendant profile styles */
     .att-pro-pix-div{
-        display: block;
+        display: block;      
     }
-}
-.att-pro-div{
-    display: flex;
-    justify-content: space-around;
-    width: 80%;
-}
-.att-pro-div img{
-    width: 50%;
-    border-radius: 50%;
-}
-.att-pro-fiel-label{
-    font-weight: bold;
+    .att-pro-div{
+        display: block; 
+        
+    }
+    .dasboard-display-div{
+        margin: -30px auto 20px auto !important;     
+    }
+    .att-pro-main-paragraph{
+        width:90%;
+        font-size: 13px;
+        margin: 10px auto 0 auto;
+        
+    }
+    .att-pro-table{
+        margin-top: 10px !important;
+    }
+
 }
 /* =============================== small screen size */
 @media (min-width: 481px) and (max-width: 768px){
@@ -641,9 +684,30 @@ tfoot {
     #att-pro-update-form{
         width: 80%;
     }
+     /* Attendant profile styles */
+     .att-pro-pix-div{
+        display: block;      
+    }
+    .att-pro-div{
+        display: block; 
+        
+    }
+    .dasboard-display-div{
+        margin: -30px auto 20px auto !important;     
+    }
+    .att-pro-main-paragraph{
+        width:70%;
+        font-size: 13px;
+        margin: 10px auto 0 auto;
+        
+    }
+    .att-pro-table{
+        margin-top: 10px !important;
+    }
     
     
 }
+/* Medium screen sizes */
 @media (min-width: 769px) and (max-width: 1025px){
      /* sigup and signin style */
     
