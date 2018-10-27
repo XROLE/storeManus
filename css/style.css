@@ -369,7 +369,7 @@ tfoot {
 .attendant-display-functionality-div{
     width: 80%;    
     margin: 0 auto;
-    text-align: center;
+    text-align: center;    
 }
 /* attendant profile update  */
 #att-pro-update-form{
@@ -462,8 +462,9 @@ tfoot {
     padding: 10px 20px;
     border: none;
 }
-/* Attendant profile style */
-
+.shopping-cart-div{
+   width: 70%;
+}
 /*  Attendant profile styles */
 .att-pro-div-main{
     text-align: center;
@@ -635,6 +636,32 @@ tfoot {
     #att-pro-update-form input{
       margin-top: 5px;
     }
+    /* ==============create sales styles */
+    .create-sales-frame{
+        display: block;       
+        padding: 8px;    
+        border: 1px solid #eee; 
+    }
+    .attendant-display-functionality-div{
+        width: 97%; 
+    }
+    .create-sales-div{
+        background-color: #eee;
+        width: 85%;
+        height: 250px;
+        padding: 10px;
+        text-align: left;
+        margin: 0 auto;
+    }
+    .shopping-cart-div{
+        width: 100%;
+        margin-top: 15px;
+    }
+    .shopping-cart-increase-th-padding{
+        padding: 5px 0px;
+        font-size: 12px;
+        font-weight: bold !important;
+    }
     /* Attendant profile styles */
     .att-pro-pix-div{
         display: block;      
@@ -705,7 +732,53 @@ tfoot {
         margin-top: 10px !important;
     }
     
-    
+    /* 3############ create sales style */
+    .create-sales-frame{
+        display: block;       
+        padding: 8px;    
+        border: 1px solid #eee; 
+    }
+    .attendant-display-functionality-div{
+        width: 93%; 
+    }
+    .create-sales-div{
+        background-color: #eee;
+        width: 50%;
+        height: 250px;
+        padding: 10px;
+        text-align: left;
+        margin: 10px 0;
+    }
+    .shopping-cart-div{
+        width: 100%;
+        margin-top: 25px;
+    }
+    .shopping-cart-increase-th-padding{
+        padding: 5px 0px;
+        font-size: 13px;
+        font-weight: bold !important;
+    }
+    /* Attendant profile styles */
+    .att-pro-pix-div{
+        display: block;      
+    }
+    .att-pro-div{
+        display: block; 
+        
+    }
+    .dasboard-display-div{
+        margin: -30px auto 20px auto !important;     
+    }
+    .att-pro-main-paragraph{
+        width:90%;
+        font-size: 13px;
+        margin: 10px auto 0 auto;
+        
+    }
+    .att-pro-table{
+        margin-top: 10px !important;
+    }
+
 }
 /* Medium screen sizes */
 @media (min-width: 769px) and (max-width: 1025px){
@@ -724,6 +797,28 @@ tfoot {
     /* attendant profile update page */
     #att-pro-update-form{
         width: 65%;
+    }
+    /* 3############ create sales style */
+    
+    .attendant-display-functionality-div{
+        width: 93%; 
+    }
+    .create-sales-div{
+        background-color: #eee;
+        width: 50%;
+        height: 250px;
+        padding: 10px;
+        text-align: left;
+        margin: 10px 0;
+    }
+    .shopping-cart-div{
+        width: 100%;
+        margin-top: 25px;
+    }
+    .shopping-cart-increase-th-padding{
+        padding: 5px 0px;
+        font-size: 14px;
+        font-weight: bold !important;
     }
 
 }
