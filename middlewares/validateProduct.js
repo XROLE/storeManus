@@ -35,8 +35,8 @@ export default class validateProduct{
         const  Dated = req.body.Date;
         if(isEmpty((Name || Type || Category || Dated )) || isEmpty((Name && Type && Category && Dated)) ){
             return res.status(400).json({
-                success: false,
-                message: 'No empty field is allowed. Please make sure you fill all fields'
+                Success: false,
+                Message: 'No empty field is allowed. Please make sure you fill all fields'
             });
         }
 
@@ -89,8 +89,8 @@ export default class validateProduct{
         const product_id = req.params.id;
         if(product_id.length > 3){
             return res.status(400).json({
-                success: false,
-                message: 'product id is too long'
+                Success: false,
+                Message: 'Product id is too long'
             });
         }
         if(product_id ===''){
@@ -101,8 +101,8 @@ export default class validateProduct{
         }
         if(isEmpty(product_id)){
             return res.status(400).json({
-                success: false,
-                message: 'Please insert product id'
+                Success: false,
+                Message: 'Please insert product id'
             });
         }
 

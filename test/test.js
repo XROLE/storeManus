@@ -6,6 +6,7 @@ import server from '../server/app';
 import { isNumber } from '../middlewares/validate';
 import { isValidNum } from '../middlewares/validate';
 import { isEmpty } from '../middlewares/validate';
+import validateSales from '../middlewares/validateSales';
 
 var assert = require('assert');
 
@@ -33,7 +34,7 @@ describe('STOREMANUS', () => {  // ====================================== Empty 
                 }); 
         });
     });
-    describe('GET \'/api/v1/products\'', () => { 
+    describe('GET \'/api/v1/products\'', () => {  // GET ALL PRODUCTS
         it('Get All Products', (done) => {
             chai.request(server)
                 .get('/api/v1/products')
@@ -43,50 +44,45 @@ describe('STOREMANUS', () => {  // ====================================== Empty 
                     expect(res).to.have.status(200);
                     expect(res).to.not.redirect;
                     expect(res.body).to.be.an('object');
-                    expect(res.body).to.have.property('products');
-                    // expect(res.body.products).to.be.empty;
+                    expect(res.body).to.have.property('products');                    
                     done();
                 });
         });
     });
+    describe('GET \'/api/v1/products/:id\'', () => {  // GET ONE PRODUCT
+        it('Get one Product', () => {
+            chai.request(server)
+                .get('/api/v1/products/1')
+                .end((err, res) => {
+                    expect(err).to.be.null;
+                    expect(res).to.have.headers;
+                    expect(res).to.have.status(200);
+                    expect(res).to.not.redirect;
+                    expect(res).to.be.an('object');
+                    expect(res.body).to.have.property('ID');
+                    expect(res.body).to.have.property('Product');
+                    expect(res.body).to.have.property('Success').eql(true);
+                    expect(res.body).to.have.property('Message').eql('Products serverd');
+                   
+                });
+        });
+    });
+
     describe('GET \'/api/v1/products/:id\'', () => { 
-        it('Get One Product', (done) => {
+        it('Throw error when product id is not valid', (done) => {
             chai.request(server)
                 .get('/api/v1/products/:id')
                 .end((err, res) => {
                     expect(err).to.be.null;
                     expect(res).to.have.headers;
                     expect(res).to.have.status(400);
-                    expect(res).to.not.redirect;
-                    // expect(res.body).to.be.an('object');
-                    // expect(res.body).to.have.property('ID');
-                    // expect(res.body).to.have.property('message');
-                    // expect(res.body).to.have.property('message').eql('Products serverd');
-                    // expect(res.body).to.have.property('success').eql(true);
-                    // expect(res.body.products).to.be.empty;
+                    expect(res).to.not.redirect;                   
+                    console.log('Get one product res body: ',res.body);
                     done();
                 });
         });
     });
-    // describe('GET \'/api/v1/products/:id\'', () => { 
-    //     it('Get One Product', (done) => {
-    //         chai.request(server)
-    //             .get('/api/v1/products/:id')
-    //             .end((err, res) => {
-    //                 expect(err).to.be.null;
-    //                 expect(res).to.have.headers;
-    //                 expect(res).to.have.status(200);
-    //                 expect(res).to.not.redirect;
-    //                 expect(res.body).to.be.an('object');
-    //                 expect(res.body).to.have.property('ID');
-    //                 expect(res.body).to.have.property('message');
-    //                 expect(res.body).to.have.property('message').eql('Products serverd');
-    //                 expect(res.body).to.have.property('success').eql(true);
-    //                 // expect(res.body.products).to.be.empty;
-    //                 done();
-    //             });
-    //     });
-    // });
+    
     describe('GET \'/api/v1/sales\'', () => { 
         it('Get All sales', (done) => {
             chai.request(server)
@@ -123,7 +119,7 @@ describe('STOREMANUS', () => {  // ====================================== Empty 
                 });
         });
     });
-    describe('POST \'/api/v1/products\'', () => { 
+    describe('POST \'/api/v1/products\'', () => {  // REJECT POST BECAUSE OF EMPTY FIELDS
         it('Post Products', (done) => {
             chai.request(server)
                 .post('/api/v1/products')
@@ -132,11 +128,8 @@ describe('STOREMANUS', () => {  // ====================================== Empty 
                     expect(res).to.have.headers;
                     expect(res).to.have.status(400);
                     expect(res).to.not.redirect;
-                    // expect(res.body).to.be.an('object');                   
-                    // expect(res.body).to.have.property('message');
-                    // expect(res.body).to.have.property('message').eql('Product added succesfully');
-                    // expect(res.body).to.have.property('success').eql(true);
-                    // expect(res.body.products).to.be.empty;
+                    expect(res.body).to.have.property('Success').eql(false);
+                    expect(res.body).to.have.property('Message').eql('No empty field is allowed. Please make sure you fill all fields');
                     done();
                 });
         });
@@ -185,30 +178,51 @@ describe('STOREMANUS', () => {  // ====================================== Empty 
                     expect(err).to.be.null;
                     expect(res).to.have.headers;
                     expect(res).to.have.status(400);
-                    expect(res).to.not.redirect;
-                    // expect(res.body).to.be.an('object');                   
-                    // expect(res.body).to.have.property('message');
-                    // expect(res.body).to.have.property('message').eql('Product deleted succesfully');
-                    // expect(res.body).to.have.property('success').eql(true);
-                    // expect(res.body.products).to.be.empty;
+                    expect(res).to.not.redirect;                    
                     done();
                 });
         });
     });
 });
+describe('DELETE \'/api/v1/products/:id\'', () => { // THROW ERROR WHEN THE PRODUCT ID IS ABOVE 999
+    it('Delete Products', (done) => {
+        chai.request(server)
+            .delete('/api/v1/products/1000')
+            .end((err, res) => {
+                expect(err).to.be.null;
+                expect(res).to.have.headers;
+                expect(res).to.have.status(400);
+                expect(res).to.not.redirect;                    
+                expect(res.body).to.be.an('object');                    
+                expect(res.body).to.be.have.property('Success').eql(false);                    
+                expect(res.body).to.be.have.property('Message').eql('Product id is too long');                    
+                done();
+            });
+    });
+});
 
 // Functional test for validation
-
 describe('Test Validation functions', function () {
- it('Should return true when a number is provided', function () {
+    it('Should return true when a number is provided', function () {
         assert.equal( isNumber(5), true);
     });
- it('Should return false if the length of the number is not equal to 13', function () {
+    it('Should return false if the length of the number is not equal to 13', function () {
         assert.equal( isValidNum(9999999999999), false);
     });
- it('Should return false if the input is not empty', function () {
+    it('Should return false if the input is not empty', function () {
         assert.equal( isEmpty(8), false);
     });
 });
+
+// // Test conditional statements in validateSales.js
+// describe('Validate sales record', function(){
+//     it('should post sales when all fields are provided in the right format', function(){
+//         validateSales.postSales.req.body.Name = 'Luna Milk';       
+//         validateSales.postSales.req.Type = 'Milk';       
+//         validateSales.postSales.req.Category = 'Beverage';       
+//         const newPostSales = validateSales.postSales;
+//         assert.equal(newPostSales, next());
+//     });
+// });
 
 

@@ -20,14 +20,14 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">58.54% </span>
+        <span class="strong">63.41% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>24/41</span>
+        <span class='fraction'>26/41</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">45% </span>
+        <span class="strong">50% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>18/40</span>
+        <span class='fraction'>20/40</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -35,9 +35,9 @@
         <span class='fraction'>0/0</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">58.54% </span>
+        <span class="strong">63.41% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>24/41</span>
+        <span class='fraction'>26/41</span>
       </div>
     </div>
     <p class="quiet">
@@ -170,33 +170,33 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -254,9 +254,9 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -310,21 +310,21 @@ export default class validateProduct{
             });
         }
 &nbsp;
-        <span class="missing-if-branch" title="else path not taken" >E</span>if(!isNumber(product_id)){
+        if(!isNumber(product_id)){
             return res.status(400).json({
                 success: false,
                 message: 'Product id must be valid number'
             });
         }
-<span class="cstat-no" title="statement not covered" >        return next();</span>
+        return next();
     }
     static postProduct(req, res, next){
         const { Name, Type, Category } = req.body;
         const  Dated = req.body.Date;
         <span class="missing-if-branch" title="else path not taken" >E</span>if(isEmpty((Name || Type || Category || Dated )) || <span class="branch-1 cbranch-no" title="branch not covered" >isEmpty((Name &amp;&amp; Type &amp;&amp; Category &amp;&amp; Dated)) ){</span>
             return res.status(400).json({
-                success: false,
-                message: 'No empty field is allowed. Please make sure you fill all fields'
+                Success: false,
+                Message: 'No empty field is allowed. Please make sure you fill all fields'
             });
         }
 &nbsp;
@@ -375,10 +375,10 @@ export default class validateProduct{
     }
     static deleteProduct(req, res, next){
         const product_id = req.params.id;
-        <span class="missing-if-branch" title="if path not taken" >I</span>if(product_id.length &gt; 3){
-<span class="cstat-no" title="statement not covered" >            return res.status(400).json({</span>
-                success: false,
-                message: 'product id is too long'
+        if(product_id.length &gt; 3){
+            return res.status(400).json({
+                Success: false,
+                Message: 'Product id is too long'
             });
         }
         <span class="missing-if-branch" title="if path not taken" >I</span>if(product_id ===''){
@@ -389,8 +389,8 @@ export default class validateProduct{
         }
         <span class="missing-if-branch" title="if path not taken" >I</span>if(isEmpty(product_id)){
 <span class="cstat-no" title="statement not covered" >            return res.status(400).json({</span>
-                success: false,
-                message: 'Please insert product id'
+                Success: false,
+                Message: 'Please insert product id'
             });
         }
 &nbsp;
@@ -412,7 +412,7 @@ export default class validateProduct{
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sat Oct 27 2018 17:37:17 GMT-0700 (Pacific Daylight Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sat Oct 27 2018 21:33:36 GMT-0700 (Pacific Daylight Time)
 </div>
 </div>
 <script src="..\prettify.js"></script>
