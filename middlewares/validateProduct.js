@@ -78,11 +78,10 @@ export default class validateProduct{
 
         if(!isNumber(product_id)){
             return res.status(400).json({
-                success: false,
-                message: 'Product id must be valid number'
+                Success: false,
+                Message: 'Product id must be valid number'
             });
         }
-        
         return next();
     }
     static deleteProduct(req, res, next){

@@ -23,7 +23,6 @@ describe('STOREMANUS', () => {  // ====================================== Empty 
             chai.request(server)
                 .get('/')
                 .end((err, res) => {
-                    console.log(res.body);
                     expect(err).to.be.null;
                     expect(res).to.have.headers;
                     expect(res).to.have.status(200);
@@ -77,7 +76,6 @@ describe('STOREMANUS', () => {  // ====================================== Empty 
                     expect(res).to.have.headers;
                     expect(res).to.have.status(400);
                     expect(res).to.not.redirect;                   
-                    console.log('Get one product res body: ',res.body);
                     done();
                 });
         });
@@ -152,20 +150,18 @@ describe('STOREMANUS', () => {  // ====================================== Empty 
                 });
         });
     });
-    describe('PUT \'/api/v1/products/:id\'', () => { 
-        it('Edit Products', (done) => {
+    describe('PUT \'/api/v1/products/:id\'', () => {  // DO NOT 
+        it('Do not edit product when ID is not a number', (done) => { // DO NOT EDIT PRODUCT WHEN THE ID IS NOT A NUMBER
             chai.request(server)
                 .put('/api/v1/products/:id')
                 .end((err, res) => {
                     expect(err).to.be.null;
                     expect(res).to.have.headers;
                     expect(res).to.have.status(400);
-                    expect(res).to.not.redirect;
-                    // expect(res.body).to.be.an('object');                   
-                    // expect(res.body).to.have.property('message');
-                    // expect(res.body).to.have.property('message').eql('Product edited successfully');
-                    // expect(res.body).to.have.property('success').eql(true);
-                    // expect(res.body.products).to.be.empty;
+                    expect(res).to.not.redirect; 
+                    expect(res.body).to.be.an('object');                   
+                    expect(res.body).to.have.property('Success').eql(false);                   
+                    expect(res.body).to.have.property('Message').eql('Product id must be valid number');                   
                     done();
                 });
         });
