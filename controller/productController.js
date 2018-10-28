@@ -17,7 +17,7 @@ export default class productController{
             Product: products[ID]
         });
     }
-    static postProduct(req, res){   // Post product
+    static postProduct(req, res){   // POST PRODUCT
         const { Name, Type, Category } = req.body;
         var lastIndex = Object.keys(products);        
         products[lastIndex.length + 1] = {
@@ -28,7 +28,7 @@ export default class productController{
             Date: req.body.Date            
         };
         return res.status(200).json({
-            success: true,
+            Success: true,
             Message: 'Product added successfully',
             Name,
             Type,
@@ -45,8 +45,8 @@ export default class productController{
             Date: req.body.Date    
         };
         return res.status(200).json({
-            success: true,
-            message: 'Product edited successfully',
+            Success: true,
+            Message: 'Product edited successfully',
             editedProduct: req.body
         });
     }

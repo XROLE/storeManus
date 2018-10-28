@@ -117,21 +117,8 @@ describe('STOREMANUS', () => {  // ====================================== Empty 
                 });
         });
     });
-    describe('POST \'/api/v1/products\'', () => {  // REJECT POST BECAUSE OF EMPTY FIELDS
-        it('Post Products', (done) => {
-            chai.request(server)
-                .post('/api/v1/products')
-                .end((err, res) => {
-                    expect(err).to.be.null;
-                    expect(res).to.have.headers;
-                    expect(res).to.have.status(400);
-                    expect(res).to.not.redirect;
-                    expect(res.body).to.have.property('Success').eql(false);
-                    expect(res.body).to.have.property('Message').eql('No empty field is allowed. Please make sure you fill all fields');
-                    done();
-                });
-        });
-    });
+    // 
+       
     describe('POST \'/api/v1/sales\'', () => { 
         it('Post Sales', (done) => {
             chai.request(server)
@@ -150,8 +137,58 @@ describe('STOREMANUS', () => {  // ====================================== Empty 
                 });
         });
     });
-    describe('PUT \'/api/v1/products/:id\'', () => {  // DO NOT 
-        it('Do not edit product when ID is not a number', (done) => { // DO NOT EDIT PRODUCT WHEN THE ID IS NOT A NUMBER
+    describe('PUT \'/api/v1/products/:id\'', () => {  // DO NOT EDIT PRODUCT WHEN THE ID IS ABOVE 999
+        it('Do not edit product when ID is not a number', (done) => { 
+            chai.request(server)
+                .put('/api/v1/products/1000')
+                .end((err, res) => {
+                    expect(err).to.be.null;
+                    expect(res).to.have.headers;
+                    expect(res).to.have.status(400);
+                    expect(res).to.not.redirect; 
+                    expect(res.body).to.be.an('object');                   
+                    expect(res.body).to.have.property('Success').eql(false);                   
+                    expect(res.body).to.have.property('Message').eql('Product id is too long');                   
+                    done();
+                });
+        });
+    });
+    describe('PUT \'/api/v1/products/:id\'', () => {  // DO NOT EDIT PRODUCT WHEN THE ID IS ABOVE 999
+        it('Do not edit product when id is not provided', () => { 
+            chai.request(server)
+                .put('/api/v1/products/')
+                .end((err, res) => {
+                    expect(err).to.be.null;
+                    expect(res).to.have.headers;
+                    expect(res).to.have.status(404);
+                    expect(res).to.not.redirect;                     
+                });
+        });
+    });
+    describe('PUT \'/api/v1/products/:id\'', () => {  // EDIT PRODUCT WHEN ALL FIELDS ARE PROVIDED
+        it('Edit product when all fields are provided', () => { 
+            chai.request(server)
+                .put('/api/v1/products/1')
+                .end((err, res) => {
+                    products[1] = {
+                        id: 1,
+                        Name: 'Luna Milk',            
+                        Type: 'Milk',            
+                        Category: 'Beverage',            
+                        Date: 6666666666666    
+                    };
+                    expect(err).to.be.null;
+                    expect(res).to.have.headers;
+                    expect(res).to.have.status(200);
+                    expect(res).to.not.redirect;                     
+                    expect(res.body).to.be.an('object');                     
+                    expect(res.body).to.have.property('Success').eql(true);                     
+                    expect(res.body).to.have.property('Message').eql('Product edited successfully');                     
+                });
+        });
+    });
+    describe('PUT \'/api/v1/products/:id\'', () => {  // DO NOT EDIT PRODUCT WHEN THE ID IS NOT A NUMBER
+        it('Do not edit product when ID is not a number', (done) => { 
             chai.request(server)
                 .put('/api/v1/products/:id')
                 .end((err, res) => {
@@ -181,7 +218,7 @@ describe('STOREMANUS', () => {  // ====================================== Empty 
     });
 });
 describe('DELETE \'/api/v1/products/:id\'', () => { // THROW ERROR WHEN THE PRODUCT ID IS ABOVE 999
-    it('Delete Products', (done) => {
+    it('Throw error when delete product id is above 999', (done) => {
         chai.request(server)
             .delete('/api/v1/products/1000')
             .end((err, res) => {
@@ -210,15 +247,5 @@ describe('Test Validation functions', function () {
     });
 });
 
-// // Test conditional statements in validateSales.js
-// describe('Validate sales record', function(){
-//     it('should post sales when all fields are provided in the right format', function(){
-//         validateSales.postSales.req.body.Name = 'Luna Milk';       
-//         validateSales.postSales.req.Type = 'Milk';       
-//         validateSales.postSales.req.Category = 'Beverage';       
-//         const newPostSales = validateSales.postSales;
-//         assert.equal(newPostSales, next());
-//     });
-// });
 
 

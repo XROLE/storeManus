@@ -33,13 +33,7 @@ export default class validateProduct{
     static postProduct(req, res, next){
         const { Name, Type, Category } = req.body;
         const  Dated = req.body.Date;
-        if(isEmpty((Name || Type || Category || Dated )) || isEmpty((Name && Type && Category && Dated)) ){
-            return res.status(400).json({
-                Success: false,
-                Message: 'No empty field is allowed. Please make sure you fill all fields'
-            });
-        }
-
+        
         if(!isValidNum(Dated)){
             return res.status(400).json({
                 success: false,
@@ -49,8 +43,14 @@ export default class validateProduct{
 
         if(!isNumber(Dated)){
             return res.status(400).json({
-                success: false,
-                message: 'Only numbers are allowed in the Date field'
+                Success: false,
+                Message: 'Only numbers are allowed in the Date field'
+            });
+        }
+        if(isEmpty((Name || Type || Category || Dated )) || isEmpty((Name && Type && Category && Dated)) ){
+            return res.status(400).json({
+                Success: false,
+                Message: 'No empty field is allowed. Please make sure you fill all fields'
             });
         }
         return next();
@@ -59,16 +59,11 @@ export default class validateProduct{
         const product_id = req.params.id;
         if(product_id.length > 3){
             return res.status(400).json({
-                success: false,
-                message: 'product id is too long'
+                Success: false,
+                Message: 'Product id is too long'
             });
         }
-        if(product_id ===''){
-            return res.status(400).json({
-                success: false,
-                message: 'Please insert product id'
-            });
-        }
+       
         if(isEmpty(product_id)){
             return res.status(400).json({
                 success: false,
@@ -92,18 +87,13 @@ export default class validateProduct{
                 Message: 'Product id is too long'
             });
         }
-        if(product_id ===''){
-            return res.status(400).json({
-                success: false,
-                message: 'Please insert product id'
-            });
-        }
-        if(isEmpty(product_id)){
-            return res.status(400).json({
-                Success: false,
-                Message: 'Please insert product id'
-            });
-        }
+       
+        // if(isEmpty(product_id)){
+        //     return res.status(404).json({
+        //         Success: false,
+        //         Message: 'Please insert product id 6'
+        //     });
+        // }
 
         if(!isNumber(product_id)){
             return res.status(400).json({
