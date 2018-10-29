@@ -4,6 +4,7 @@ import productController from '../controller/productController';
 import validateSales from '../middlewares/validateSales';
 import salesController from '../controller/salesController';
 import attendants from '../controller/attendants';
+import adminSignIn from '../controller/admin';
 
 const router = Router();
 
@@ -20,5 +21,6 @@ router.post('/api/v1/sales', validateSales.postSales, salesController.postSales)
 
 // ATTENDANTS ROUTE USING POSTGRESS
 router.post('/api/v1/attendants', attendants.addAttendants);
+router.post('/api/v1/admin', adminSignIn);
 export default router;
 
