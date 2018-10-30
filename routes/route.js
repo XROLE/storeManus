@@ -3,6 +3,7 @@ import validatProduct from '../middlewares/validateProduct';
 import productController from '../controller/productController';
 import validateSales from '../middlewares/validateSales';
 import salesController from '../controller/salesController';
+import attendants from '../controller/attendants';
 
 const router = Router();
 
@@ -17,5 +18,7 @@ router.get('/api/v1/sales', salesController.getSales);                          
 router.get('/api/v1/sales/:id', validateSales.getOneSales, salesController.getOneSale);               // Get one sales
 router.post('/api/v1/sales', validateSales.postSales, salesController.postSales);                     // Post Sales
 
+// ATTENDANTS ROUTE USING POSTGRESS
+router.post('/api/v1/attendants', attendants.addAttendants);
 export default router;
 
