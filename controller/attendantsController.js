@@ -1,4 +1,5 @@
 import { addAttendants } from '../model/attendants';
+// import { getOneAttendant } from '../model/attendants';
 
 class attendants {
     static addAttendants(req, res){
@@ -8,6 +9,14 @@ class attendants {
             Success: true,
             Message: 'You have successfully added an attendant',
             attendants: req.body
+        });
+    }
+    static signInAttendants(req, res){
+        const Token = req.token;       
+        return res.status(200).json({
+            Success: true,
+            Message: 'You are signed in successfuly',
+            Token
         });
     }
 }

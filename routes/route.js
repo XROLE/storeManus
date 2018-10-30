@@ -2,9 +2,11 @@ import { Router } from 'express';
 import validatProduct from '../middlewares/validateProduct';
 import productController from '../controller/productController';
 import validateSales from '../middlewares/validateSales';
-import salesController from '../controller/salesController';
-import attendants from '../controller/attendants';
+import salesController from '../controller/salesController'; 
+import attendants from '../controller/attendantsController';         // ATTENDANTS CONTROLLER
+import attendantToken from '../middlewares/auth/attendantJWT';      // HANDLES ATTENDANTS TOKEN
 import adminSignIn from '../controller/admin';
+import validateAttendant from '../middlewares/validateAttendants';  // HANDLES ATTENDANTS VALIDATION
 
 const router = Router();
 
@@ -21,6 +23,7 @@ router.post('/api/v1/sales', validateSales.postSales, salesController.postSales)
 
 // ATTENDANTS ROUTE USING POSTGRESS
 router.post('/api/v1/attendants', attendants.addAttendants);
+router.post('/api/v1/attendants/signin', validateAttendant.validateSignIn, attendantToken.createToken, attendants.signInAttendants);
 router.post('/api/v1/admin', adminSignIn);
 export default router;
 
