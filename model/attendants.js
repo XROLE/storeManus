@@ -50,6 +50,17 @@ const addAttendants =(firstName, lastName, email, password) => { // ============
         });
 };
 
+
+const  getOneAttendant = (email) =>{    
+    const queryText = 'SELECT * FROM attendants WHERE email=$1';
+    const attendant = pool.query(queryText, email)
+        .then((res) => {          
+            return new Promise((resolve) =>{
+                resolve(res.rows[0]);
+            });
+        });
+    return attendant;
+};
 const dropAttendantsTable = () => { // ====================================================== Drop attendants table
     const queryText = 'DROP TABLE IF EXISTS attendants';
     pool.query(queryText)
@@ -83,7 +94,8 @@ const dropAttendantsTable = () => { // =========================================
 module.exports = {
     createAttendantTable,
     dropAttendantsTable,
-    addAttendants  
+    addAttendants,
+    getOneAttendant  
 };
 
 require('make-runnable');
