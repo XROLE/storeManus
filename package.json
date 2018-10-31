@@ -8,7 +8,8 @@
     "test": " nyc ---reporter=html --reporter=text mocha --timeout 10000 --exit --require babel-register test/test.js",
     "start-pro": "node server/app.js",
     "coveralls": "node ./node_modules/coveralls/bin/coveralls.js ./coverage/lcov.info",
-    "coverage": "nyc npm test && nyc report --reporter=text-lcov | coveralls"
+    "coverage": "nyc npm test && nyc report --reporter=text-lcov | coveralls",
+    "createSalesTable": "node --require babel-register model/sales createSalesTable"
   },
   "repository": {
     "type": "git",
