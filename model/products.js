@@ -65,9 +65,9 @@ const  getAllProducts = () =>{
         });
     return product;
 };
-const  getOneProduct = () =>{    
-    const queryText = 'SELECT * FROM products WHERE name=$1';
-    const product = pool.query(queryText, ['Luna Milk'])
+const  getOneProduct = (id) =>{    
+    const queryText = 'SELECT * FROM products WHERE id=$1';
+    const product = pool.query(queryText, id)
         .then((res) => {          
             return new Promise((resolve) =>{
                 resolve(res.rows[0]);
