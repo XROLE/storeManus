@@ -53,8 +53,7 @@ const addProduct =(name, price, quantity, type, category) => {
     const queryText = 'INSERT INTO products(name, price, quantity, type, category) VALUES($1, $2, $3, $4, $5) RETURNING *';
     const values = [name, price, quantity, type, category];
     const addedProduct = pool.query(queryText, values)
-        .then((res) => {
-            console.log(res);
+        .then((res) => {            
             return new Promise((resolve) =>{
                 resolve(res.rows[0]);
             });
@@ -92,6 +91,17 @@ const  getOneProduct = (id) =>{
         .then((res) => {          
             return new Promise((resolve) =>{
                 resolve(res.rows[0]);
+            });
+        });
+
+    return product;
+};
+const  deleteOneProduct = (id) =>{    
+    const queryText = 'DELETE FROM products WHERE id=$1';
+    const product = pool.query(queryText, id)
+        .then((res) => {          
+            return new Promise((resolve) =>{
+                resolve(res.rows);
             });
         });
 
@@ -138,7 +148,8 @@ module.exports = {
     getAllProducts,
     dropProductsTable,
     getOneProduct,
-    editProduct
+    editProduct,
+    deleteOneProduct
 };
 
 require('make-runnable');
