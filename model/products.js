@@ -4,7 +4,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const pool = new Pool({
-    connectionString: process.env.DB_URI
+    connectionString: process.env.DEV_DB_URI
 });
 
 pool.on('connect', () => {
@@ -12,19 +12,23 @@ pool.on('connect', () => {
 });
 
 /**
- * =========================================================================== PRODUCT SECTION
+ * 
+ * 
+ * =========================================CREATE PRODUCT TABLE
+ * 
+ * 
  */
-const createProductsTable = () => { // ======================================= Create product table
+const createProductsTable = () => {  
     const queryText =
     `CREATE TABLE IF NOT EXISTS
       products(
         id SERIAL PRIMARY KEY NOT NULL,
-        Name VARCHAR(128) NOT NULL,
-        Price INT NOT NULL,
-        Quantity INT NOT NULL,          
-        Type VARCHAR(128) NOT NULL,
-        Category VARCHAR(128) NOT NULL,
-        Date TIMESTAMP DEFAULT CURRENT_TIMESTAMP                 
+        name text NOT NULL,
+        price INT NOT NULL,
+        quantity INT NOT NULL,          
+        type text,
+        category text NOT NULL,
+        date TIMESTAMP DEFAULT CURRENT_TIMESTAMP                 
       )`;
 
     pool.query(queryText)
@@ -38,13 +42,19 @@ const createProductsTable = () => { // ======================================= C
         });
 };
 
-const addProduct =(name, price, quantity, type, category) => { // ========================================================== Insert into attendants table
+/**
+ * 
+ * =============================== INSERT INTO PRODUCT TABLE
+ * 
+ * 
+ */
+const addProduct =(name, price, quantity, type, category) => { 
     
     const queryText = 'INSERT INTO products(name, price, quantity, type, category) VALUES($1, $2, $3, $4, $5) RETURNING *';
     const values = [name, price, quantity, type, category];
     const addedProduct = pool.query(queryText, values)
         .then((res) => {
-            console.log('record insereted successfully, res: ', res.rows[0]);
+            console.log(res);
             return new Promise((resolve) =>{
                 resolve(res.rows[0]);
             });
@@ -55,16 +65,27 @@ const addProduct =(name, price, quantity, type, category) => { // ==============
     return addedProduct;
 };
 
-const  getAllProducts = () =>{    
+/**
+* =============================== GET ALL PRODUCTS
+*/
+const  getAllProducts = () =>{     
     const queryText = 'SELECT * FROM products';
     const product = pool.query(queryText)
         .then((res) => {          
             return new Promise((resolve) =>{                
-                resolve(res.rows[0]);
+                resolve(res.rows);
             });
+        })
+        .catch((e) => {
+            console.log(e);
         });
     return product;
 };
+
+/**
+  * =============================== GET ONE PRODUCTS
+*/
+
 const  getOneProduct = (id) =>{    
     const queryText = 'SELECT * FROM products WHERE id=$1';
     const product = pool.query(queryText, id)
@@ -73,9 +94,32 @@ const  getOneProduct = (id) =>{
                 resolve(res.rows[0]);
             });
         });
+
     return product;
 };
-const dropProductsTable = () => { // ====================================================== Drop attendants table
+
+/**
+  * =============================== EDIT PRODUCTS BY ID
+*/
+const  editProduct = (name, price, quantity, type, category, id ) =>{    
+    const queryText = 'UPDATE products SET name=$1, price=$2, quantity=$3, type=$4, category=$5 WHERE id=$6 RETURNING *';
+    const values = [name, price, quantity, type, category, id];
+    const product = pool.query(queryText, values)
+        .then((res) => {          
+            return new Promise((resolve) =>{
+                console.log('res......', res.rows);
+                resolve(res.rows[0]);
+            });
+        })
+        .catch((e) => console.log(e));
+        
+    return product;
+};
+
+/**
+  * =============================== DROP PRODUCT TABLE
+*/
+const dropProductsTable = () => { 
     const queryText = 'DROP TABLE IF EXISTS products';
     pool.query(queryText)
         .then((res) => {
@@ -93,7 +137,8 @@ module.exports = {
     addProduct,
     getAllProducts,
     dropProductsTable,
-    getOneProduct
+    getOneProduct,
+    editProduct
 };
 
 require('make-runnable');

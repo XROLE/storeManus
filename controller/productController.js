@@ -3,6 +3,7 @@ import { products } from '../model/data';
 import { addProduct } from '../model/products';
 import { getAllProducts } from '../model/products';
 import { getOneProduct } from '../model/products';
+import { editProduct } from '../model/products';
 
 export default class productController{
     static getProducts(req, res){  // GET ALL PRODUCTS
@@ -27,9 +28,8 @@ export default class productController{
             });
     }
     static postProduct(req, res){   // ============================ POST PRODUCT
-        const { Name, Type, Price, Category } = req.body; 
-        console.log(req.body);
-        addProduct(Name, Type, Price, Category)
+        const { name, price, quantity, type, category } = req.body; 
+        addProduct(name, price, quantity, type, category)
             .then((response) =>{
                 return res.status(200).json({
                     Success: true,
@@ -39,19 +39,24 @@ export default class productController{
             });      
     }
 
-    static putProducts(req, res){   // Edit product 
-        products[req.params.id] = {
-            id: req.params.id,
-            Name: req.body.Name,            
-            Type: req.body.Type,            
-            Category: req.body.Category,            
-            Date: req.body.Date    
-        };
-        return res.status(200).json({
-            Success: true,
-            Message: 'Product edited successfully',
-            editedProduct: req.body
-        });
+    static putProducts(req, res){   //=========================== EDIT PRODUCT 
+
+        const id = req.params.id;
+        const name = req.body.name; 
+        const price = req.body.price;
+        const quantity = req.body.quantity;           
+        const type = req.body.type;            
+        const category = req.body.category; 
+        editProduct(name, price, quantity, type, category, id)
+            .then((update) => {
+                console.log( 'Login out updated product: ', update);
+                return res.status(200).json({
+                    Success: true,
+                    Message: 'Product edited successfully',
+                    editedProduct: update
+                });
+            })
+            .catch((e) => console.log(e));
     }
 
     static deleteProduct(req, res){  
