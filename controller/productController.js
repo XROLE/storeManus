@@ -2,6 +2,7 @@
 import { products } from '../model/data';
 import { addProduct } from '../model/products';
 import { getAllProducts } from '../model/products';
+import { getOneProduct } from '../model/products';
 
 export default class productController{
     static getProducts(req, res){  // GET ALL PRODUCTS
@@ -14,13 +15,16 @@ export default class productController{
             });         
     }
     static getOneProduct(req, res){  // GET ONE PRODUCT
-        const ID = req.params.id;
-        return res.status(200).json({
-            Success: true,
-            Message: 'Products serverd',
-            ID,
-            Product: products[ID]
-        });
+        const ID = [req.params.id ];
+        getOneProduct(ID)
+            .then((product) => {
+                return res.status(200).json({
+                    Success: true,
+                    Message: 'Products serverd',
+                    ID,
+                    Product: product
+                });
+            });
     }
     static postProduct(req, res){   // ============================ POST PRODUCT
         const { Name, Type, Price, Category } = req.body; 
