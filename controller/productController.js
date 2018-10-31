@@ -1,9 +1,8 @@
-
-import { products } from '../model/data';
 import { addProduct } from '../model/products';
 import { getAllProducts } from '../model/products';
 import { getOneProduct } from '../model/products';
 import { editProduct } from '../model/products';
+import { deleteOneProduct } from '../model/products';
 
 export default class productController{
     static getProducts(req, res){  // GET ALL PRODUCTS
@@ -59,8 +58,9 @@ export default class productController{
             .catch((e) => console.log(e));
     }
 
-    static deleteProduct(req, res){  
-        delete products[req.params.id];
+    static deleteProduct(req, res){ 
+        const ID = [req.params.id];
+        deleteOneProduct(ID);        
         return res.status(200).json({
             success: true,
             message: 'Product deleted succesfully'
