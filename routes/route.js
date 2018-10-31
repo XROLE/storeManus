@@ -7,6 +7,7 @@ import attendants from '../controller/attendantsController';         // ATTENDAN
 import attendantToken from '../middlewares/auth/attendantJWT';      // HANDLES ATTENDANTS TOKEN
 import adminSignIn from '../controller/admin';
 import validateAttendant from '../middlewares/validateAttendants';  // HANDLES ATTENDANTS VALIDATION
+import AdminToken from '../middlewares/auth/adminJWT';
 
 const router = Router();
 
@@ -14,7 +15,7 @@ router.get('/', (req, res) => res.send('Welcome to StoreManus API Home page. Go 
 
 router.get('/api/v1/products', productController.getProducts);                                        //Get all Products
 router.get('/api/v1/products/:id', validatProduct.getOneProduct, productController.getOneProduct);    // Get single product
-router.post('/api/v1/products', validatProduct.postProduct, productController.postProduct);           //Post Products
+           
 router.put('/api/v1/products/:id', validatProduct.editProduct, productController.putProducts );       // Edit product
 router.delete('/api/v1/products/:id', validatProduct.deleteProduct, productController.deleteProduct); //Delete product
 router.get('/api/v1/sales', salesController.getSales);                                                // Get all Sales
@@ -23,7 +24,10 @@ router.post('/api/v1/sales', validateSales.postSales, salesController.postSales)
 
 // ATTENDANTS ROUTE USING POSTGRESS
 router.post('/api/v1/attendants', attendants.addAttendants);
-router.post('/api/v1/attendants/signin', validateAttendant.validateSignIn, attendantToken.createToken, attendants.signInAttendants);
-router.post('/api/v1/admin', adminSignIn);
+router.post('/api/v1/attendants/auth/signin', validateAttendant.validateSignIn, attendantToken.createToken, attendants.signInAttendants);
+router.post('/api/v1/admin/auth/signin', AdminToken.createToken, adminSignIn);
+router.post('/api/v1/products', validatProduct.postProduct, productController.postProduct); //Post Products
+
+
 export default router;
 

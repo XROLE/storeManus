@@ -1,4 +1,4 @@
-import { isNumber, isValidNum, isEmpty} from './validate';
+import { isNumber, isEmpty} from './validate';
 
 export default class validateProduct{
     static getOneProduct(req, res, next){
@@ -31,23 +31,9 @@ export default class validateProduct{
         return next();
     }
     static postProduct(req, res, next){
-        const { Name, Type, Category } = req.body;
-        const  Dated = req.body.Date;
-        
-        if(!isValidNum(Dated)){
-            return res.status(400).json({
-                success: false,
-                message: 'Date is invalid. Date lenght should be 13'
-            });
-        }
-
-        if(!isNumber(Dated)){
-            return res.status(400).json({
-                Success: false,
-                Message: 'Only numbers are allowed in the Date field'
-            });
-        }
-        if(isEmpty((Name || Type || Category || Dated )) || isEmpty((Name && Type && Category && Dated)) ){
+        const { Name, Type, Price, Category } = req.body;
+             
+        if(isEmpty((Name || Type || Price || Category )) || isEmpty((Name && Type && Price && Category)) ){
             return res.status(400).json({
                 Success: false,
                 Message: 'No empty field is allowed. Please make sure you fill all fields'
@@ -87,14 +73,7 @@ export default class validateProduct{
                 Message: 'Product id is too long'
             });
         }
-       
-        // if(isEmpty(product_id)){
-        //     return res.status(404).json({
-        //         Success: false,
-        //         Message: 'Please insert product id 6'
-        //     });
-        // }
-
+               
         if(!isNumber(product_id)){
             return res.status(400).json({
                 success: false,

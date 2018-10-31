@@ -1,5 +1,6 @@
 
 import { products } from '../model/data';
+import { addProduct } from '../model/products';
 
 export default class productController{
     static getProducts(req, res){  // GET ALL PRODUCTS
@@ -17,23 +18,17 @@ export default class productController{
             Product: products[ID]
         });
     }
-    static postProduct(req, res){   // POST PRODUCT
-        const { Name, Type, Category } = req.body;
-        var lastIndex = Object.keys(products);        
-        products[lastIndex.length + 1] = {
-            id: req.body.id, 
-            Name: req.body.Name,            
-            Type: req.body.Type,            
-            Category: req.body.Category,            
-            Date: req.body.Date            
-        };
-        return res.status(200).json({
-            Success: true,
-            Message: 'Product added successfully',
-            Name,
-            Type,
-            Category 
-        });
+    static postProduct(req, res){   // ============================ POST PRODUCT
+        const { Name, Type, Price, Category } = req.body; 
+        console.log(req.body);
+        addProduct(Name, Type, Price, Category)
+            .then((response) =>{
+                return res.status(200).json({
+                    Success: true,
+                    Message: 'Product added successfully',
+                    response
+                });
+            });      
     }
 
     static putProducts(req, res){   // Edit product 
