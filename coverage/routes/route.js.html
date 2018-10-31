@@ -22,7 +22,7 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>8/8</span>
+        <span class='fraction'>16/16</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -37,7 +37,7 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>7/7</span>
+        <span class='fraction'>15/15</span>
       </div>
     </div>
     <p class="quiet">
@@ -67,20 +67,40 @@
 <a name='L19'></a><a href='#L19'>19</a>
 <a name='L20'></a><a href='#L20'>20</a>
 <a name='L21'></a><a href='#L21'>21</a>
-<a name='L22'></a><a href='#L22'>22</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L22'></a><a href='#L22'>22</a>
+<a name='L23'></a><a href='#L23'>23</a>
+<a name='L24'></a><a href='#L24'>24</a>
+<a name='L25'></a><a href='#L25'>25</a>
+<a name='L26'></a><a href='#L26'>26</a>
+<a name='L27'></a><a href='#L27'>27</a>
+<a name='L28'></a><a href='#L28'>28</a>
+<a name='L29'></a><a href='#L29'>29</a>
+<a name='L30'></a><a href='#L30'>30</a>
+<a name='L31'></a><a href='#L31'>31</a>
+<a name='L32'></a><a href='#L32'>32</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -92,20 +112,30 @@
 import validatProduct from '../middlewares/validateProduct';
 import productController from '../controller/productController';
 import validateSales from '../middlewares/validateSales';
-import salesController from '../controller/salesController';
+import salesController from '../controller/salesController'; 
+import attendants from '../controller/attendantsController';         // ATTENDANTS CONTROLLER
+import attendantToken from '../middlewares/auth/attendantJWT';      // HANDLES ATTENDANTS TOKEN
+import adminSignIn from '../controller/admin';
+import validateAttendant from '../middlewares/validateAttendants';  // HANDLES ATTENDANTS VALIDATION
+import AdminToken from '../middlewares/auth/adminJWT';
 &nbsp;
 const router = Router();
 &nbsp;
 router.get('/', (req, res) =&gt; res.send('Welcome to StoreManus API Home page. Go to /api/v1/users/products to view all products'));
 &nbsp;
-router.get('/api/v1/products', productController.getProducts);                                        //Get all Products
-router.get('/api/v1/products/:id', validatProduct.getOneProduct, productController.getOneProduct);    // Get single product
-router.post('/api/v1/products', validatProduct.postProduct, productController.postProduct);           //Post Products
-router.put('/api/v1/products/:id', validatProduct.editProduct, productController.putProducts );       // Edit product
 router.delete('/api/v1/products/:id', validatProduct.deleteProduct, productController.deleteProduct); //Delete product
 router.get('/api/v1/sales', salesController.getSales);                                                // Get all Sales
 router.get('/api/v1/sales/:id', validateSales.getOneSales, salesController.getOneSale);               // Get one sales
 router.post('/api/v1/sales', validateSales.postSales, salesController.postSales);                     // Post Sales
+&nbsp;
+// ATTENDANTS ROUTE USING POSTGRESS
+router.post('/api/v1/attendants', attendants.addAttendants);
+router.post('/api/v1/attendants/auth/signin', validateAttendant.validateSignIn, attendantToken.createToken, attendants.signInAttendants);
+router.post('/api/v1/admin/auth/signin', AdminToken.createToken, adminSignIn);
+router.post('/api/v1/products', validatProduct.postProduct, productController.postProduct); //Post Products
+router.get('/api/v1/products', productController.getProducts);                                        //Get all Products
+router.get('/api/v1/products/:id', validatProduct.getOneProduct, productController.getOneProduct);    // Get single product
+router.put('/api/v1/products/:id', validatProduct.editProduct, productController.putProducts );       // Edit product
 &nbsp;
 export default router;
 &nbsp;
@@ -115,7 +145,7 @@ export default router;
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sat Oct 27 2018 23:24:45 GMT-0700 (Pacific Daylight Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Wed Oct 31 2018 11:23:50 GMT-0700 (Pacific Daylight Time)
 </div>
 </div>
 <script src="..\prettify.js"></script>
