@@ -1,13 +1,17 @@
 
 import { products } from '../model/data';
 import { addProduct } from '../model/products';
+import { getAllProducts } from '../model/products';
 
 export default class productController{
     static getProducts(req, res){  // GET ALL PRODUCTS
-        return res.status(200).json({
-            message: 'ALL PRODUCTS',
-            products
-        }); 
+        getAllProducts()
+            .then((allProducts) => {
+                return res.status(200).json({
+                    message: 'ALL PRODUCTS',
+                    products: allProducts
+                });
+            });         
     }
     static getOneProduct(req, res){  // GET ONE PRODUCT
         const ID = req.params.id;

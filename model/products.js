@@ -55,6 +55,16 @@ const addProduct =(name, price, quantity, type, category) => { // ==============
     return addedProduct;
 };
 
+const  getAllProducts = () =>{    
+    const queryText = 'SELECT * FROM products';
+    const product = pool.query(queryText)
+        .then((res) => {          
+            return new Promise((resolve) =>{                
+                resolve(res.rows[0]);
+            });
+        });
+    return product;
+};
 const  getOneProduct = () =>{    
     const queryText = 'SELECT * FROM products WHERE name=$1';
     const product = pool.query(queryText, ['Luna Milk'])
@@ -81,6 +91,7 @@ const dropProductsTable = () => { // ===========================================
 module.exports = {
     createProductsTable,
     addProduct,
+    getAllProducts,
     dropProductsTable,
     getOneProduct
 };
