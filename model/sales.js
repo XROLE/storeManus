@@ -82,13 +82,28 @@ const  getAllSales = () =>{
 };
 
 
+/**
+  * =============================== GET ONE PRODUCTS
+*/
 
+const  getOneSales = (id) =>{    
+    const queryText = 'SELECT * FROM sales WHERE id=$1';
+    const sale = pool.query(queryText, id)
+        .then((res) => {          
+            return new Promise((resolve) =>{
+                resolve(res.rows[0]);
+            });
+        });
+
+    return sale;
+};
 
 
 module.exports = {
     createSalesTable,
     addSales,
-    getAllSales   
+    getAllSales ,
+    getOneSales  
 };
 
 require('make-runnable');
