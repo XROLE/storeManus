@@ -1,7 +1,7 @@
 
-import { sales } from '../model/data';
 import { addSales } from '../model/sales';
 import { getAllSales } from '../model/sales';
+import { getOneSales } from '../model/sales';
 
 
 export default class salesController{
@@ -15,12 +15,14 @@ export default class salesController{
             });
     }
     static getOneSale(req, res){ // Get single sales
-        const ID = req.params.id;
-        return res.status(200).json({
-            success: true,
-            message: 'Single sale',
-            ID,
-            sale: sales[ID]
+        const ID = [req.params.id];
+        getOneSales(ID).then((result) => {
+            return res.status(200).json({
+                success: true,
+                message: 'Single sale',
+                ID,
+                sale: result
+            });
         });
     }
     static postSales(req, res){  // Post sales
