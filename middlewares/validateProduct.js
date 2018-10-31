@@ -31,9 +31,9 @@ export default class validateProduct{
         return next();
     }
     static postProduct(req, res, next){
-        const { Name, Type, Price, Category } = req.body;
+        const { name, type, price, category } = req.body;
              
-        if(isEmpty((Name || Type || Price || Category )) || isEmpty((Name && Type && Price && Category)) ){
+        if(isEmpty((name ||type || price || category )) || isEmpty((name && type && price && category)) ){
             return res.status(400).json({
                 Success: false,
                 Message: 'No empty field is allowed. Please make sure you fill all fields'
