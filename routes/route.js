@@ -15,7 +15,6 @@ router.get('/', (req, res) => res.send('Welcome to StoreManus API Home page. Go 
 
 
 
-router.get('/api/v1/sales/:id', validateSales.getOneSales, salesController.getOneSale);               // Get one sales
 
 
 // ATTENDANTS ROUTE USING POSTGRESS
@@ -29,5 +28,6 @@ router.put('/api/v1/products/:id', validatProduct.editProduct, productController
 router.delete('/api/v1/products/:id', validatProduct.deleteProduct, productController.deleteProduct); //Delete product
 router.post('/api/v1/sales', validateSales.postSales, salesController.postSales);                     // Post Sales
 router.get('/api/v1/sales', salesController.getSales);                                                // Get all Sales
+router.get('/api/v1/sales/:id', validateSales.getOneSales, salesController.getOneSale);               // Get one sales
 export default router;
 
