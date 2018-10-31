@@ -64,7 +64,22 @@ const addSales =(attendant, name, price, quantity, type, category, total) => {
         });
     return addedProduct;
 };
-
+/**
+* =============================== GET ALL SALES
+*/
+const  getAllSales = () =>{     
+    const queryText = 'SELECT * FROM sales';
+    const sales = pool.query(queryText)
+        .then((res) => {          
+            return new Promise((resolve) =>{                
+                resolve(res.rows);
+            });
+        })
+        .catch((e) => {
+            console.log(e);
+        });
+    return sales;
+};
 
 
 
@@ -72,7 +87,8 @@ const addSales =(attendant, name, price, quantity, type, category, total) => {
 
 module.exports = {
     createSalesTable,
-    addSales    
+    addSales,
+    getAllSales   
 };
 
 require('make-runnable');

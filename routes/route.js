@@ -14,7 +14,7 @@ const router = Router();
 router.get('/', (req, res) => res.send('Welcome to StoreManus API Home page. Go to /api/v1/users/products to view all products'));
 
 
-router.get('/api/v1/sales', salesController.getSales);                                                // Get all Sales
+
 router.get('/api/v1/sales/:id', validateSales.getOneSales, salesController.getOneSale);               // Get one sales
 
 
@@ -28,5 +28,6 @@ router.get('/api/v1/products/:id', validatProduct.getOneProduct, productControll
 router.put('/api/v1/products/:id', validatProduct.editProduct, productController.putProducts );       // Edit product
 router.delete('/api/v1/products/:id', validatProduct.deleteProduct, productController.deleteProduct); //Delete product
 router.post('/api/v1/sales', validateSales.postSales, salesController.postSales);                     // Post Sales
+router.get('/api/v1/sales', salesController.getSales);                                                // Get all Sales
 export default router;
 

@@ -92,7 +92,6 @@ describe('STOREMANUS', () => {  // ====================================== Empty 
                     expect(res).to.not.redirect;
                     expect(res.body).to.be.an('object');
                     expect(res.body).to.have.property('sales');
-                    // expect(res.body.products).to.be.empty;
                     done();
                 });
         });

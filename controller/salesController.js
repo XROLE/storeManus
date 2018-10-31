@@ -1,14 +1,18 @@
 
 import { sales } from '../model/data';
 import { addSales } from '../model/sales';
+import { getAllSales } from '../model/sales';
 
 
 export default class salesController{
     static getSales(req, res){  // Get all sales
-        return res.status(200).json({
-            message: 'ALL SALES',
-            sales
-        }); 
+        getAllSales()
+            .then((sales) => {
+                return res.status(200).json({
+                    message: 'ALL PRODUCTS',
+                    sales
+                });
+            });
     }
     static getOneSale(req, res){ // Get single sales
         const ID = req.params.id;
