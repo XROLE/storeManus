@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "start": "node --require babel-register server/app.js",
-    "test": " nyc ---reporter=html --reporter=text mocha --timeout 10000 --exit --require babel-register test/test.js",
+    "test": " nyc ---reporter=html --reporter=text mocha --timeout 10000 --exit --require babel-register test/*",
     "start-pro": "node server/app.js",
     "coveralls": "node ./node_modules/coveralls/bin/coveralls.js ./coverage/lcov.info",
     "coverage": "nyc npm test && nyc report --reporter=text-lcov | coveralls",

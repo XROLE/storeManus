@@ -20,9 +20,9 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">47.22% </span>
+        <span class="strong">32.35% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>17/36</span>
+        <span class='fraction'>11/34</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -30,14 +30,14 @@
         <span class='fraction'>0/0</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">26.67% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>4/15</span>
+        <span class='fraction'>0/15</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">47.22% </span>
+        <span class="strong">32.35% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>17/36</span>
+        <span class='fraction'>11/34</span>
       </div>
     </div>
     <p class="quiet">
@@ -159,10 +159,7 @@
 <a name='L111'></a><a href='#L111'>111</a>
 <a name='L112'></a><a href='#L112'>112</a>
 <a name='L113'></a><a href='#L113'>113</a>
-<a name='L114'></a><a href='#L114'>114</a>
-<a name='L115'></a><a href='#L115'>115</a>
-<a name='L116'></a><a href='#L116'>116</a>
-<a name='L117'></a><a href='#L117'>117</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L114'></a><a href='#L114'>114</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
@@ -172,7 +169,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -200,10 +197,8 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -223,7 +218,6 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -232,17 +226,17 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -287,8 +281,8 @@ const pool = new Pool({
     connectionString: process.env.DB_URI
 });
 &nbsp;
-pool.on('connect', () =&gt; {
-    console.log('connected to the db');
+pool.on('connect', <span class="fstat-no" title="function not covered" >() =&gt; </span>{
+<span class="cstat-no" title="statement not covered" >    console.log('connected to the db');</span>
 });
 &nbsp;
 /**
@@ -316,11 +310,9 @@ const <span class="fstat-no" title="function not covered" >createSalesTable = (<
 <span class="cstat-no" title="statement not covered" >    pool.query(queryText)</span>
         .then(<span class="fstat-no" title="function not covered" >(</span>res) =&gt; {
 <span class="cstat-no" title="statement not covered" >            console.log(res);</span>
-<span class="cstat-no" title="statement not covered" >            pool.end();</span>
         })
         .catch(<span class="fstat-no" title="function not covered" >(</span>err) =&gt; {
 <span class="cstat-no" title="statement not covered" >            console.log(err);</span>
-<span class="cstat-no" title="statement not covered" >            pool.end();</span>
         });
 };
 &nbsp;
@@ -338,7 +330,6 @@ const <span class="fstat-no" title="function not covered" >addSales =(</span>att
 <span class="cstat-no" title="statement not covered" >            return new Promise(<span class="fstat-no" title="function not covered" >(</span>resolve) =&gt;{</span>
 <span class="cstat-no" title="statement not covered" >                resolve(res.rows[0]);</span>
             });
-            // pool.end();
         }).catch(<span class="fstat-no" title="function not covered" >(</span>e) =&gt; {
 <span class="cstat-no" title="statement not covered" >            console.log(e); </span>
         });
@@ -347,18 +338,18 @@ const <span class="fstat-no" title="function not covered" >addSales =(</span>att
 /**
 * =============================== GET ALL SALES
 */
-const  getAllSales = () =&gt;{     
-    const queryText = 'SELECT * FROM sales';
-    const sales = pool.query(queryText)
-        .then((res) =&gt; {          
-            return new Promise((resolve) =&gt;{                
-                resolve(res.rows);
+const  <span class="fstat-no" title="function not covered" >getAllSales = (</span>) =&gt;{     
+    const queryText = <span class="cstat-no" title="statement not covered" >'SELECT * FROM sales';</span>
+    const sales = <span class="cstat-no" title="statement not covered" >pool.query(queryText)</span>
+        .then(<span class="fstat-no" title="function not covered" >(</span>res) =&gt; {          
+<span class="cstat-no" title="statement not covered" >            return new Promise(<span class="fstat-no" title="function not covered" >(</span>resolve) =&gt;{                </span>
+<span class="cstat-no" title="statement not covered" >                resolve(res.rows);</span>
             });
         })
         .catch(<span class="fstat-no" title="function not covered" >(</span>e) =&gt; {
 <span class="cstat-no" title="statement not covered" >            console.log(e);</span>
         });
-    return sales;
+<span class="cstat-no" title="statement not covered" >    return sales;</span>
 };
 &nbsp;
 &nbsp;
@@ -400,7 +391,7 @@ require('make-runnable');
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Wed Oct 31 2018 15:35:50 GMT-0700 (Pacific Daylight Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Wed Oct 31 2018 22:44:19 GMT-0700 (Pacific Daylight Time)
 </div>
 </div>
 <script src="..\prettify.js"></script>

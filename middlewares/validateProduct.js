@@ -24,8 +24,8 @@ export default class validateProduct{
 
         if(!isNumber(product_id)){
             return res.status(400).json({
-                success: false,
-                message: 'Product id must be valid number'
+                Success: false,
+                Message: 'Bad request!, Product id must be valid number'
             });
         }
         return next();
@@ -68,7 +68,7 @@ export default class validateProduct{
     static deleteProduct(req, res, next){
         const product_id = req.params.id;
         if(product_id.length > 3){
-            return res.status(400).json({
+            return res.status(401).json({
                 Success: false,
                 Message: 'Product id is too long'
             });
