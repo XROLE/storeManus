@@ -1,6 +1,6 @@
 import chai from 'chai';
 import chaiHttp from 'chai-http';
-import server from '../server/app';
+import server from '../app';
 import jwt from 'jsonwebtoken';
 
 

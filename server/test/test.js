@@ -2,7 +2,7 @@ import chai from 'chai';
 import chaiHttp from 'chai-http';
 import { products } from '../model/data';
 import { sales } from '../model/data';
-import server from '../server/app';
+import server from '../app';
 import { isNumber } from '../middlewares/validate';
 import { isValidNum } from '../middlewares/validate';
 import { isEmpty } from '../middlewares/validate';
