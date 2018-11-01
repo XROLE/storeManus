@@ -11,8 +11,7 @@ class attendantToken{
                 const { id, firstname, lastname, email, password, phoneno, gender, profilepics  } = result; 
                 
                 // CHECK PASSWORD MATCH
-                if(pass !== password){
-                
+                if(pass !== password){                
                     return res.status(400).json({
                         Success: false,
                         Message: 'Password do not match. Please enter the correct password'

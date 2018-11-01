@@ -31,11 +31,9 @@ const createAttendantTable = () => { // ======================================= 
     pool.query(queryText)
         .then((res) => {
             console.log(res);
-            pool.end();
         })
         .catch((err) => {
-            console.log(err);
-            pool.end();
+            console.log(err);         
         });
 };
 
@@ -43,11 +41,16 @@ const addAttendants =(firstName, lastName, email, password) => { // ============
     
     const queryText = 'INSERT INTO attendants(firstName, lastName, email, password, phoneNo, gender, profilePics) VALUES($1, $2, $3, $4, $5, $6, $7) RETURNING *';
     const values = [firstName, lastName, email, password, '11111111111', 'update', 'add profile pics'];
-    pool.query(queryText, values)
+    const addedAttendant = pool.query(queryText, values)
         .then((res) => {
-            console.log('record insereted successfully, res: ', res.rows[0]);
-            pool.end();
+            return new Promise((resolve) => {
+                resolve(res.rows[0]);                
+            }); 
+        })
+        .catch((e) => {
+            console.log(e);
         });
+    return addedAttendant;
 };
 
 
@@ -58,6 +61,9 @@ const  getOneAttendant = (email) =>{
             return new Promise((resolve) =>{
                 resolve(res.rows[0]);
             });
+        })
+        .catch((e) => {
+            console.log(e);
         });
     return attendant;
 };
@@ -66,28 +72,11 @@ const dropAttendantsTable = () => { // =========================================
     pool.query(queryText)
         .then((res) => {
             console.log(res);
-            pool.end();
         })
         .catch((err) => {
-            console.log(err);
-            pool.end();
+            console.log(err);           
         });
 };
-
-
-
-
-
-
-// const addAdmin =() => {
-//     const queryText = 'INSERT INTO admin(id, email, password) VALUES($1, $2, $3) RETURNING *';
-//     const values = ['45745c60-7b1a-11e8-9c9c-2d42b21b1a3e', 'xrolediamond@gmail.com', 'xrolevalsido2634'];
-//     pool.query(queryText, values)
-//         .then((res) => {
-//             console.log('record insereted successfully, res: ', res);
-//             pool.end();
-//         });
-// };
 
 
 

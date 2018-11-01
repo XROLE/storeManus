@@ -4,8 +4,8 @@ import { isEmail } from './validate';
 
 class validateAttendant{
     static validateSignIn(req, res, next){
-        const {email, password} = req.body;
-        if(isEmpty(email) || isEmpty(password)){
+        const {email, password, firstName, lastName} = req.body;
+        if(isEmpty(email) || isEmpty(password) || isEmpty(firstName) || isEmpty(lastName) ){
             return res.status(400).json({
                 Success: false,
                 Message: 'No empty field is allowed. Please make sure you fill all fields'

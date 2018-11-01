@@ -36,11 +36,9 @@ const createSalesTable = () => {
     pool.query(queryText)
         .then((res) => {
             console.log(res);
-            pool.end();
         })
         .catch((err) => {
             console.log(err);
-            pool.end();
         });
 };
 
@@ -58,7 +56,6 @@ const addSales =(attendant, name, price, quantity, type, category, total) => {
             return new Promise((resolve) =>{
                 resolve(res.rows[0]);
             });
-            // pool.end();
         }).catch((e) => {
             console.log(e); 
         });

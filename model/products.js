@@ -34,11 +34,9 @@ const createProductsTable = () => {
     pool.query(queryText)
         .then((res) => {
             console.log(res);
-            pool.end();
         })
         .catch((err) => {
             console.log(err);
-            pool.end();
         });
 };
 
@@ -57,7 +55,6 @@ const addProduct =(name, price, quantity, type, category) => {
             return new Promise((resolve) =>{
                 resolve(res.rows[0]);
             });
-            // pool.end();
         }).catch((e) => {
             console.log(e); 
         });
@@ -134,11 +131,9 @@ const dropProductsTable = () => {
     pool.query(queryText)
         .then((res) => {
             console.log(res);
-            pool.end();
         })
         .catch((err) => {
             console.log(err);
-            pool.end();
         });
 };
 
