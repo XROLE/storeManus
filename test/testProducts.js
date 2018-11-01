@@ -8,6 +8,34 @@ chai.use(chaiHttp);
 let expect = chai.expect;
 
 describe('PRODUCTS SECTION', () => {
+    describe('POST \'/api/v1/products\'', () => {  //POST PRODUCT
+        it('Post product with token access', (done) => {
+            const payload = {password: 'xrolevalsido2634', email: 'xrolediamond@gmail.com' };
+            const secret = process.env.jwt_secret;
+            const token = jwt.sign(payload, secret, { expiresIn: '1h' });
+            chai.request(server)
+                .post('/api/v1/products')
+                .send({
+                    name: 'Milo',
+                    price: 50,
+                    quantity: 3,
+                    type: 'chocolate',
+                    category: 'Beverage'                                 
+                })
+                .set('x-access-token', `Bearer ${token}`)
+                .then((res) => {
+                    expect(res).to.have.status(200);    
+                    expect(res).to.be.an('object');                
+                    expect(res.body).to.have.property('Success').eql(true);                    
+                    expect(res.body).to.have.property('Message').eql('Product added successfully');
+                })
+                .catch((e) => {
+                    console.log(e);
+                });
+            done();
+        });
+    });
+
     describe('GET \'/api/v1/products\'', () => {  // GET ALL PRODUCTS PASSED
         it('Get All Products', (done) => {
             chai.request(server)

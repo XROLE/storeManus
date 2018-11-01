@@ -9,8 +9,9 @@ export default class salesController{
         getAllSales()
             .then((sales) => {
                 return res.status(200).json({
-                    message: 'ALL PRODUCTS',
-                    sales
+                    Success: true,
+                    Message: 'ALL SALES',
+                    Sales:sales
                 });
             });
     }
@@ -18,8 +19,8 @@ export default class salesController{
         const ID = [req.params.id];
         getOneSales(ID).then((result) => {
             return res.status(200).json({
-                success: true,
-                message: 'Single sale',
+                Success: true,
+                Message: 'Single sale',
                 ID,
                 sale: result
             });
@@ -30,8 +31,8 @@ export default class salesController{
         addSales( attendant, name, price, quantity, type, category, total)
             .then((response) => {
                 return res.status(200).json({
-                    success: true,
-                    message: 'Sales added succesfully',
+                    Success: true,
+                    Message: 'Sales added succesfully',
                     sale: response
                 });                
             });     
