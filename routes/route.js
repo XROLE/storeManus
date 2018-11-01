@@ -13,7 +13,7 @@ import checkToken from '../middlewares/auth/checkToken';
 const router = Router();
 
 router.get('/', (req, res) => res.send('Welcome to StoreManus API Home page. Go to /api/v1/users/products to view all products'));
-router.post('/api/v1/attendants', AdminToken.checkToken, validateAttendant.validateSignIn, attendants.addAttendants);      // add attendants
+router.post('/api/v1/attendants',  checkToken, validateAttendant.validateSignIn, attendants.addAttendants);      // add attendants
 router.post('/api/v1/attendants/auth/signin',  validateAttendant.validateSignIn, attendantToken.createToken, attendants.signInAttendants);
 router.post('/api/v1/admin/auth/signin', AdminToken.createToken, adminSignIn);
 router.post('/api/v1/products', checkToken, validatProduct.postProduct, productController.postProduct);                      //Post Products

@@ -11,10 +11,7 @@ class attendants {
                     Message: 'You have successfully added an attendant',
                     attendants: addedAttendant
                 });
-            })
-            .catch((e) => {
-                console.log(e);
-            });
+            });            
     }
     static signInAttendants(req, res){
         const Token = req.token;       

@@ -35,22 +35,26 @@ describe('STOREMANUS', () => {  // ====================================== Empty 
     });
     
   
-    // describe('POST \'/api/v1/sales\'', () => { 
-    //     it('Post Sales', (done) => {
-    //         chai.request(server)
-    //             .post('/api/v1/sales')
-    //             .end((err, res) => {
-    //                 expect(err).to.be.null;
-    //                 expect(res).to.have.headers;
-    //                 expect(res).to.have.status(400);
-    //                 expect(res).to.not.redirect;
-    //                 expect(res).to.be.an('object');
-    //                 expect(res.body).to.have.property('Success').eql(false);                    
-    //                 expect(res.body).to.have.property('Message').eql('No empty field is allowed. Please make sure you fill all fields');
-    //                 done();
-    //             });
-    //     });
-    // });
+    describe('POST \'/api/v1/admin/auth/signin\'', () => { 
+        it('Admin sign in', (done) => {
+            chai.request(server)
+                .post('/api/v1/admin/auth/signin')
+                .send({
+                    mail: 'xrolediamond@gmail.com',
+                    pass: 'xrolevalsido2634'                                                   
+                })            
+                .end((err, res) => {
+                    expect(err).to.be.null;
+                    expect(res).to.have.headers;
+                    expect(res).to.have.status(200);
+                    expect(res).to.not.redirect;
+                    expect(res).to.be.an('object');
+                    expect(res.body).to.have.property('Success').eql(true);                    
+                    expect(res.body).to.have.property('Message').eql('You are successfully signed in');
+                    done();
+                });
+        });
+    });
     
     // describe('PUT \'/api/v1/products/:id\'', () => {  // DO NOT EDIT PRODUCT WHEN THE ID IS NOT A NUMBER
     //     it('Do not edit product when ID is not a number', (done) => { 

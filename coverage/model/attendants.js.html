@@ -20,9 +20,9 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">33.33% </span>
+        <span class="strong">63.64% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>11/33</span>
+        <span class='fraction'>21/33</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -30,21 +30,21 @@
         <span class='fraction'>0/0</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">33.33% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>0/15</span>
+        <span class='fraction'>5/15</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">33.33% </span>
+        <span class="strong">63.64% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>11/33</span>
+        <span class='fraction'>21/33</span>
       </div>
     </div>
     <p class="quiet">
       Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
     </p>
   </div>
-  <div class='status-line low'></div>
+  <div class='status-line medium'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -153,7 +153,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -184,9 +184,9 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -195,22 +195,22 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -249,8 +249,8 @@ const pool = new Pool({
     connectionString: process.env.DEV_DB_URI
 });
 &nbsp;
-pool.on('connect', <span class="fstat-no" title="function not covered" >() =&gt; </span>{
-<span class="cstat-no" title="statement not covered" >    console.log('connected to the db');</span>
+pool.on('connect', () =&gt; {
+    console.log('connected to the db');
 });
 &nbsp;
 /**
@@ -279,11 +279,11 @@ const <span class="fstat-no" title="function not covered" >createAttendantTable 
         });
 };
 &nbsp;
-const <span class="fstat-no" title="function not covered" >addAttendants =(</span>firstName, lastName, email, password) =&gt; { // ========================================================== Insert into attendants table
+const addAttendants =(firstName, lastName, email, password) =&gt; { // ========================================================== Insert into attendants table
     
-    const queryText = <span class="cstat-no" title="statement not covered" >'INSERT INTO attendants(firstName, lastName, email, password, phoneNo, gender, profilePics) VALUES($1, $2, $3, $4, $5, $6, $7) RETURNING *';</span>
-    const values = <span class="cstat-no" title="statement not covered" >[firstName, lastName, email, password, '11111111111', 'update', 'add profile pics'];</span>
-    const addedAttendant = <span class="cstat-no" title="statement not covered" >pool.query(queryText, values)</span>
+    const queryText = 'INSERT INTO attendants(firstName, lastName, email, password, phoneNo, gender, profilePics) VALUES($1, $2, $3, $4, $5, $6, $7) RETURNING *';
+    const values = [firstName, lastName, email, password, '11111111111', 'update', 'add profile pics'];
+    const addedAttendant = pool.query(queryText, values)
         .then(<span class="fstat-no" title="function not covered" >(</span>res) =&gt; {
 <span class="cstat-no" title="statement not covered" >            return new Promise(<span class="fstat-no" title="function not covered" >(</span>resolve) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >                resolve(res.rows[0]);                </span>
@@ -292,22 +292,22 @@ const <span class="fstat-no" title="function not covered" >addAttendants =(</spa
         .catch(<span class="fstat-no" title="function not covered" >(</span>e) =&gt; {
 <span class="cstat-no" title="statement not covered" >            console.log(e);</span>
         });
-<span class="cstat-no" title="statement not covered" >    return addedAttendant;</span>
+    return addedAttendant;
 };
 &nbsp;
 &nbsp;
-const  <span class="fstat-no" title="function not covered" >getOneAttendant = (</span>email) =&gt;{    
-    const queryText = <span class="cstat-no" title="statement not covered" >'SELECT * FROM attendants WHERE email=$1';</span>
-    const attendant = <span class="cstat-no" title="statement not covered" >pool.query(queryText, email)</span>
-        .then(<span class="fstat-no" title="function not covered" >(</span>res) =&gt; {          
-<span class="cstat-no" title="statement not covered" >            return new Promise(<span class="fstat-no" title="function not covered" >(</span>resolve) =&gt;{</span>
-<span class="cstat-no" title="statement not covered" >                resolve(res.rows[0]);</span>
+const  getOneAttendant = (email) =&gt;{    
+    const queryText = 'SELECT * FROM attendants WHERE email=$1';
+    const attendant = pool.query(queryText, email)
+        .then((res) =&gt; {          
+            return new Promise((resolve) =&gt;{
+                resolve(res.rows[0]);
             });
         })
         .catch(<span class="fstat-no" title="function not covered" >(</span>e) =&gt; {
 <span class="cstat-no" title="statement not covered" >            console.log(e);</span>
         });
-<span class="cstat-no" title="statement not covered" >    return attendant;</span>
+    return attendant;
 };
 const <span class="fstat-no" title="function not covered" >dropAttendantsTable = (</span>) =&gt; { // ====================================================== Drop attendants table
     const queryText = <span class="cstat-no" title="statement not covered" >'DROP TABLE IF EXISTS attendants';</span>
@@ -343,7 +343,7 @@ require('make-runnable');
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Wed Oct 31 2018 23:34:44 GMT-0700 (Pacific Daylight Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Nov 01 2018 05:58:43 GMT-0700 (Pacific Daylight Time)
 </div>
 </div>
 <script src="..\prettify.js"></script>

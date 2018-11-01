@@ -1,6 +1,7 @@
 import chai from 'chai';
 import chaiHttp from 'chai-http';
 import server from '../server/app';
+import jwt from 'jsonwebtoken';
 
 
 chai.use(chaiHttp);
@@ -21,6 +22,31 @@ describe('PRODUCTS SECTION', () => {
                     expect(res.body).to.have.property('Message').eql('Unauthorized user access');                    
                     done();
                 });
+        });
+    });
+    describe('GET \'/api/v1/products\'', () => {  // GET ALL PRODUCTS 
+        it('Get All Products with token', (done) => {
+            const payload = {password: 'xrolevalsido2634', email: 'xrolediamond@gmail.com' };
+            const secret = process.env.jwt_secret;
+            const token = jwt.sign(payload, secret, { expiresIn: '1h' }); 
+            chai.request(server)
+                .get('/api/v1/products')
+                .send({
+                    name: 'Luois',
+                    price: 300,
+                    quantity: 4,
+                    type: 'sugar',
+                    category: 'Beverage',
+                                                     
+                })
+                .set('x-access-token', `Bearer ${token}`)
+                .then((response) => {
+                    expect(response).to.have.status(200);
+                })
+                .catch((e) => {
+                    console.log(e);
+                });
+            done();
         });
     });
 
