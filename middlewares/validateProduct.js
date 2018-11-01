@@ -5,23 +5,10 @@ export default class validateProduct{
         const product_id = req.params.id;       
         if(product_id.length > 3){
             return res.status(400).json({
-                success: false,
-                message: 'product id is too long'
+                Success: false,
+                Message: 'Bad request. Product id is not recognise'
             });
-        }
-        if(product_id ===''){
-            return res.status(400).json({
-                success: false,
-                message: 'Please insert product id'
-            });
-        }
-        if(isEmpty(product_id)){
-            return res.status(400).json({
-                success: false,
-                message: 'Please insert product id'
-            });
-        }
-
+        }       
         if(!isNumber(product_id)){
             return res.status(400).json({
                 Success: false,
@@ -50,13 +37,6 @@ export default class validateProduct{
             });
         }
        
-        if(isEmpty(product_id)){
-            return res.status(400).json({
-                success: false,
-                message: 'Please insert product id'
-            });
-        }
-
         if(!isNumber(product_id)){
             return res.status(400).json({
                 Success: false,
@@ -76,8 +56,8 @@ export default class validateProduct{
                
         if(!isNumber(product_id)){
             return res.status(400).json({
-                success: false,
-                message: 'Product id must be valid number'
+                Success: false,
+                Message: 'Product id must be valid number'
             });
         }
         next();
