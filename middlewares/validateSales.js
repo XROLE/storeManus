@@ -1,6 +1,6 @@
 import { isNumber, isEmpty} from './validate';
 
-export default class validateSales {
+export default class ValidateSales {
     static postSales(req, res, next){
         const {attendant, name, price, quantity, type, category, total } = req.body;
         if(isEmpty((attendant, name || price || quantity || type || category || total)) || isEmpty((attendant, name && price && quantity && type && category, total)) ){

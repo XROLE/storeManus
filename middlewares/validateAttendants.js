@@ -2,7 +2,7 @@ import { isEmpty } from './validate';
 import { isEmail } from './validate';
 
 
-class validateAttendant{
+class ValidateAttendant{
     static validateSignIn(req, res, next){
         const {email, password } = req.body;
         if(isEmpty(email) || isEmpty(password) ){
@@ -21,4 +21,4 @@ class validateAttendant{
     }
 }
 
-export default validateAttendant;
+export default ValidateAttendant;
