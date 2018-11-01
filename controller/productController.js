@@ -9,8 +9,9 @@ export default class productController{
         getAllProducts()
             .then((allProducts) => {
                 return res.status(200).json({
-                    message: 'ALL PRODUCTS',
-                    products: allProducts
+                    Success: true,
+                    Message: 'ALL PRODUCTS',
+                    Products: allProducts
                 });
             });         
     }
@@ -47,8 +48,7 @@ export default class productController{
         const type = req.body.type;            
         const category = req.body.category; 
         editProduct(name, price, quantity, type, category, id)
-            .then((update) => {
-                console.log( 'Login out updated product: ', update);
+            .then((update) => {             
                 return res.status(200).json({
                     Success: true,
                     Message: 'Product edited successfully',
@@ -62,8 +62,8 @@ export default class productController{
         const ID = [req.params.id];
         deleteOneProduct(ID);        
         return res.status(200).json({
-            success: true,
-            message: 'Product deleted succesfully'
+            Success: true,
+            Message: 'Product deleted succesfully'
         });
     }
 }

@@ -49,6 +49,113 @@ describe('PRODUCTS SECTION', () => {
             done();
         });
     });
+    describe('PUT \'/api/v1/products/:id\'', () => {  // GET ALL PRODUCTS 
+        it('Edit Products with token', (done) => {
+            const payload = {password: 'xrolevalsido2634', email: 'xrolediamond@gmail.com' };
+            const secret = process.env.jwt_secret;
+            const token = jwt.sign(payload, secret, { expiresIn: '1h' }); 
+            chai.request(server)
+                .put('/api/v1/products/1')
+                .send({
+                    name: 'Luois',
+                    price: 300,
+                    quantity: 4,
+                    type: 'Beverag',
+                    category: 'Beverage',
+                    id: 1
+                                                     
+                })
+                .set('x-access-token', `Bearer ${token}`)
+                .then((response) => {
+                    expect(response).to.have.status(200);
+                })
+                .catch((e) => {
+                    console.log(e);
+                });
+            done();
+        });
+    });
+    describe('DELETE \'/api/v1/products/:id\'', () => {  // GET ALL PRODUCTS 
+        it('Delete Products with token', (done) => {
+            const payload = {password: 'xrolevalsido2634', email: 'xrolediamond@gmail.com' };
+            const secret = process.env.jwt_secret;
+            const token = jwt.sign(payload, secret, { expiresIn: '1h' }); 
+            chai.request(server)
+                .delete('/api/v1/products/1')
+                .set('x-access-token', `Bearer ${token}`)
+                .then((res) => {
+                    expect(res).to.have.status(200);
+                    expect(res).to.not.redirect;
+                    expect(res).to.be.an('object');
+                    expect(res.body).to.have.property('Success').eql(true);                    
+                    expect(res.body).to.have.property('Message').eql('Product deleted succesfully');
+                })
+                .catch((e) => {
+                    console.log(e);
+                });
+            done();
+        });
+    });
+    describe('GET \'/api/v1/products/:id\'', () => {  // GET ALL PRODUCTS 
+        it('Get one Products with token', (done) => {
+            const payload = {password: 'xrolevalsido2634', email: 'xrolediamond@gmail.com' };
+            const secret = process.env.jwt_secret;
+            const token = jwt.sign(payload, secret, { expiresIn: '1h' }); 
+            chai.request(server)
+                .get('/api/v1/products/1')
+                .set('x-access-token', `Bearer ${token}`)
+                .then((res) => {
+                    expect(res).to.have.status(200);
+                    expect(res).to.not.redirect;
+                    expect(res).to.be.an('object');
+                    expect(res.body).to.have.property('Success').eql(true);                    
+                    expect(res.body).to.have.property('Message').eql('Products serverd');
+                })
+                .catch((e) => {
+                    console.log(e);
+                });
+            done();
+        });
+    });
+
+    describe('GET \'/api/v1/products/:id\'', () => {  // GET ONE PRODUCT PASSED
+        it('Get one Product', () => {
+            chai.request(server)
+                .get('/api/v1/products/1')
+                .end((err, res) => {
+                    expect(err).to.be.null;
+                    expect(res).to.have.headers;
+                    expect(res).to.have.status(401);
+                    expect(res).to.not.redirect;
+                    expect(res).to.be.an('object');
+                    expect(res.body).to.have.property('Success').eql(false);                    
+                    expect(res.body).to.have.property('Message').eql('Unauthorized user access');
+                   
+                });
+        });
+    });
+    describe('GET \'/api/v1/products\'', () => {  // GET ALL PRODUCTS 
+        it('Get all Products with token', (done) => {
+            const payload = {password: 'xrolevalsido2634', email: 'xrolediamond@gmail.com' };
+            const secret = process.env.jwt_secret;
+            const token = jwt.sign(payload, secret, { expiresIn: '1h' }); 
+            chai.request(server)
+                .get('/api/v1/products')
+                .set('x-access-token', `Bearer ${token}`)
+                .then((res) => {
+                    expect(res).to.have.status(200);
+                    expect(res).to.not.redirect;
+                    expect(res).to.be.an('object');
+                    expect(res.body).to.have.property('Products');                    
+                    expect(res.body).to.have.property('Success').eql(true);                    
+                    expect(res.body).to.have.property('Message').eql('ALL PRODUCTS');
+                })
+                .catch((e) => {
+                    console.log(e);
+                });
+            done();
+        });
+    });
 
     describe('GET \'/api/v1/products/:id\'', () => {  // GET ONE PRODUCT PASSED
         it('Get one Product', () => {

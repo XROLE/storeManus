@@ -53,8 +53,8 @@ describe('ATTENDANTS SECTION', () => {
                     expect(res.body).to.have.property('Success').eql(true);                    
                     expect(res.body).to.have.property('Message').eql('You are signed in successfuly');
                     expect(res.body).to.have.property('Token');                    
-                    done();
                 });
+            done();
         });
     });
 
