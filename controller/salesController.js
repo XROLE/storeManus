@@ -4,7 +4,7 @@ import { getAllSales } from '../model/sales';
 import { getOneSales } from '../model/sales';
 
 
-export default class salesController{
+export default class SalesController{
     static getSales(req, res){  // Get all sales
         getAllSales()
             .then((sales) => {

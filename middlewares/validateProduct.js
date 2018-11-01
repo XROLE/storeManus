@@ -1,6 +1,6 @@
 import { isNumber, isEmpty} from './validate';
 
-export default class validateProduct{
+export default class ValidateProduct{
     static getOneProduct(req, res, next){
         const product_id = req.params.id;       
         if(product_id.length > 3){

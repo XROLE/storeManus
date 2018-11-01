@@ -1,7 +1,7 @@
 import { addAttendants } from '../model/attendants';
 // import { getOneAttendant } from '../model/attendants';
 
-class attendants {
+class Attendants {
     static addAttendants(req, res){
         const { firstName, lastName, email, password } = req.body;
         addAttendants(firstName, lastName, email, password)
@@ -23,5 +23,5 @@ class attendants {
     }
 }
 
-export default attendants;
+export default Attendants;
 

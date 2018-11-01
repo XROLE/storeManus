@@ -4,7 +4,7 @@ import { getOneProduct } from '../model/products';
 import { editProduct } from '../model/products';
 import { deleteOneProduct } from '../model/products';
 
-export default class productController{
+export default class ProductController{
     static getProducts(req, res){  // GET ALL PRODUCTS
         getAllProducts()
             .then((allProducts) => {

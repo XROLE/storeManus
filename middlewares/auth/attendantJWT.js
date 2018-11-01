@@ -1,7 +1,7 @@
 import jwt from 'jsonwebtoken';
 import { getOneAttendant } from '../../model/attendants';
 
-class attendantToken{
+class AttendantToken{
     static createToken(req, res, next){
         const mail = req.body.email;
         const pass = req.body.password;
@@ -30,7 +30,7 @@ class attendantToken{
     }    
 }
 
-export default attendantToken;
+export default AttendantToken;
 
 
 
