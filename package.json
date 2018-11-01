@@ -9,6 +9,7 @@
     "start-pro": "node server/app.js",
     "coveralls": "node ./node_modules/coveralls/bin/coveralls.js ./coverage/lcov.info",
     "coverage": "nyc npm test && nyc report --reporter=text-lcov | coveralls",
+    "migration": "node --require babel-registere server/models/migration.js" ,
     "createSalesTable": "node --require babel-register server/model/sales createSalesTable",
     "createAttendantTable": "node --require babel-register server/model/sales createSalesTable"
   },
