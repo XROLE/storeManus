@@ -1,6 +1,6 @@
 # STORE MANUS
 
-[![Build Status](https://travis-ci.com/XROLE/storeManus.svg?branch=develop)](https://travis-ci.com/XROLE/storeManus) [![Coverage Status](https://coveralls.io/repos/github/XROLE/storeManus/badge.svg)](https://coveralls.io/github/XROLE/storeManus) [![Maintainability](https://api.codeclimate.com/v1/badges/766810958444bd854cd0/maintainability)](https://codeclimate.com/github/XROLE/storeManus/maintainability)
+[![Build Status](https://travis-ci.com/XROLE/storeManus.svg?branch=develop)](https://travis-ci.com/XROLE/storeManus) [![Coverage Status](https://coveralls.io/repos/github/XROLE/storeManus/badge.svg?branch=develop)](https://coveralls.io/github/XROLE/storeManus?branch=develop) [![Maintainability](https://api.codeclimate.com/v1/badges/766810958444bd854cd0/maintainability)](https://codeclimate.com/github/XROLE/storeManus/maintainability)
 
 Store Manus is a web application that helps store owners manage sales and product inventory records. This application is meant for use in a single store. With Store Manus,
   - Store attendant can search and add products to buyer’s cart.
