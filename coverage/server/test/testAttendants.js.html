@@ -20,9 +20,9 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">65.79% </span>
+        <span class="strong">97.37% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>25/38</span>
+        <span class='fraction'>37/38</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -30,21 +30,21 @@
         <span class='fraction'>0/0</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">72.73% </span>
+        <span class="strong">90.91% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>8/11</span>
+        <span class='fraction'>10/11</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">65.79% </span>
+        <span class="strong">97.37% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>25/38</span>
+        <span class='fraction'>37/38</span>
       </div>
     </div>
     <p class="quiet">
       Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
     </p>
   </div>
-  <div class='status-line medium'></div>
+  <div class='status-line high'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -147,10 +147,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -168,14 +168,14 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -221,11 +221,11 @@ describe('ATTENDANTS SECTION', () =&gt; {
                     password: 'iamachosenone'                                 
                 })
                 .set('x-access-token', `Bearer ${token}`)
-                .then(<span class="fstat-no" title="function not covered" >(</span>res) =&gt; {
-<span class="cstat-no" title="statement not covered" >                    expect(res).to.have.status(200);    </span>
-<span class="cstat-no" title="statement not covered" >                    expect(res).to.be.an('object');                </span>
-<span class="cstat-no" title="statement not covered" >                    expect(res.body).to.have.property('Success').eql(true);                    </span>
-<span class="cstat-no" title="statement not covered" >                    expect(res.body).to.have.property('Message').eql('You have successfully added an attendant');</span>
+                .then((res) =&gt; {
+                    expect(res).to.have.status(200);    
+                    expect(res).to.be.an('object');                
+                    expect(res.body).to.have.property('Success').eql(true);                    
+                    expect(res.body).to.have.property('Message').eql('You have successfully added an attendant');
                 })
                 .catch(<span class="fstat-no" title="function not covered" >(</span>e) =&gt; {
 <span class="cstat-no" title="statement not covered" >                    console.log(e);</span>
@@ -242,15 +242,15 @@ describe('ATTENDANTS SECTION', () =&gt; {
                     email: 'xrolediamond@gmail.com',
                     password: 'xrolevalsido2634'                                                   
                 })  
-                .end(<span class="fstat-no" title="function not covered" >(</span>err, res) =&gt; {
-<span class="cstat-no" title="statement not covered" >                    expect(err).to.be.null;</span>
-<span class="cstat-no" title="statement not covered" >                    expect(res).to.have.headers;</span>
-<span class="cstat-no" title="statement not covered" >                    expect(res).to.have.status(200);</span>
-<span class="cstat-no" title="statement not covered" >                    expect(res).to.not.redirect;</span>
-<span class="cstat-no" title="statement not covered" >                    expect(res).to.be.an('object');</span>
-<span class="cstat-no" title="statement not covered" >                    expect(res.body).to.have.property('Success').eql(true);                    </span>
-<span class="cstat-no" title="statement not covered" >                    expect(res.body).to.have.property('Message').eql('You are signed in successfuly');</span>
-<span class="cstat-no" title="statement not covered" >                    expect(res.body).to.have.property('Token');                    </span>
+                .end((err, res) =&gt; {
+                    expect(err).to.be.null;
+                    expect(res).to.have.headers;
+                    expect(res).to.have.status(200);
+                    expect(res).to.not.redirect;
+                    expect(res).to.be.an('object');
+                    expect(res.body).to.have.property('Success').eql(true);                    
+                    expect(res.body).to.have.property('Message').eql('You are signed in successfuly');
+                    expect(res.body).to.have.property('Token');                    
                 });
             done();
         });
@@ -277,7 +277,7 @@ describe('ATTENDANTS SECTION', () =&gt; {
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Nov 01 2018 13:02:44 GMT-0700 (Pacific Daylight Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sat Nov 03 2018 05:40:11 GMT-0700 (Pacific Daylight Time)
 </div>
 </div>
 <script src="..\..\prettify.js"></script>

@@ -156,6 +156,32 @@ describe('PRODUCTS SECTION', () => {
             done();
         });
     });
+    describe('PUT \'/api/v1/products/:id\'', () => {  // DO NOT EDIT PRODUCT WHEN THE ID IS MORE THAN 999 
+        it('Do not edit Products when the id is more than 999', (done) => {
+            const payload = {password: 'xrolevalsido2634', email: 'xrolediamond@gmail.com' };
+            const secret = process.env.jwt_secret;
+            const token = jwt.sign(payload, secret, { expiresIn: '1h' }); 
+            chai.request(server)
+                .put('/api/v1/products/1000')
+                .send({
+                    name: 'Luois',
+                    price: 300,
+                    quantity: 4,
+                    type: 'Beverag',
+                    category: 'Beverage',
+                    id: 'hgf'
+                                                     
+                })
+                .set('x-access-token', `Bearer ${token}`)
+                .then((response) => {
+                    expect(response).to.have.status(400);
+                })
+                .catch((e) => {
+                    console.log(e);
+                });
+            done();
+        });
+    });
     describe('DELETE \'/api/v1/products/:id\'', () => {  // DELETE PRODUCTS 
         it('Delete Products with token', (done) => {
             const payload = {password: 'xrolevalsido2634', email: 'xrolediamond@gmail.com' };
@@ -350,7 +376,7 @@ describe('PRODUCTS SECTION', () => {
                 });
         });
     });
-    describe('PUT \'/api/v1/products/:id\'', () => {  // DO NOT EDIT PRODUCT WHEN THE ID IS ABOVE 999
+    describe('PUT \'/api/v1/products/:id\'', () => {  // DO NOT EDIT PRODUCT WHEN THE ID IS NOT PROVIDED
         it('Do not edit product when id is not provided', () => { 
             chai.request(server)
                 .put('/api/v1/products/')
@@ -392,6 +418,29 @@ describe('PRODUCTS SECTION', () => {
                     expect(res.body).to.have.property('Message').eql('Unauthorized user access');                   
                     done();
                 });
+        });
+    });
+    
+    describe('GET \'/api/v1/products/:id\'', () => {  // DO NOT DELETE PRODUCT WHEN THE ID IS NOT A NUMBER 
+        it('Get all Products with token', (done) => {
+            const payload = {password: 'xrolevalsido2634', email: 'xrolediamond@gmail.com' };
+            const secret = process.env.jwt_secret;
+            const token = jwt.sign(payload, secret, { expiresIn: '1h' }); 
+            chai.request(server)
+                .get('/api/v1/products/DS')
+                .set('x-access-token', `Bearer ${token}`)
+                .then((res) => {
+                    expect(res).to.have.status(200);
+                    expect(res).to.not.redirect;
+                    expect(res).to.be.an('object');
+                    expect(res.body).to.have.property('Products');                    
+                    expect(res.body).to.have.property('Success').eql(false);                    
+                    expect(res.body).to.have.property('Message').eql('Product id must be valid number');
+                })
+                .catch((e) => {
+                    console.log(e);
+                });
+            done();
         });
     });
 
