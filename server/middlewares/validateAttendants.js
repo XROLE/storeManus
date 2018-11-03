@@ -14,7 +14,7 @@ class ValidateAttendant{
         if(!isEmail(email)){
             return res.status(400).json({
                 Success: false,
-                Message: 'invalid email format'
+                Message: 'Invalid email format'
             });
         }
         return next();
@@ -22,3 +22,4 @@ class ValidateAttendant{
 }
 
 export default ValidateAttendant;
+  

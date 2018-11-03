@@ -23,9 +23,7 @@ class AttendantToken{
                 const token = jwt.sign(payload, secret);  // generating jwt token
                 req.token = token;
                 next();
-            }).catch((e) => {
-                console.log(e);
-            });        
+            });       
                
     }    
 }

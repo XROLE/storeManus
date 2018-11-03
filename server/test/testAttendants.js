@@ -57,6 +57,46 @@ describe('ATTENDANTS SECTION', () => {
             done();
         });
     });
+    describe('POST \'/api/v1/admin/auth/signin\'', () => { // DO NOT SIGN IN ATTENDANT WITH INVALID EMAIL
+        it('Attendant sign in', (done) => {
+            chai.request(server)
+                .post('/api/v1/attendants/auth/signin')
+                .send({
+                    email: 'xrolediamondcom',
+                    password: 'xrolevalsido2634'                                                   
+                })  
+                .end((err, res) => {
+                    expect(err).to.be.null;
+                    expect(res).to.have.headers;
+                    expect(res).to.have.status(400);
+                    expect(res).to.not.redirect;
+                    expect(res).to.be.an('object');
+                    expect(res.body).to.have.property('Success').eql(false);                    
+                    expect(res.body).to.have.property('Message').eql('Invalid email format');
+                });
+            done();
+        });
+    });
+    describe('POST \'/api/v1/admin/auth/signin\'', () => { // DO NOT SIGN IN ATTENDANT WITH WRONG PASSWORD
+        it('Attendant sign in', (done) => {
+            chai.request(server)
+                .post('/api/v1/attendants/auth/signin')
+                .send({
+                    email: 'xrolediamond@gmail.com',
+                    password: 'GSDF'                                                   
+                })  
+                .end((err, res) => {
+                    expect(err).to.be.null;
+                    expect(res).to.have.headers;
+                    expect(res).to.have.status(400);
+                    expect(res).to.not.redirect;
+                    expect(res).to.be.an('object');
+                    expect(res.body).to.have.property('Success').eql(false);                    
+                    expect(res.body).to.have.property('Message').eql('Password do not match. Please enter the correct password');
+                });
+            done();
+        });
+    });
 
 
     describe('GET \'/api/v1/attendants\'', () => {  // ADD ATTENDANT WITHOUT TOKEN

@@ -35,7 +35,27 @@ describe('STOREMANUS', () => {  // ====================================== Empty 
     });
     
   
-    describe('POST \'/api/v1/admin/auth/signin\'', () => { 
+    describe('POST \'/api/v1/admin/auth/signin\'', () => { // SIGN IN ADMIN 
+        it('Admin sign in', (done) => {
+            chai.request(server)
+                .post('/api/v1/admin/auth/signin')
+                .send({
+                    mail: 'xrolediamond@gmil.com',
+                    pass: 'xrolevalsido27'                                                   
+                })            
+                .end((err, res) => {
+                    expect(err).to.be.null;
+                    expect(res).to.have.headers;
+                    expect(res).to.have.status(401);
+                    expect(res).to.not.redirect;
+                    expect(res).to.be.an('object');
+                    expect(res.body).to.have.property('Success').eql(false);                    
+                    expect(res.body).to.have.property('Message').eql('User email or password is incorrect');
+                    done();
+                });
+        });
+    });
+    describe('POST \'/api/v1/admin/auth/signin\'', () => { // DO NOT SIGN IN ADMIN WITH INCORRECT DETAILS
         it('Admin sign in', (done) => {
             chai.request(server)
                 .post('/api/v1/admin/auth/signin')
