@@ -28,10 +28,8 @@ describe('ATTENDANTS SECTION', () => {
                     expect(res).to.be.an('object');                
                     expect(res.body).to.have.property('Success').eql(true);                    
                     expect(res.body).to.have.property('Message').eql('You have successfully added an attendant');
-                })
-                .catch((e) => {
-                    console.log(e);
                 });
+                
             done();
         });
     });
