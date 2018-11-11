@@ -109,6 +109,21 @@ const  getAttendantSales = (attendant) =>{
 
     return sale;
 };
+/**
+  * =============================== GET ONE PRODUCTS
+*/
+
+const  getSalesByDate = (date) =>{    
+    const queryText = 'SELECT * FROM sales WHERE date=$1';
+    const salesByDate = pool.query(queryText, date)
+        .then((res) => {          
+            return new Promise((resolve) =>{
+                resolve(res.rows);
+            });
+        });
+
+    return salesByDate;
+};
 
 
 module.exports = {
@@ -116,7 +131,8 @@ module.exports = {
     addSales,
     getAllSales ,
     getOneSales,
-    getAttendantSales 
+    getAttendantSales,
+    getSalesByDate 
 };
 
 require('make-runnable');

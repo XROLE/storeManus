@@ -3,6 +3,7 @@ import { addSales } from '../model/sales';
 import { getAllSales } from '../model/sales';
 import { getOneSales } from '../model/sales';
 import { getAttendantSales } from '../model/sales';
+import { getSalesByDate } from '../model/sales';
 
 
 export default class SalesController{
@@ -40,6 +41,23 @@ export default class SalesController{
                 Success: true,
                 Message: 'Attendant sale',
                 attendant,
+                sale: result
+            });
+        });
+    }
+    static getSalesByDate(req, res){ // Get sales by date
+        const date = [req.params.date];        
+        getSalesByDate(date).then((result) => {
+            if(result.length === 0){
+                return res.status(200).json({
+                    Success: true,
+                    Message: 'No sales record for on the provided date'
+                });
+            }
+            return res.status(200).json({
+                Success: true,
+                Message: 'Sales record by date',
+                date,
                 sale: result
             });
         });

@@ -10,4 +10,5 @@ const salesRoutes = Router();
 salesRoutes.post('/', checkToken, ValidateSales.postSales, SalesController.postSales);                     // Post Sales
 salesRoutes.get('/', checkToken, SalesController.getSales);                                                // Get all Sales
 salesRoutes.get('/:attendant', checkToken, SalesController.getAttendantSales);               // Get one sales
+salesRoutes.get('/date/:date', checkToken, SalesController.getSalesByDate);               // Get one sales
 export default salesRoutes;
