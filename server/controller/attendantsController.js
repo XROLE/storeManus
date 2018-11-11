@@ -3,6 +3,7 @@ import generatePassword from 'password-generator';
 import { addAttendants } from '../model/attendants';
 import { isEmailInUse } from '../model/attendants';
 import { getAttendants } from '../model/attendants';
+import { getOneAttendantById } from '../model/attendants';
 
 class Attendants {
     static addAttendants(req, res){
@@ -38,6 +39,23 @@ class Attendants {
                     res.status(200).json({
                         Success: true,
                         Message: 'No attendant has been registered yet'
+                    });
+                }
+                return res.status(200).json({
+                    Success: true,
+                    Message: 'Products serverd',                 
+                    attendants
+                });
+            });
+    }
+    static getOneAttendants(req, res){  // GET ONE PRODUCT
+        const id = [req.params.id];
+        getOneAttendantById(id)
+            .then((attendants) => {
+                if(attendants.length === 0){
+                    res.status(200).json({
+                        Success: true,
+                        Message: 'No attendant with such ID exist'
                     });
                 }
                 return res.status(200).json({
