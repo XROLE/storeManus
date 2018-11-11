@@ -1,17 +1,35 @@
+import bcrypt from 'bcrypt';
+import generatePassword from 'password-generator';
 import { addAttendants } from '../model/attendants';
+import { isEmailInUse } from '../model/attendants';
 // import { getOneAttendant } from '../model/attendants';
 
 class Attendants {
     static addAttendants(req, res){
-        const { firstName, lastName, email, password } = req.body;
-        addAttendants(firstName, lastName, email, password)
-            .then((addedAttendant) => {
-                return res.status(200).json({
-                    Success: true,
-                    Message: 'You have successfully added an attendant',
-                    attendants: addedAttendant
+        const [ firstName, lastName, email] =[req.body.firstName.trim(), req.body.lastName.trim(), req.body.email.trim().toLowerCase()] ;
+        const password = generatePassword(20, false);                            // Auto generate password
+        isEmailInUse(email).then(res => res)
+            .then((response) => {
+                if(response.rows.length > 0){                    
+                    return res.status(409).json({
+                        Success: false,
+                        Message: 'Email has already been registered'
+                    });
+                }                
+                bcrypt.hash(password, 10).then((hashpassword) => {                 // has generated password            
+                    addAttendants(firstName, lastName, email, hashpassword)
+                        .then((addedAttendant) => {
+                            return res.status(200).json({
+                                Success: true,
+                                Message: 'You have successfully added an attendant',
+                                firstName: addedAttendant.firstname,
+                                lastName: addedAttendant.lastname,
+                                password
+                            });
+                        });            
                 });
-            });            
+            });
+       
     }
     static signInAttendants(req, res){
         const Token = req.token;       
@@ -24,4 +42,9 @@ class Attendants {
 }
 
 export default Attendants;
+
+
+
+
+
 

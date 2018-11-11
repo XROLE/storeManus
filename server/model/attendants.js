@@ -4,7 +4,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const pool = new Pool({
-    connectionString: process.env.DEV_DB_URI
+    connectionString: process.env.DB_URI
 });
 
 pool.on('connect', () => {
@@ -52,6 +52,11 @@ const addAttendants =(firstName, lastName, email, password) => { // ============
         });
     return addedAttendant;
 };
+const isEmailInUse = (email) => { // ========================================================== Insert into attendants table
+    const queryText = 'SELECT * FROM attendants WHERE email=$1';   
+    return pool.query(queryText, [email]);        
+   
+};
 
 
 const  getOneAttendant = (email) =>{    
@@ -78,20 +83,12 @@ const dropAttendantsTable = () => { // =========================================
         });
 };
 
-
-
 module.exports = {
     createAttendantTable,
     dropAttendantsTable,
     addAttendants,
+    isEmailInUse,
     getOneAttendant  
 };
 
 require('make-runnable');
-
-
-
-
-
-
-
