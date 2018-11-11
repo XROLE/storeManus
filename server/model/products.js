@@ -4,7 +4,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const pool = new Pool({
-    connectionString: process.env.DB_URI
+    connectionString: process.env.DEV_DB_URI
 });
 
 pool.on('connect', () => {
@@ -77,6 +77,22 @@ const  getAllProducts = () =>{
         });
     return product;
 };
+/**
+* =============================== GET ALL AVAILABLE PRODUCTS
+*/
+const  getAvailableProducts = () =>{     
+    const queryText = 'SELECT * FROM products WHERE quantity>0';
+    const availableProduct = pool.query(queryText)
+        .then((res) => {          
+            return new Promise((resolve) =>{                
+                resolve(res.rows);
+            });
+        })
+        .catch((e) => {
+            console.log(e);
+        });
+    return availableProduct;
+};
 
 /**
   * =============================== GET ONE PRODUCTS
@@ -144,7 +160,8 @@ module.exports = {
     dropProductsTable,
     getOneProduct,
     editProduct,
-    deleteOneProduct
+    deleteOneProduct,
+    getAvailableProducts
 };
 
 require('make-runnable');
