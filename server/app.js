@@ -5,6 +5,9 @@ import router from './routes/route';
 import attRoutes from './routes/attRoutes';
 import proRoutes from './routes/proRoutes';
 import proRoutesParams from './routes/proRoutesParams';
+import salesRoutes from './routes/salesRoutes';
+import salesRoutesParams from './routes/salesRouteParam';
+
 
 
 
@@ -18,6 +21,8 @@ app.use(bodyParser.json());
 app.use('/api/v1/attendants', attRoutes);
 app.use('/api/v1/products', proRoutes);
 app.use('/api/v1/product', proRoutesParams);
+app.use('/api/v1/sales', salesRoutes);
+app.use('/api/v1/sale', salesRoutesParams);
 app.use('/', router);
 
 const port = process.env.PORT || 5000;
