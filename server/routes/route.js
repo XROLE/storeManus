@@ -17,7 +17,8 @@ router.post('/api/v1/admin/auth/signin', AdminToken.createToken, adminSignIn);
 //PRODUCTS
 router.post('/api/v1/products', checkToken, ValidatProduct.postProduct, ProductController.postProduct);                      //Post Products
 router.get('/api/v1/products', checkToken, ProductController.getProducts);                                       //Get all Products
-router.get('/api/v1/products/:id', checkToken, ValidatProduct.getOneProduct, ProductController.getOneProduct);    // Get single product
+router.get('/api/v1/products/available', ProductController.getAvailableProducts);                                // Get available product                                 //Get all Products
+router.get('/api/v1/product/:id', checkToken, ValidatProduct.getOneProduct, ProductController.getOneProduct);    // Get single product
 router.put('/api/v1/products/:id',checkToken, ValidatProduct.editProduct, ProductController.putProducts );       // Edit product
 router.delete('/api/v1/products/:id',checkToken,  ValidatProduct.deleteProduct, ProductController.deleteProduct); //Delete product
 
@@ -26,4 +27,3 @@ router.post('/api/v1/sales', checkToken, ValidateSales.postSales, SalesControlle
 router.get('/api/v1/sales', checkToken, SalesController.getSales);                                                // Get all Sales
 router.get('/api/v1/sales/:id', checkToken, ValidateSales.getOneSales, SalesController.getOneSale);               // Get one sales
 export default router;
-

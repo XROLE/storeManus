@@ -3,8 +3,19 @@ import { getAllProducts } from '../model/products';
 import { getOneProduct } from '../model/products';
 import { editProduct } from '../model/products';
 import { deleteOneProduct } from '../model/products';
+import { getAvailableProducts } from '../model/products';
 
 export default class ProductController{
+    static getAvailableProducts(req, res){  // GET ALL PRODUCTS
+        getAvailableProducts()
+            .then((availableProducts) => {
+                return res.status(200).json({
+                    Success: true,
+                    Message: 'AVAILABLE PRODUCTS',
+                    availableProducts
+                });
+            });         
+    }
     static getProducts(req, res){  // GET ALL PRODUCTS
         getAllProducts()
             .then((allProducts) => {
