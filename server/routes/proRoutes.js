@@ -9,5 +9,6 @@ proRoutes.post('/', checkToken, ValidatProduct.postProduct, ProductController.po
 proRoutes.get('/', checkToken, ProductController.getProducts);                                       //Get all Products
 proRoutes.get('/available', ProductController.getAvailableProducts);                                // Get available product                                 //Get all Products
 proRoutes.get('/finished', ProductController.getFinishedProducts);                                // Get available product                                 //Get all Products
+proRoutes.get('/cat/:category', ProductController.getProductsByCategory);                                // Get available product                                 //Get all Products
 
 export default proRoutes;

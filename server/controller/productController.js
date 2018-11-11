@@ -5,6 +5,7 @@ import { editProduct } from '../model/products';
 import { deleteOneProduct } from '../model/products';
 import { getAvailableProducts } from '../model/products';
 import { getFinishedProducts } from '../model/products';
+import { getCateProduct } from '../model/products';
 
 export default class ProductController{
     static getAvailableProducts(req, res){  // GET ALL PRODUCTS
@@ -36,6 +37,24 @@ export default class ProductController{
                     finishedProducts
                 });
             });         
+    }
+    static getProductsByCategory(req, res){  // GET ONE PRODUCT
+        const category = [req.params.category ];
+        getCateProduct(category)
+            .then((product) => {
+                if(product.length === 0){
+                    return res.status(200).json({
+                        Success: true,
+                        Message: 'There are no products in this category'
+                    });
+                }
+                return res.status(200).json({
+                    Success: true,
+                    Message: 'Products serverd',
+                    category,
+                    Product: product
+                });
+            });
     }
     static getOneProduct(req, res){  // GET ONE PRODUCT
         const ID = [req.params.id ];
