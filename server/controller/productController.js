@@ -4,6 +4,7 @@ import { getOneProduct } from '../model/products';
 import { editProduct } from '../model/products';
 import { deleteOneProduct } from '../model/products';
 import { getAvailableProducts } from '../model/products';
+import { getFinishedProducts } from '../model/products';
 
 export default class ProductController{
     static getAvailableProducts(req, res){  // GET ALL PRODUCTS
@@ -23,6 +24,16 @@ export default class ProductController{
                     Success: true,
                     Message: 'ALL PRODUCTS',
                     Products: allProducts
+                });
+            });         
+    }
+    static getFinishedProducts(req, res){  // GET ALL PRODUCTS
+        getFinishedProducts()
+            .then((finishedProducts) => {
+                return res.status(200).json({
+                    Success: true,
+                    Message: 'FINISHED PRODUCTS',
+                    finishedProducts
                 });
             });         
     }
