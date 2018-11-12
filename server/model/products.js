@@ -162,8 +162,7 @@ const  editProduct = (name, price, quantity, type, category, id ) =>{
     const values = [name, price, quantity, type, category, id];
     const product = pool.query(queryText, values)
         .then((res) => {          
-            return new Promise((resolve) =>{
-                console.log('res......', res.rows);
+            return new Promise((resolve) =>{                
                 resolve(res.rows[0]);
             });
         })

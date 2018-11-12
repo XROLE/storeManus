@@ -4,6 +4,7 @@ import { addAttendants } from '../model/attendants';
 import { isEmailInUse } from '../model/attendants';
 import { getAttendants } from '../model/attendants';
 import { getOneAttendantById } from '../model/attendants';
+import { updateAttendant } from '../model/attendants';
 
 class Attendants {
     static addAttendants(req, res){
@@ -17,7 +18,7 @@ class Attendants {
                         Message: 'Email has already been registered'
                     });
                 }                
-                bcrypt.hash(password, 10).then((hashpassword) => {                 // has generated password            
+                bcrypt.hash(password, 10).then((hashpassword) => {                 // hash generated password            
                     addAttendants(firstName, lastName, email, hashpassword)
                         .then((addedAttendant) => {
                             return res.status(200).json({
@@ -32,7 +33,7 @@ class Attendants {
             });
        
     }
-    static getAllAttendants(req, res){  // GET ONE PRODUCT
+    static getAllAttendants(req, res){  // GET ALL ATTENDANTS
         getAttendants()
             .then((attendants) => {
                 if(attendants.length === 0){
@@ -48,7 +49,7 @@ class Attendants {
                 });
             });
     }
-    static getOneAttendants(req, res){  // GET ONE PRODUCT
+    static getOneAttendants(req, res){  // GET ONE ATTENDANT
         const id = [req.params.id];
         getOneAttendantById(id)
             .then((attendants) => {
@@ -65,7 +66,27 @@ class Attendants {
                 });
             });
     }
-    static signInAttendants(req, res){
+    static editOneAttendant(req, res){  // EDIT ONE ATTENDANT
+        const {firstName, lastName, email, password, phoneno, gender, profilepics} = req.body;
+        const id = req.params.id;
+        bcrypt.hash(password, 10).then((hashpassword) => {
+            updateAttendant(firstName, lastName, email, hashpassword, phoneno, gender, profilepics, id)
+                .then((attendant) => {
+                    if(attendant.length === 0){
+                        res.status(200).json({
+                            Success: true,
+                            Message: 'No attendant with such ID exist'
+                        });
+                    }
+                    return res.status(200).json({
+                        Success: true,
+                        Message: 'Profile updated successfully',                 
+                        profile: attendant
+                    });
+                });
+        });
+    }
+    static signInAttendants(req, res){   // SIGN IN AN ATTENDANT
         const Token = req.token;       
         return res.status(200).json({
             Success: true,
