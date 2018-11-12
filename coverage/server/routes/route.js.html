@@ -22,7 +22,7 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>16/16</span>
+        <span class='fraction'>10/10</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -37,7 +37,7 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>15/15</span>
+        <span class='fraction'>9/9</span>
       </div>
     </div>
     <p class="quiet">
@@ -65,21 +65,7 @@
 <a name='L17'></a><a href='#L17'>17</a>
 <a name='L18'></a><a href='#L18'>18</a>
 <a name='L19'></a><a href='#L19'>19</a>
-<a name='L20'></a><a href='#L20'>20</a>
-<a name='L21'></a><a href='#L21'>21</a>
-<a name='L22'></a><a href='#L22'>22</a>
-<a name='L23'></a><a href='#L23'>23</a>
-<a name='L24'></a><a href='#L24'>24</a>
-<a name='L25'></a><a href='#L25'>25</a>
-<a name='L26'></a><a href='#L26'>26</a>
-<a name='L27'></a><a href='#L27'>27</a>
-<a name='L28'></a><a href='#L28'>28</a>
-<a name='L29'></a><a href='#L29'>29</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<a name='L20'></a><a href='#L20'>20</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -90,12 +76,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -103,40 +85,31 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Router } from 'express';
-import ValidatProduct from '../middlewares/validateProduct';
-import ProductController from '../controller/productController';
 import ValidateSales from '../middlewares/validateSales';
 import SalesController from '../controller/salesController'; 
-import Attendants from '../controller/attendantsController';         // ATTENDANTS CONTROLLER
-import AttendantToken from '../middlewares/auth/attendantJWT';      // HANDLES ATTENDANTS TOKEN
 import adminSignIn from '../controller/admin';
-import ValidateAttendant from '../middlewares/validateAttendants';  // HANDLES ATTENDANTS VALIDATION
 import AdminToken from '../middlewares/auth/adminJWT';
 import checkToken from '../middlewares/auth/checkToken';
 &nbsp;
 const router = Router();
-&nbsp;
+//HOME 
 router.get('/', (req, res) =&gt; res.send('Welcome to StoreManus API Home page. Go to /api/v1/users/products to view all products'));
-router.post('/api/v1/attendants',  checkToken, ValidateAttendant.validateSignIn, Attendants.addAttendants);      // add attendants
-router.post('/api/v1/attendants/auth/signin',  ValidateAttendant.validateSignIn, AttendantToken.createToken, Attendants.signInAttendants);
+&nbsp;
+//ADMIN
 router.post('/api/v1/admin/auth/signin', AdminToken.createToken, adminSignIn);
-router.post('/api/v1/products', checkToken, ValidatProduct.postProduct, ProductController.postProduct);                      //Post Products
-router.get('/api/v1/products', checkToken, ProductController.getProducts);                                       //Get all Products
-router.get('/api/v1/products/:id', checkToken, ValidatProduct.getOneProduct, ProductController.getOneProduct);    // Get single product
-router.put('/api/v1/products/:id',checkToken, ValidatProduct.editProduct, ProductController.putProducts );       // Edit product
-router.delete('/api/v1/products/:id',checkToken,  ValidatProduct.deleteProduct, ProductController.deleteProduct); //Delete product
+&nbsp;
+&nbsp;
+//SALES
 router.post('/api/v1/sales', checkToken, ValidateSales.postSales, SalesController.postSales);                     // Post Sales
 router.get('/api/v1/sales', checkToken, SalesController.getSales);                                                // Get all Sales
 router.get('/api/v1/sales/:id', checkToken, ValidateSales.getOneSales, SalesController.getOneSale);               // Get one sales
-export default router;
-&nbsp;
-&nbsp;</pre></td></tr>
+export default router;</pre></td></tr>
 </table></pre>
 <div class='push'></div><!-- for sticky footer -->
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Nov 05 2018 23:27:25 GMT-0800 (Pacific Standard Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sun Nov 11 2018 10:40:48 GMT-0800 (Pacific Standard Time)
 </div>
 </div>
 <script src="..\..\prettify.js"></script>

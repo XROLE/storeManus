@@ -93,6 +93,8 @@ const  getAvailableProducts = () =>{
         });
     return availableProduct;
 };
+
+
 /**
 * =============================== GET FINISHED PRODUCTS
 */
@@ -178,7 +180,7 @@ module.exports = {
     editProduct,
     deleteOneProduct,
     getAvailableProducts,
-    getFinishedProducts
+    getFinishedProducts   
 };
 
 require('make-runnable');
