@@ -2,7 +2,7 @@ import bcrypt from 'bcrypt';
 import generatePassword from 'password-generator';
 import { addAttendants } from '../model/attendants';
 import { isEmailInUse } from '../model/attendants';
-// import { getOneAttendant } from '../model/attendants';
+import { getAttendants } from '../model/attendants';
 
 class Attendants {
     static addAttendants(req, res){
@@ -30,6 +30,22 @@ class Attendants {
                 });
             });
        
+    }
+    static getAllAttendants(req, res){  // GET ONE PRODUCT
+        getAttendants()
+            .then((attendants) => {
+                if(attendants.length === 0){
+                    res.status(200).json({
+                        Success: true,
+                        Message: 'No attendant has been registered yet'
+                    });
+                }
+                return res.status(200).json({
+                    Success: true,
+                    Message: 'Products serverd',                 
+                    attendants
+                });
+            });
     }
     static signInAttendants(req, res){
         const Token = req.token;       
