@@ -72,6 +72,19 @@ const  getOneAttendant = (email) =>{
         });
     return attendant;
 };
+const  getOneAttendantById = (id) =>{    
+    const queryText = 'SELECT * FROM attendants WHERE id=$1';
+    const attendant = pool.query(queryText, id)
+        .then((res) => {          
+            return new Promise((resolve) =>{
+                resolve(res.rows);
+            });
+        })
+        .catch((e) => {
+            console.log(e);
+        });
+    return attendant;
+};
 const  getAttendants = () =>{    
     const queryText = 'SELECT * FROM attendants';
     const attendants = pool.query(queryText)
@@ -102,7 +115,8 @@ module.exports = {
     addAttendants,
     isEmailInUse,
     getOneAttendant,
-    getAttendants  
+    getAttendants,
+    getOneAttendantById  
 };
 
 require('make-runnable');
