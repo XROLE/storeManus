@@ -48,7 +48,7 @@ export default class ValidateProduct{
     static deleteProduct(req, res, next){
         const product_id = req.params.id;
         if(product_id.length > 3){
-            return res.status(401).json({
+            return res.status(400).json({
                 Success: false,
                 Message: 'Product id is too long'
             });

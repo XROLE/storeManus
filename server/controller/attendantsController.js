@@ -30,8 +30,8 @@ class Attendants {
                             });
                         });            
                 });
-            });
-       
+            })
+            .catch(e => console.log(e));       
     }
     static getAllAttendants(req, res){  // GET ALL ATTENDANTS
         getAttendants()

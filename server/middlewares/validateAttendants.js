@@ -5,8 +5,7 @@ import { isEmail } from './validate';
 
 class ValidateAttendant{
     static validateSignIn(req, res, next){
-        const [ password, email] =[req.body.password.trim(), req.body.email.trim().toLowerCase()] ;
-        console.log('Your email: ',email, ' Password: ', password);
+        const [ password, email] =[req.body.password.trim(), req.body.email.trim().toLowerCase()] ;     
         if(isEmpty(email) || isEmpty(password) ){
             return res.status(400).json({
                 Success: false,

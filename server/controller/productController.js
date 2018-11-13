@@ -95,8 +95,7 @@ export default class ProductController{
                     Message: 'Product edited successfully',
                     editedProduct: update
                 });
-            })
-            .catch((e) => console.log(e));
+            });            
     }
 
     static deleteProduct(req, res){ 

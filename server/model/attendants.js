@@ -7,10 +7,6 @@ const pool = new Pool({
     connectionString: process.env.DEV_DB_URI
 });
 
-pool.on('connect', () => {
-    console.log('connected to the db');
-});
-
 /**
  * =========================================================================== ATTENDANTS SECTION
  */

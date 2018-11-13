@@ -3,19 +3,19 @@ import chaiHttp from 'chai-http';
 import server from '../app';
 import jwt from 'jsonwebtoken';
 
-
+//GENERATE ACCESS TOKEN
+const payload = {password: 'xrolevalsido2634', email: 'xrolediamond@gmail.com' };
+const secret = process.env.jwt_secret;
+const token = jwt.sign(payload, secret, { expiresIn: '1h' }); 
 
 chai.use(chaiHttp);
 let expect = chai.expect;
 
 describe('ATTENDANTS SECTION', () => {
-    describe('GET \'/api/v1/attendants\'', () => {  //ADD ATTENDANT
-        it('Post an Attendant with token access', (done) => {
-            const payload = {password: 'xrolevalsido2634', email: 'xrolediamond@gmail.com' };
-            const secret = process.env.jwt_secret;
-            const token = jwt.sign(payload, secret, { expiresIn: '1h' }); 
+    describe('POST ATTENDANTS', () => {  //ADD ATTENDANT
+        it('Create an Attendant', (done) => {            
             chai.request(server)
-                .post('/api/v1/attendants')
+                .post('/api/v1/attendants/auth/register')
                 .send({
                     firstName: 'xrole',
                     lastName: 'diamond',
@@ -32,9 +32,6 @@ describe('ATTENDANTS SECTION', () => {
                 
             done();
         });
-    });
-
-    describe('POST \'/api/v1/admin/auth/signin\'', () => { 
         it('Attendant sign in', (done) => {
             chai.request(server)
                 .post('/api/v1/attendants/auth/signin')
@@ -54,9 +51,7 @@ describe('ATTENDANTS SECTION', () => {
                 });
             done();
         });
-    });
-    describe('POST \'/api/v1/admin/auth/signin\'', () => { // DO NOT SIGN IN ATTENDANT WITH INVALID EMAIL
-        it('Attendant sign in', (done) => {
+        it('Invalid email sign in', (done) => {  // INVALID EMAIL SIGN IN
             chai.request(server)
                 .post('/api/v1/attendants/auth/signin')
                 .send({
@@ -74,9 +69,7 @@ describe('ATTENDANTS SECTION', () => {
                 });
             done();
         });
-    });
-    describe('POST \'/api/v1/admin/auth/signin\'', () => { // DO NOT SIGN IN ATTENDANT WITH WRONG PASSWORD
-        it('Attendant sign in', (done) => {
+        it('Attendant sign in with incorrrect password', (done) => {
             chai.request(server)
                 .post('/api/v1/attendants/auth/signin')
                 .send({
@@ -95,16 +88,14 @@ describe('ATTENDANTS SECTION', () => {
             done();
         });
     });
-
-
     describe('GET \'/api/v1/attendants\'', () => {  // ADD ATTENDANT WITHOUT TOKEN
-        it('Post an Attendant', () => {
+        it('Get all Attendants', () => {
             chai.request(server)
                 .get('/api/v1/attendants')
                 .end((err, res) => {
                     expect(err).to.be.null;
                     expect(res).to.have.headers;
-                    expect(res).to.have.status(404);
+                    expect(res).to.have.status(401);
                     expect(res).to.not.redirect;
                 });
         });
