@@ -1,0 +1,454 @@
+openapi: 3.0.0
+info:
+  version: '1.0.0'
+  title: 'Store_Manus'
+  description: 'Store Manus is a web application that helps store owners manage sales and product inventory records.'
+  contact:
+    name: Xrole Diamond
+    email: xrolediamond@gmail.com
+  
+servers:
+  - url: https://storemanus.herokuapp.com/
+components:
+  securitySchemes:
+    bearerAuth:           
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+paths: 
+  /api/v1/sales:
+    get:
+      tags:
+       - "sales"
+      security:
+        - bearerAuth: []
+      summary: 'Returns all sales record'
+      responses:
+        '200':
+          description: 'ALL SALES'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  required:
+                    - sales
+                  properties:
+                    id:
+                      type: integer
+                    date:
+                      type: integer
+                    name:
+                      type: string
+                    price:
+                      type: integer
+                    quantity:
+                      type: integer
+                    type:
+                      type: string
+                    category:
+                      type: string
+                    total:
+                      type: integer
+                    attendant:
+                      type: string
+        '400':
+          description: 'Bad request'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                    Success:
+                      type: boolean
+                    Message:
+                      type: string
+    post:
+      tags:
+       - "sales"
+      security:
+        - bearerAuth: []
+      summary: 'Allow an Attendant to register sales record'
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: "/components/api/v1/sales"
+      responses:
+        '200':
+          description: 'Sales added succesfully'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:   
+                  Success:
+                    type: boolean    
+                  Message:
+                    type: string
+
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:   
+                  Success:
+                    type: boolean    
+                  Message:
+                    type: string
+  /sales/{attendant}:
+    get:
+      tags:
+       - "sales"
+      security:
+        - bearerAuth: []
+      summary: 'Get an attendant sales record'
+      
+      parameters:
+        - name: attendant
+          in: path
+          required: true
+          description: 'Enter the name of the attendant to get the sales'
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: 'Attendant sale'
+          content:
+            application/json:
+              schema:
+                $ref: "components/api/v1/sales"                  
+        '400':
+          description: 'error message'
+        '404':
+          description: 'No sales record for this attendant'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:   
+                  Success:
+                    type: boolean    
+                  Message:
+                    type: string
+  /api/v1/products:
+    get:
+      tags:
+       - "products"
+      security:
+        - bearerAuth: []
+      summary: 'Returns all products'
+      responses:
+        '200':
+          description: 'ALL PRODUCTS'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  required:
+                    - products
+                  properties:
+                    id:
+                      type: integer
+                    date:
+                      type: integer
+                    name:
+                      type: string
+                    type: 
+                      type: string
+                    category:
+                      type: string
+                    price:
+                      type: integer
+                    quantity:
+                      type: integer
+        '400':
+          description: 'Bad request'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:   
+                  Success:
+                    type: boolean    
+                  Message:
+                    type: string
+    post:
+      tags:
+       - "products"
+      security:
+        - bearerAuth: []
+      summary: 'Lets an admin post a product'
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object 
+              required:
+                - product
+              properties:
+                name:
+                  type: string
+                price:
+                  type: integer
+                quantity:
+                  type: integer
+                category:
+                  type: string
+                type:
+                  type: integer
+      responses:
+        '200':
+          description: 'Product added successfully'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:   
+                  Success:
+                    type: boolean    
+                  Message:
+                    type: string
+
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:   
+                  Success:
+                    type: boolean    
+                  Message:
+                    type: string
+  /api/v1/product/{productsId}:
+    get:
+      tags:
+       - "products"
+      security:
+        - bearerAuth: []
+      summary: 'Returns the product with the specified id'
+      
+      parameters:
+        - name: productsId
+          in: path
+          required: true
+          description: ' Enter the product id '
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: 'Products serverd'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  required:
+                    - product.rowCount
+                  properties:
+                    id:
+                      type: integer
+                    date:
+                      type: integer
+                    name:
+                      type: string
+                    price:
+                      type: integer
+                    quantity:
+                      type: integer
+                    category:
+                      type: string
+                    type:
+                      type: integer
+        '400':
+          description: 'Bad request'
+        '404':
+          description: 'No product with such an id was found'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:   
+                  Success:
+                    type: boolean    
+                  Message:
+                    type: string
+    put:
+      tags:
+       - "products"
+      security:
+        - bearerAuth: []
+      summary: 'Allow an Admin to modify a product'
+        
+      parameters:
+        - name: productsId
+          in: path
+          required: true
+          description: 'Specify the ID of the product you want to modify'
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: "components/api/v1/products"
+      responses:
+        '200':
+          description: 'Product edited successfully'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:   
+                  Success:
+                    type: boolean    
+                  Message:
+                    type: string
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:   
+                  Success:
+                    type: boolean    
+                  Message:
+                    type: string
+    delete:
+      tags:
+       - "products"
+      security:
+        - bearerAuth: []
+      summary: 'Allow an Admin to delete a product'
+        
+      parameters:
+        - name: productsId
+          in: path
+          required: true
+          description: 'Specify the product id you want to delete'
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: 'Product deleted succesfully'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:   
+                  Success:
+                    type: boolean    
+                  Message:
+                    type: string
+
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:   
+                  Success:
+                    type: boolean    
+                  Message:
+                    type: string
+  /api/v1/attendants/auth/register:
+    post:
+      tags:
+         - "Attendants"
+      summary: 'Add an attendant'
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object 
+              required:
+                - entry
+              properties:
+                email:
+                  type: string
+                firstName:
+                  type: string
+                lastName:
+                  type: string
+      responses:
+        '200':
+          description: 'You have successfully added an attendant'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:   
+                  Success:
+                    type: boolean    
+                  Message:
+                    type: string
+        '409':
+          description: Email has already been registered
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:   
+                  Success:
+                    type: boolean    
+                  Message:
+                    type: string
+  /api/v1/attendants/auth/signin:
+    post:
+      tags:
+        - "Attendants"
+      summary: 'sign in an existing user'
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object 
+              required:
+                - entry
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string        
+      responses:
+        '200':
+          description: 'You are signed in successfuly'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean   
+                  Message:
+                    type: string
+                  token:
+                    type: string
+
+        '400':
+          description: Please or email is incorrect!
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Success:
+                    type: boolean    
+                  Message:
+                    type: string
+        
