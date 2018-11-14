@@ -1,6 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
+import cors from 'cors';
 import router from './routes/route';
 import attRoutes from './routes/attRoutes';
 import proRoutes from './routes/proRoutes';
@@ -15,6 +16,7 @@ dotenv.config();  // configuring environment variable
 
 // Initial express app
 const app = express();
+app.use(cors());
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());

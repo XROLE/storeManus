@@ -1,0 +1,142 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+            <meta name="description" content="Store Manus is an online app that help you manage your sales">
+            <meta name="author" content="XROLE">
+            <meta name="theme-color" content="#000a3f">
+            <meta http-equiv="X-UA-Compatible" content="ie=edge">
+            <link rel="stylesheet" href="../css/style.css">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+            <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">      
+            <link href="https://fonts.googleapis.com/css?family=Exo|Poiret+One" rel="stylesheet">
+            <link rel="shortcut icon" href="../img/favicon.png" type="image/x-icon">
+            <link rel="manifest" href="./manifest.json">
+            <script type="text/javascript" src="../js/admin.js"></script>
+        <title>Store Manus</title>
+    </head>
+    <body style="background-color: white; color:#000a3f;">
+        <div>
+            <nav class="navbar">
+                    <div class="navLogo">
+                        <p><a href="../index.html" style="color: white"> <i class="fas free fa-stream" ></i> &nbsp; <span>Store Manus</span></a></p>
+                        <p>
+                            <i class="fa fa-bars hanburgerButton" ></i>
+                            <i class="fa fa-times close" ></i>
+                        </p>                 
+                    </div>
+                    <ul class="nav-items">
+                        <a href="../index.html" style="color: white"><li>Logout</li></a>
+                    </ul>
+            </nav>
+            <div class="dasboardDiv">
+                <div class="dasboard-content">
+                    <div class="dashboard-toggler-div">
+                        <p class="toggler">
+                            <i class="fa fa-bars dasboard-content-toggle-show" ></i>
+                            <i class="fa fa-times close-toggle" style="color: red" ></i>
+                        </p>    
+                    </div>
+                    <div class="dasboard-content-main">
+                        <ul class="dasboard-content-items">
+                            <p class="dasboard-header"><a href="adminDashboard.html">Dashboard</a></p>
+                            <li class="link"> <a href="admin-all-products.html"> <i class="fas fa-cookie-bite"></i> &nbsp; All Products</a></li>
+                            <li class="link"> <a href="admin-available-products.html"> <i class="fab fa-accessible-icon"></i> &nbsp; Available Products </a></li>
+                            <li class="link"> <a href="admin-finished-products.html"> <i class="fas fa-thermometer-empty"></i> &nbsp; Finished Products </a></li>                    
+                            <li class="link"> <a href="admin-add-products.html"> <i class="far fa-plus-square"></i> &nbsp; Add Product</a></li>
+                        </ul>
+                        <ul class="dasboard-content-items">
+                            <p class="dasboard-header">Attendants</p>
+                            <li class="link"> <a href="admin-all-attendants.html"><i class="fas fa-users"></i> &nbsp; All Attendants</a></li>
+                            <li class="link"> <a href="admin-add-attendant.html"> <i class="far fa-plus-square"></i> &nbsp; Add Attendant </a></li>
+                        </ul>
+                        <div class="logoutDiv">
+                            <a href="../index.html">logout &nbsp;<i class="fas fa-sign-out-alt"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="test">
+                    <div class="avatar-div-container">
+                        <div class="avater-div">
+                            <img src="../img/avatar.jpg" alt="Avatar" class="Avatar">
+                            <p class="avatar-label">welcome: Xrole</p>
+                        </div>
+                        <div class="filter-div">
+                            <label for="Filter sales by Attendants">Filter Sales By: </label> &nbsp;
+                            <select name="" id="">
+                                <option value="">-Select All-</option>
+                                <option value="">Attendats</option>
+                                <option value="">Categories</option>
+                                <option value="">Date</option>
+                            </select>&nbsp;
+                            <select name="" id="">
+                                <option value="">---- Select All ----</option>
+                                <option value="Cythia Paul">Cythia Paul</option>
+                                <option value="Blessing Uche">Blessing Uche</option>
+                                <option value="Silas Nwokeocha">Silas Nwokeocha</option>
+                                <option value="Idowu Samson">Idowu Samson</option>
+                                <option value="Mathew Jade">Mathew Jade</option>
+                                <option value="Will Smith">Will Smith</option>
+                                <option value="Cindy Eze">Cindy Eze</option>
+                                <option value="Simon Peter">Simon Peter</option>
+                            </select>
+                            &nbsp;
+                            <button class="search-sales-by-attendant-buttton link"><i class="fas fa-search"></i> <span class="search-text"> &nbsp; Search</span> </button>
+                        </div>
+                    </div>
+                    <div class="att-pro-div-main">
+                        <h2 class="att-pro-title">Attendant profile </h2>
+                        <div class="dasboard-display-div" style="width: 90%">                         
+                            <div class="att-pro-div-info" >
+                                <div class="att-pro-div">
+                                    <div class="att-pro-div-img-div">
+                                        <img src="../img/profile4.jpg" alt="">
+                                    </div>
+                                    <div class="att-pro-main-paragraph">
+                                        <div class="att-pro-paragraph">
+                                            <p class="att-pro-field-label"> Name: </p>
+                                            <p class="att-pro-paragraph-info"> Stack Bills </p>
+                                        </div>   
+                                        <div class="att-pro-paragraph">
+                                            <p class="att-pro-field-label"> Email:  </p>
+                                            <p class="att-pro-paragraph-info"> xrolediamond@gmail.com </p>
+                                        </div>   
+                                        <div class="att-pro-paragraph">
+                                            <p class="att-pro-field-label"> Contact:   </p>
+                                            <p class="att-pro-paragraph-info"> +234 8055 8640 02 </p>
+                                        </div>   
+                                        <div class="att-pro-paragraph">
+                                            <p class="att-pro-field-label"> Gender:   </p>
+                                            <p class="att-pro-paragraph-info"> Male</p>
+                                        </div>                               
+                                    </div>
+                                </div>
+                                <div>
+                                    <table id="avalaible-products-table" class="att-pro-table" style="margin-top: 50px;width:">
+                                            <thead>
+                                                <tr>
+                                                    <th colspan="3" class="table-head"><i class="fas fa-arrows-alt"></i>&nbsp; SALES RECORD </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody >
+                                                <tr >
+                                                    <th style="text-align: center; padding-top: 20px">Total items sold</th>
+                                                    <th style="text-align: center; padding-top: 20px">Total number of sales record</th>
+                                                    <th style="text-align: center; padding-top: 20px">Total worth of goods</th>                                                                                            
+                                                </tr>                                                    
+                                                <tr >
+                                                    <th style="text-align: center; padding-top: 10px">3320</th>
+                                                    <th style="text-align: center; padding-top: 10px">475</th>
+                                                    <th style="text-align: center; padding-top: 10px">3548000</th>                                                                                            
+                                                </tr>                                                    
+                                            </tbody>                                                
+                                        </table>  
+                                </div>
+                            </div>                                                                      
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>        
+    </body>
+</html>
