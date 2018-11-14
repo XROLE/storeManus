@@ -4,7 +4,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const pool = new Pool({
-    connectionString: process.env.DB_URI
+    connectionString: process.env.DEV_DB_URI
 });
 
 /**
@@ -78,7 +78,7 @@ const  getOneAttendant = (email) =>{
     const attendant = pool.query(queryText, email)
         .then((res) => {          
             return new Promise((resolve) =>{
-                resolve(res.rows[0]);
+                resolve(res.rows);
             });
         })
         .catch((e) => {
@@ -90,12 +90,12 @@ const  getOneAttendantById = (id) =>{
     const queryText = 'SELECT * FROM attendants WHERE id=$1';
     const attendant = pool.query(queryText, id)
         .then((res) => {          
-            return new Promise((resolve) =>{
+            return new Promise((resolve) =>{                
                 resolve(res.rows);
             });
         })
         .catch((e) => {
-            console.log(e);
+            console.log(e);            
         });
     return attendant;
 };
