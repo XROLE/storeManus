@@ -1,0 +1,108 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+            <meta name="description" content="Store Manus is an online app that help you manage your sales">
+            <meta name="author" content="XROLE">
+            <meta name="theme-color" content="#000a3f">
+            <meta http-equiv="X-UA-Compatible" content="ie=edge">
+            <link rel="stylesheet" href="../css/style.css">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+            <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">      
+            <link href="https://fonts.googleapis.com/css?family=Exo|Poiret+One" rel="stylesheet">
+            <link rel="shortcut icon" href="../img/favicon.png" type="image/x-icon">
+            <link rel="manifest" href="./manifest.json">
+            <script type="text/javascript" src="../js/admin.js"></script>
+        <title>Store Manus</title>
+    </head>
+    <body style="background-color: white; color:#000a3f;">
+        <div>
+            <nav class="navbar">
+                    <div class="navLogo">
+                        <p><a href="../index.html" style="color: white"> <i class="fas free fa-stream" ></i> &nbsp; <span>Store Manus</span></a></p>
+                        <p>
+                            <i class="fa fa-bars hanburgerButton" ></i>
+                            <i class="fa fa-times close" ></i>
+                        </p>                 
+                    </div>
+                    <ul class="nav-items">                      
+                        <a href="../index.html" style="color: white"><li>Logout</li></a>
+                    </ul>
+            </nav>
+            <div class="dasboardDiv">
+                <div class="dasboard-content">
+                    <div class="dashboard-toggler-div">
+                        <p class="toggler">
+                            <i class="fa fa-bars dasboard-content-toggle-show" ></i>
+                            <i class="fa fa-times close-toggle" style="color: red" ></i>
+                        </p>    
+                    </div>
+                    <div class="dasboard-content-main">
+                        <ul class="dasboard-content-items">
+                            <p class="dasboard-header"><a href="adminDashboard.html">Dashboard</a></p>
+                            <li class="link"> <a href="admin-all-products.html"> <i class="fas fa-cookie-bite"></i> &nbsp; All Products</a></li>
+                            <li class="link"> <a href="admin-available-products.html"> <i class="fab fa-accessible-icon"></i> &nbsp; Available Products </a></li>
+                            <li class="link"> <a href="admin-finished-products.html"> <i class="fas fa-thermometer-empty"></i> &nbsp; Finished Products </a></li>                    
+                            <li class="link"> <a href="admin-add-products.html"> <i class="far fa-plus-square"></i> &nbsp; Add Product</a></li>
+                        </ul>
+                        <ul class="dasboard-content-items">
+                            <p class="dasboard-header">Attendants</p>
+                            <li class="link"> <a href="admin-all-attendants.html"><i class="fas fa-users"></i> &nbsp; All Attendants</a></li>
+                            <li class="link"> <a href="admin-add-attendant.html"> <i class="far fa-plus-square"></i> &nbsp; Add Attendant </a></li>
+                        </ul>                        
+                    </div>
+                </div>
+                <div class="test">
+                    <div class="avatar-div-container">
+                        <div class="avater-div">
+                            <img src="../img/avatar.jpg" alt="Avatar" class="Avatar">
+                            <p class="avatar-label">welcome: Xrole</p>
+                        </div>
+                        <div class="filter-div">
+                            <label for="Filter sales by Attendants"> <a href="admin-sales-viewer.html">Filter Sales By: </a> </label> &nbsp;
+                            <select name="" id="">
+                                <option value="">-Select All-</option>
+                                <option value="">Attendats</option>
+                                <option value="">Categories</option>
+                                <option value="">Date</option>
+                            </select>&nbsp;
+                            <select name="" id="">
+                                <option value="">---- Select All ----</option>
+                                <option value="Cythia Paul">Cythia Paul</option>
+                                <option value="Blessing Uche">Blessing Uche</option>
+                                <option value="Silas Nwokeocha">Silas Nwokeocha</option>
+                                <option value="Idowu Samson">Idowu Samson</option>
+                                <option value="Mathew Jade">Mathew Jade</option>
+                                <option value="Will Smith">Will Smith</option>
+                                <option value="Cindy Eze">Cindy Eze</option>
+                                <option value="Simon Peter">Simon Peter</option>
+                            </select>
+                            &nbsp;
+                              <button class="search-sales-by-attendant-buttton link"><i class="fas fa-search"></i> <span class="search-text"> &nbsp; Search</span> </button>
+                        </div>
+                    </div>
+                    <div class="dasboard-display-div"> 
+                        <!-- add Attendants -->
+                        <form action="" id="add-attendants">
+                                <div class="form-label">
+                                        <label for="add-attendants"> <i class="far fa-plus-square"></i> &nbsp;ADD ATTENDANT</label>
+                                </div>
+                                <div>
+                                    <input type="text" name="" id="product-Name" placeholder="FIRST NAME" >
+                                </div>
+                                <div>
+                                    <input type="number" name="" id="roduct-Quantity" placeholder="LAST NAME">
+                                </div>
+                                <div>
+                                    <input type="email" name="" id="product-Type" placeholder="EMAIL">
+                                </div>                                
+                                <div>
+                                    <button class="link">CREATE ATTENDANT</button>
+                                </div>
+                        </form>                        
+                    </div>
+                </div>
+            </div>
+        </div>        
+    </body>
+</html>
