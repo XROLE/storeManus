@@ -90,6 +90,7 @@ class Attendants {
         const Token = req.token;       
         return res.status(200).json({
             Success: true,
+            User: 'attendant',
             Message: 'You are signed in successfuly',
             Token
         });
