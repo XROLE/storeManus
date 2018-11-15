@@ -31,8 +31,46 @@ window.onload = (() => {
         dasboardContentMain.className = 'hide';
         displayDasboardContents.className ='fa fa-bars dasboard-content-toggle-show';
     });
+    // ADD PRODUCT FUNCTIONALITY
+    const loc = 'file:///C:/Users/XROLE%20VALSIDO%20DIAMON/Desktop/Apps/storeManus/client/views/admin-add-products.html';
+    const add = document.querySelector('#add-product-button');
+    if(location.href === loc){
+        add.addEventListener('click', (e) =>{
+          
+            e.preventDefault();
+          
+            const name = document.getElementById('product-Name').value.trim();
+            const price = document.getElementById('product-Price').value.trim();
+            const quantity = document.getElementById('product-Quantity').value.trim();
+            const type = document.getElementById('product-Type').value.trim();
+            const category = document.getElementById('product-Category').value.trim();  
+            const data = {name, price, quantity, type, category }; 
 
-    
+            let url ='http://localhost:5000/api/v1/products';        
+            fetch(url, { // POST DATA TO THE DATABASE
+                method: 'POST',
+                body: JSON.stringify(data),
+                headers: {
+                    'Accept': 'application/json, text/plain, */*',
+                    'x-access-token': `Bearer ${localStorage.getItem('accessToken')}`,
+                    'Content-type': 'application/json'
+                }
+            })
+                .then(res => res.json())
+                .then(res => {                
+                    alert(res.Message);
+                    if(res.Success){   // SAVE TOKEN IN LOCAL STORAGE AND REDIRECT APPROPRIATE DASHBOARD
+                        alert(res.Message);                                           
+                        return  location.reload();
+                    }
+                    alert(res.Message);
+                    return;
+                })
+                .catch(err => console.error('Error :', err));
+        });
+                
+                
+    }
 });
 // ===================== ALL PRODUCTS SECTION ====================================
 
@@ -217,3 +255,5 @@ function FinishedProducts(){
         .catch(err => console.error('Error :', err));
      
 }
+
+
