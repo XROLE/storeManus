@@ -34,6 +34,8 @@ window.onload = (() => {
 
     
 });
+// ===================== ALL PRODUCTS SECTION ====================================
+
 function populateProductTable(data){    // Populate table with details from database              
     for(i = 0; i< data.Products.length; i++){                    
         const products =  `<tr>
@@ -42,12 +44,25 @@ function populateProductTable(data){    // Populate table with details from data
         <td>${data.Products[i].type}</td>
         <td>${data.Products[i].category}</td>
         <td>${data.Products[i].date}</td>
-        </tr>`
-       document.getElementById('tableBody').innerHTML += products;
+        </tr>`;
+        document.getElementById('tableBody').innerHTML += products;
     }
+    return;
 }
-function getAllProducts(){    
-       
+function populateAvalaibleProductTable(data){
+    for(let i = 0; i< data.availableProducts.length; i++){                    
+        const products =  `<tr>
+        <td>${data.availableProducts[i].name}</td>
+        <td>${data.availableProducts[i].quantity}</td>
+        <td>${data.availableProducts[i].type}</td>
+        <td>${data.availableProducts[i].category}</td>
+        <td>${data.availableProducts[i].date}</td>
+        </tr>`;
+        document.getElementById('tableBody').innerHTML += products;
+    }
+    return;
+}
+function AllProducts(){  // Get products and populate products table            
     const url = 'http://localhost:5000/api/v1/products';
     fetch(url, { // FETCH PRODUCTS
         method: 'GET',        
@@ -57,12 +72,11 @@ function getAllProducts(){
             'Content-type': 'application/json'
         }
     })
-    .then(res => res.json())
-    .then(result => {       
-        if(result.Success){           
-            document.getElementById('shopping-cart').className='hide';   // hide shopping cart icon
-            function createTable(){    //create all product table 
-                const table = `
+        .then(res => res.json())
+        .then(result => {       
+            if(result.Success){
+                function createTable(){    //create all product table 
+                    const table = `
                 <table class="all-products-table" id="all-products-table">
                 <thead>
                 <tr>
@@ -80,21 +94,69 @@ function getAllProducts(){
                 </tbody>
                 </table>               
                 ` ;               
-                return document.getElementById('testing').innerHTML += table;               
-            };   
+                    return document.getElementById('allProductContainer').innerHTML += table;               
+                }   
             
-            createTable();   // CREATE TABLE  
-            // const man = result;
-            // console.log('This is the result', man);
+                createTable();   // CREATE TABLE  
+                // const man = result;
+                // console.log('This is the result', man);
                         
-            return  populateProductTable(result)  //POPULATE TABLE
+                return  populateProductTable(result);  //POPULATE TABLE
             
             
-        };            
-        alert(result.Message);
-       return window.location.href = './signin.html';
-    })
-    .catch(err => console.error('Error :', err));
+            }            
+            alert(result.Message);
+            return window.location.href = './signin.html';
+        })
+        .catch(err => console.error('Error :', err));
      
 }
 
+//======================= AVAILABLE PRODUCTS SECTION
+function AvailableProducts(){
+    const url = 'http://localhost:5000/api/v1/products/available';
+    fetch(url, { // FETCH PRODUCTS
+        method: 'GET',        
+        headers: {
+            'Accept': 'application/json, text/plain, */*',
+            'x-access-token': `Bearer ${localStorage.getItem('accessToken')}`,
+            'Content-type': 'application/json'
+        }
+    })
+        .then(res => res.json())
+        .then(result => {       
+            if(result.Success){
+                function createAvailableProductTable(){    //create all product table 
+                    const table = `
+                    <table id="avalaible-products-table">
+                            <thead>
+                                <tr>
+                                    <th colspan="4" class="table-head"><i class="fab fa-accessible-icon"></i> &nbsp; AVAILABLE PRODUCTS</th>
+                                </tr>
+                            </thead>
+                            <tbody id='tableBody'>
+                                <tr>
+                                    <th>Names</th>
+                                    <th>Quantity</th>
+                                    <th>Types</th>
+                                    <th>Categories</th>                                    
+                                </tr>                                                                
+                            </tbody>                            
+                        </table>` ;               
+                    return document.getElementById('availableProductsContainer').innerHTML += table;               
+                }   
+            
+                createAvailableProductTable();   // CREATE TABLE  
+                // const man = result;
+                // console.log('This is the result', man);
+                        
+                return  populateAvalaibleProductTable(result);  //POPULATE TABLE
+            
+            
+            }            
+            alert(result.Message);
+            return window.location.href = './signin.html';
+        })
+        .catch(err => console.error('Error :', err));
+     
+}
