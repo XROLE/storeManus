@@ -4,7 +4,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const pool = new Pool({
-    connectionString: process.env.DB_URI
+    connectionString: process.env.DEV_DB_URI
 });
 
 /**
@@ -63,7 +63,7 @@ const addProduct =(name, price, quantity, type, category) => {
 const  getAllProducts = () =>{     
     const queryText = 'SELECT * FROM products';
     const product = pool.query(queryText)
-        .then((res) => {          
+        .then((res) => {
             return new Promise((resolve) =>{                
                 resolve(res.rows);
             });

@@ -21,6 +21,12 @@ export default class ProductController{
     static getProducts(req, res){  // GET ALL PRODUCTS
         getAllProducts()
             .then((allProducts) => {
+                if(!allProducts.length){
+                    return res.status(404).json({
+                        Success: true,
+                        Message: 'You have not added any product in this store'
+                    });
+                }
                 return res.status(200).json({
                     Success: true,
                     Message: 'ALL PRODUCTS',

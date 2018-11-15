@@ -44,9 +44,9 @@ window.onload = (() => {
                 if(res.Success){   // SAVE TOKEN IN LOCAL STORAGE AND REDIRECT APPROPRIATE DASHBOARD
                     localStorage.setItem('accessToken', res.Token); 
                     if(res.User === 'admin'){  
-                        return   window.location.replace('file:///C:/Users/XROLE%20VALSIDO%20DIAMON/Desktop/Apps/storeManus/client/views/adminDashboard.html');
+                        return   window.location.href= 'adminDashboard.html';
                     }                                            
-                    return  window.location.replace('file:///C:/Users/XROLE%20VALSIDO%20DIAMON/Desktop/Apps/storeManus/client/views/create-sales.html');
+                    return  window.location.href= 'create-sales.html';
                 }
             })
             .catch(err => console.error('Error :', err));

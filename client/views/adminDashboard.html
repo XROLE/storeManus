@@ -40,7 +40,7 @@
                     <div class="dasboard-content-main">
                         <ul class="dasboard-content-items">
                             <p class="dasboard-header"><a href="adminDashboard.html">Dashboard</a></p>
-                            <li class="link"> <a href="admin-all-products.html"> <i class="fas fa-cookie-bite"></i> &nbsp; All Products</a></li>
+                            <li class="link" id="all-products" onclick="getAllProducts();">  <i class="fas fa-cookie-bite"></i> &nbsp; All Products </li>
                             <li class="link"> <a href="admin-available-products.html"> <i class="fab fa-accessible-icon"></i> &nbsp; Available Products </a></li>
                             <li class="link"> <a href="admin-finished-products.html"> <i class="fas fa-thermometer-empty"></i> &nbsp; Finished Products </a></li>                    
                             <li class="link"> <a href="admin-add-products.html"> <i class="far fa-plus-square"></i> &nbsp; Add Product</a></li>
@@ -81,8 +81,13 @@
                             <button class="search-sales-by-attendant-buttton link"><i class="fas fa-search"></i> <span class="search-text"> &nbsp; Search</span> </button>
                         </div>
                     </div>
-                    <div class="dasboard-display-div" style="width: 90%">                         
-                        <img src="../img/shopping-cart.jpg" alt="" style="width: 50%">                                                                      
+                    <!-- DASHBOARD DISPLAY CONTAINER -->
+                    <div class="dasboard-display-div" style="width: 90%" id="testing">   
+                        <!-- SHOPPING CART ICON                       -->
+                        <img src="../img/shopping-cart.jpg" id="shopping-cart" alt="" style="width: 50%"> 
+                        <!-- all product table -->
+                        
+                                                                              
                     </div>
                 </div>
             </div>
