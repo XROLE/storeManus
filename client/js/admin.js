@@ -33,6 +33,6 @@ window.onload = (() => {
         displayDasboardContents.className ='fa fa-bars dasboard-content-toggle-show';
     });
 
-    console.log('saved token from local storage', localStorage.getItem('accessToken'));
+    // console.log('saved token from local storage', localStorage.getItem('accessToken'));
  
 });
