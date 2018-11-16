@@ -62,6 +62,17 @@ function populateAvalaibleProductTable(data){
     }
     return;
 }
+function populateFinishedProductTable(data){
+    for(let i = 0; i< data.finishedProducts.length; i++){                    
+        const products =  `<tr>
+        <td>${data.finishedProducts[i].name}</td>       
+        <td>${data.finishedProducts[i].type}</td>
+        <td>${data.finishedProducts[i].category}</td>        
+        </tr>`;
+        document.getElementById('tableBody').innerHTML += products;
+    }
+    return;
+}
 function AllProducts(){  // Get products and populate products table            
     const url = 'http://localhost:5000/api/v1/products';
     fetch(url, { // FETCH PRODUCTS
@@ -151,6 +162,52 @@ function AvailableProducts(){
                 // console.log('This is the result', man);
                         
                 return  populateAvalaibleProductTable(result);  //POPULATE TABLE
+            
+            
+            }            
+            alert(result.Message);
+            return window.location.href = './signin.html';
+        })
+        .catch(err => console.error('Error :', err));
+     
+}
+//======================= FINISHED PRODUCTS SECTION
+function FinishedProducts(){
+    const url = 'http://localhost:5000/api/v1/products/finished';
+    fetch(url, { // FETCH PRODUCTS
+        method: 'GET',        
+        headers: {
+            'Accept': 'application/json, text/plain, */*',
+            'x-access-token': `Bearer ${localStorage.getItem('accessToken')}`,
+            'Content-type': 'application/json'
+        }
+    })
+        .then(res => res.json())
+        .then(result => {       
+            if(result.Success){
+                function createFinishedProductTable(){    //create all product table 
+                    const table = `
+                    <table id="finished-products">
+                            <thead>
+                                <tr>
+                                    <th colspan="3" class="table-head"> Finished Product</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tableBody">
+                                <tr>
+                                    <th>Name</th>                                 
+                                    <th>Type</th>
+                                    <th>Category</th>
+                                </tr>
+                        </table>    ` ;               
+                    return document.getElementById('finishedProductsContainer').innerHTML += table;               
+                }   
+            
+                createFinishedProductTable();   // CREATE TABLE  
+                // const man = result;
+                // console.log('This is the result', man);
+                        
+                return  populateFinishedProductTable(result);  //POPULATE TABLE
             
             
             }            

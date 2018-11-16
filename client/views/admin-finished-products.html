@@ -42,7 +42,7 @@
                             <p class="dasboard-header"><a href="adminDashboard.html">Dashboard</a></p>
                             <li class="link"> <a href="admin-all-products.html"> <i class="fas fa-cookie-bite"></i> &nbsp; All Products</a></li>
                             <li class="link"> <a href="admin-available-products.html"> <i class="fab fa-accessible-icon"></i> &nbsp; Available Products </a></li>
-                            <li class="link"> <a href="admin-finished-products.html"> <i class="fas fa-thermometer-empty"></i> &nbsp; Finished Products </a></li>                    
+                            <li class="link" onclick="FinishedProducts();" >  <i class="fas fa-thermometer-empty"></i> &nbsp; Finished Products</li>                    
                             <li class="link"> <a href="admin-add-products.html"> <i class="far fa-plus-square"></i> &nbsp; Add Product</a></li>
                         </ul>
                         <ul class="dasboard-content-items">
@@ -81,72 +81,8 @@
                             <button class="search-sales-by-attendant-buttton link"><i class="fas fa-search"></i> <span class="search-text"> &nbsp; Search</span> </button>
                         </div>
                     </div>
-                    <div class="dasboard-display-div">                        
-                        <!-- Finished product table -->
-                        <table id="finished-products">
-                            <thead>
-                                <tr>
-                                    <th colspan="3" class="table-head"> Finished Product</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th>Name</th>                                 
-                                    <th>Type</th>
-                                    <th>Category</th>
-                                </tr>
-                                <tr>
-                                    <td>Skineal</td>
-                                    <td>Tube</td>
-                                    <td>Cream</td>
-                                </tr>
-                                <tr>
-                                    <td>Neoskin</td>
-                                    <td>Tube</td>
-                                    <td>Cream</td>
-                                </tr>
-                                <tr>
-                                    <td>Cowbel</td>
-                                    <td>Milk</td>
-                                    <td>Beverages</td>
-                                </tr>
-                                <tr>
-                                    <td>Royco</td>
-                                    <td>Maggi</td>
-                                    <td>Spies</td>
-                                </tr>
-                                <tr>
-                                    <td>Joy Soap</td>
-                                    <td>Soap</td>
-                                    <td>Soap</td>
-                                </tr>
-                                <tr>
-                                    <td>Nivea</td>
-                                    <td>Lotion</td>
-                                    <td>Cream</td>
-                                </tr>
-                                <tr>
-                                    <td>Dubai</td>
-                                    <td>Perfume</td>
-                                    <td>Perfume</td>
-                                </tr>
-                                <tr>
-                                    <td>Tura
-                                    <td>Soap</td>
-                                    <td>Soap</td>
-                                </tr>
-                                <tr>
-                                    <td>Nacette</td>
-                                    <td>Blade</td>
-                                    <td>Blade</td>
-                                </tr>
-                                <tr>
-                                    <td>Nescafe</td>
-                                    <td>Coffee</td>
-                                    <td>Beverages</td>
-                                </tr>
-                            </tbody>                            
-                        </table>                                                
+                    <div class="dasboard-display-div" id="finishedProductsContainer">                        
+                                 
                     </div>
                 </div>
             </div>
