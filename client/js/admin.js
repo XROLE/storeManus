@@ -52,7 +52,7 @@ window.onload = (() => {
                 body: JSON.stringify(data),
                 headers: {
                     'Accept': 'application/json, text/plain, */*',
-                    'x-access-token': `Bearer ${localStorage.getItem('accessToken')}`,
+                    'x-access-token': token,
                     'Content-type': 'application/json'
                 }
             })
@@ -61,7 +61,7 @@ window.onload = (() => {
                     if(res.Success){   // SAVE TOKEN IN LOCAL STORAGE AND REDIRECT APPROPRIATE DASHBOARD                                                                 
                         return  location.reload();
                     }
-                    alert(res.Message);
+                    alert(res.Message);                    
                     return;
                 })
                 .catch(err => console.error('Error :', err));
@@ -88,7 +88,7 @@ window.onload = (() => {
                 body: JSON.stringify(data),
                 headers: {
                     'Accept': 'application/json, text/plain, */*',
-                    'x-access-token': `Bearer ${localStorage.getItem('accessToken')}`,
+                    'x-access-token': token,
                     'Content-type': 'application/json'
                 }
             })
@@ -107,6 +107,16 @@ window.onload = (() => {
                 
     }
 });
+
+// TOKEN SECTION
+let token='';
+if(localStorage.getItem('accessToken') !== null){
+    token = `Bearer ${localStorage.getItem('accessToken')}`;
+} 
+
+
+
+
 // ===================== ALL PRODUCTS SECTION ====================================
 
 function populateProductTable(data){    // Populate table with details from database              
@@ -146,13 +156,13 @@ function populateFinishedProductTable(data){
     }
     return;
 }
-function AllProducts(){  // Get products and populate products table            
+function AllProducts(){  // Get products and populate products table          
     const url = 'http://localhost:5000/api/v1/products';
     fetch(url, { // FETCH PRODUCTS
         method: 'GET',        
         headers: {
             'Accept': 'application/json, text/plain, */*',          
-            'x-access-token': `Bearer ${localStorage.getItem('accessToken')}`,
+            'x-access-token': token,
             'Content-type': 'application/json'
         }
     })
@@ -199,11 +209,12 @@ function AllProducts(){  // Get products and populate products table
 //======================= AVAILABLE PRODUCTS SECTION
 function AvailableProducts(){
     const url = 'http://localhost:5000/api/v1/products/available';
+    console.log(localStorage.getItem('accessToken'));
     fetch(url, { // FETCH PRODUCTS
         method: 'GET',        
         headers: {
             'Accept': 'application/json, text/plain, */*',
-            'x-access-token': `Bearer ${localStorage.getItem('accessToken')}`,
+            'x-access-token': token,
             'Content-type': 'application/json'
         }
     })
@@ -251,7 +262,7 @@ function FinishedProducts(){
         method: 'GET',        
         headers: {
             'Accept': 'application/json, text/plain, */*',
-            'x-access-token': `Bearer ${localStorage.getItem('accessToken')}`,
+            'x-access-token':token,
             'Content-type': 'application/json'
         }
     })
@@ -291,4 +302,9 @@ function FinishedProducts(){
      
 }
 
+//================= SIGN OUT
+function signOut(){
+    localStorage.removeItem('accessToken');
+    return location.href='signin.html';
+}
 
