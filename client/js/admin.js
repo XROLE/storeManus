@@ -57,10 +57,45 @@ window.onload = (() => {
                 }
             })
                 .then(res => res.json())
-                .then(res => {                
+                .then(res => {
+                    if(res.Success){   // SAVE TOKEN IN LOCAL STORAGE AND REDIRECT APPROPRIATE DASHBOARD                                                                 
+                        return  location.reload();
+                    }
                     alert(res.Message);
+                    return;
+                })
+                .catch(err => console.error('Error :', err));
+        });
+                
+                
+    }
+    // ADD ATTENDANT
+    const atloc = 'file:///C:/Users/XROLE%20VALSIDO%20DIAMON/Desktop/Apps/storeManus/client/views/admin-add-attendant.html';
+    const addatt = document.querySelector('#add-attendant-button');
+    if(location.href === atloc){
+        addatt.addEventListener('click', (e) =>{
+          
+            e.preventDefault();
+             
+            const firstName = document.getElementById('firstName').value.trim();
+            const lastName = document.getElementById('lastName').value.trim();
+            const email = document.getElementById('email').value.trim();
+            
+            const data = {firstName, lastName, email};
+            let url ='http://localhost:5000/api/v1/attendants/auth/register';        
+            fetch(url, { // POST DATA TO THE DATABASE
+                method: 'POST',
+                body: JSON.stringify(data),
+                headers: {
+                    'Accept': 'application/json, text/plain, */*',
+                    'x-access-token': `Bearer ${localStorage.getItem('accessToken')}`,
+                    'Content-type': 'application/json'
+                }
+            })
+                .then(res => res.json())
+                .then(res => { 
                     if(res.Success){   // SAVE TOKEN IN LOCAL STORAGE AND REDIRECT APPROPRIATE DASHBOARD
-                        alert(res.Message);                                           
+                        alert(`Proceed to with this password to update your account ${res.password}`);                                           
                         return  location.reload();
                     }
                     alert(res.Message);
