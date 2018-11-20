@@ -7,7 +7,7 @@ import ValidateAttendant from '../middlewares/validateAttendants';  // HANDLES A
 const attRoutes = Router();
 
 //ATTENDANTS
-attRoutes.get('/', checkToken, Attendants.getAllAttendants);  // register attendants
+attRoutes.get('/', checkToken, Attendants.getAllAttendants);  // get attendants
 attRoutes.get('/:id', checkToken, Attendants.getOneAttendants);  // get one attendants
 attRoutes.put('/:id', checkToken, ValidateAttendant.validateProfileUpdate,Attendants.editOneAttendant);  // update attendant details
 attRoutes.post('/auth/signin',  ValidateAttendant.validateSignIn, AttendantToken.createToken, Attendants.signInAttendants);
