@@ -156,6 +156,21 @@ function populateFinishedProductTable(data){
     }
     return;
 }
+function populateAttendantsDiv(data){
+    for(let i = 0; i< data.attendants.length; i++){                    
+        const attendant =  `<tr>
+            <a href="att-pro-page.html">
+                <div class="attendant-profile-div">
+                    <img src="../img/${data.attendants[i].profilepics}" alt="attendant avatar" class="attendant-profile-image">
+                    <div class=" attendant-profile-info-div ">
+                        <p>Name: ${data.attendants[i].firstname} ${data.attendants[i].lastname} <span style="display: block">Click to view profile</span> </p>                                                                       
+                    </div>
+                </div>
+            </a>`;
+        document.getElementById('all-attendant-div').innerHTML += attendant;
+    }
+    return;
+}
 function AllProducts(){  // Get products and populate products table          
     const url = 'http://localhost:5000/api/v1/products';
     fetch(url, { // FETCH PRODUCTS
@@ -188,7 +203,7 @@ function AllProducts(){  // Get products and populate products table
                 </tbody>
                 </table>               
                 ` ;               
-                    return document.getElementById('allProductContainer').innerHTML += table;               
+                    return document.getElementById('allProductContainer').innerHTML = table;               
                 }   
             
                 createTable();   // CREATE TABLE  
@@ -238,7 +253,7 @@ function AvailableProducts(){
                                 </tr>                                                                
                             </tbody>                            
                         </table>` ;               
-                    return document.getElementById('availableProductsContainer').innerHTML += table;               
+                    return document.getElementById('availableProductsContainer').innerHTML = table;               
                 }   
             
                 createAvailableProductTable();   // CREATE TABLE  
@@ -284,7 +299,7 @@ function FinishedProducts(){
                                     <th>Category</th>
                                 </tr>
                         </table>    ` ;               
-                    return document.getElementById('finishedProductsContainer').innerHTML += table;               
+                    return document.getElementById('finishedProductsContainer').innerHTML = table;               
                 }   
             
                 createFinishedProductTable();   // CREATE TABLE  
@@ -307,4 +322,36 @@ function signOut(){
     localStorage.removeItem('accessToken');
     return location.href='signin.html';
 }
+//======================= GET ALL ATTENDANTS
+function getAttendants(){
+    const url = 'http://localhost:5000/api/v1/attendants';
+    fetch(url, { // FETCH PRODUCTS
+        method: 'GET',        
+        headers: {
+            'Accept': 'application/json, text/plain, */*',
+            'x-access-token':token,
+            'Content-type': 'application/json'
+        }
+    })
+        .then(res => res.json())
+        .then(result => {       
+            if(result.Success){
+                function createAttendantCards(){    //Create display for each Attendant 
+                    const card = `
+                    <p ><i class="fas fa-users"></i> &nbsp;ALL ATTENDANTS</p>
+                    <div id="all-attendant-div">                            
+                                                                                
+                    </div> `    ;             
+                    return document.getElementById('all-attendant-div-frame').innerHTML = card;               
+                }
+                createAttendantCards();   // CREATE ATTENDANT DISPLAY CARD
+                return  populateAttendantsDiv(result);  //POPULATE TABLE
+            }            
+            alert(result.Message);
+            return window.location.href = './signin.html';
+        })
+        .catch(err => console.error('Error :', err));
+     
+}
+
 

@@ -36,7 +36,7 @@ const createAttendantTable = () => { // ======================================= 
 const addAttendants =(firstName, lastName, email, password) => { // =========================================== Insert into attendants table
     
     const queryText = 'INSERT INTO attendants(firstName, lastName, email, password, phoneNo, gender, profilePics) VALUES($1, $2, $3, $4, $5, $6, $7) RETURNING *';
-    const values = [firstName, lastName, email, password, '11111111111', 'update', 'add profile pics'];
+    const values = [firstName, lastName, email, password, '11111111111', 'update', 'avatar2.jpg'];
     const addedAttendant = pool.query(queryText, values)
         .then((res) => {
             return new Promise((resolve) => {
