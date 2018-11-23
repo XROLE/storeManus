@@ -12,46 +12,45 @@
             <link href="https://fonts.googleapis.com/css?family=Exo|Poiret+One" rel="stylesheet">
             <link rel="shortcut icon" href="../img/favicon.png" type="image/x-icon">
             <link rel="manifest" href="./manifest.json">
-            <script type="text/javascript" src="../js/admin.js"></script>
-        <title>Store Manus</title>
-    </head>
-    <body style="background-color: white; color:#000a3f;">
+            <title>Store Manus</title>
+        </head>
+        <body style="background-color: white; color:#000a3f;">
         <div>
             <nav class="navbar">
                     <div class="navLogo">
                         <p><a href="../index.html" style="color: white"> <i class="fas free fa-stream" ></i> &nbsp; <span>Store Manus</span></a></p>
                         <p>
-                            <i class="fa fa-bars hanburgerButton" ></i>
-                            <i class="fa fa-times close" ></i>
+                                <i class="fa fa-bars hanburgerButton" onclick="openNav();" ></i>
+                                <i class="fa fa-times close"  onclick="closeNav();"></i>
                         </p>                 
                     </div>
                     <ul class="nav-items">
-                            <li onclick="signOut();"  style="color: white; cursor: pointer;">Logout</li>
+                        <li onclick="signOut();"  style="color: white; cursor: pointer;">Logout</li>
                     </ul>
-            </nav>
-            <div class="dasboardDiv">
-                <div class="dasboard-content">
-                    <div class="dashboard-toggler-div">
-                        <p class="toggler">
-                            <i class="fa fa-bars dasboard-content-toggle-show" ></i>
-                            <i class="fa fa-times close-toggle" style="color: red" ></i>
-                        </p>    
+                </nav>
+                <div class="dasboardDiv">
+                    <div class="dasboard-content">
+                        <div class="dashboard-toggler-div">
+                            <p class="toggler">
+                                <i class="fa fa-bars dasboard-content-toggle-show" ></i>
+                                <i class="fa fa-times close-toggle" style="color: red" ></i>
+                            </p>    
+                        </div>
+                        <div class="dasboard-content-main">
+                            <ul class="dasboard-content-items">
+                                <p class="dasboard-header"><a href="adminDashboard.html">Dashboard</a></p>
+                                <li class="link" id="all-products" onclick="AllProducts();"> <a href="admin-all-products.html"> <i class="fas fa-cookie-bite"></i> &nbsp; All Products </a> </li>
+                                <li class="link" onclick="AvailableProducts();"><a href="admin-available-products.html"> <i class="fab fa-accessible-icon"></i> &nbsp; Available Products </a></li>
+                                <li class="link"> <a href="admin-finished-products.html"> <i class="fas fa-thermometer-empty"></i> &nbsp; Finished Products </a></li>                    
+                                <li class="link"> <a href="admin-add-products.html"> <i class="far fa-plus-square"></i> &nbsp; Add Product</a></li>
+                            </ul>
+                            <ul class="dasboard-content-items">
+                                <p class="dasboard-header">Attendants</p>
+                                <li class="link"> <a href="admin-all-attendants.html"><i class="fas fa-users"></i> &nbsp; All Attendants</a></li>
+                                <li class="link"> <a href="admin-add-attendant.html"> <i class="far fa-plus-square"></i> &nbsp; Add Attendant </a></li>
+                            </ul>                        
+                        </div>
                     </div>
-                    <div class="dasboard-content-main">
-                        <ul class="dasboard-content-items">
-                            <p class="dasboard-header"><a href="adminDashboard.html">Dashboard</a></p>
-                            <li class="link" id="all-products" onclick="AllProducts();"> <a href="admin-all-products.html"> <i class="fas fa-cookie-bite"></i> &nbsp; All Products </a> </li>
-                            <li class="link" onclick="AvailableProducts();"><a href="admin-available-products.html"> <i class="fab fa-accessible-icon"></i> &nbsp; Available Products </a></li>
-                            <li class="link"> <a href="admin-finished-products.html"> <i class="fas fa-thermometer-empty"></i> &nbsp; Finished Products </a></li>                    
-                            <li class="link"> <a href="admin-add-products.html"> <i class="far fa-plus-square"></i> &nbsp; Add Product</a></li>
-                        </ul>
-                        <ul class="dasboard-content-items">
-                            <p class="dasboard-header">Attendants</p>
-                            <li class="link"> <a href="admin-all-attendants.html"><i class="fas fa-users"></i> &nbsp; All Attendants</a></li>
-                            <li class="link"> <a href="admin-add-attendant.html"> <i class="far fa-plus-square"></i> &nbsp; Add Attendant </a></li>
-                        </ul>                        
-                    </div>
-                </div>
                 <div class="test">
                     <div class="avatar-div-container">
                         <div class="avater-div">
@@ -87,10 +86,12 @@
                         <img src="../img/shopping-cart.jpg" id="shopping-cart" alt="" style="width: 50%"> 
                         <!-- all product table -->
                         
-                                                                              
+                        
                     </div>
                 </div>
             </div>
         </div>        
     </body>
-</html>
+    </html>
+    <script type="text/javascript" src="../js/admin.js"></script>
+    <script type="text/javascript" src="../js/navbar.js"></script>

@@ -374,12 +374,12 @@ tfoot {
 /* attendant profile update  */
 #att-pro-update-form{
     width: 50%;
-    margin: 50px auto;
+    margin: 0 auto;
     text-align: left;
 }
 #att-pro-update-form input{
     width: 100%;
-    padding: 10px 5px;
+    padding: 7px 5px;
     margin: 10px 0px;
 }
 #att-pro-update-form button{

@@ -12,75 +12,85 @@
             <link href="https://fonts.googleapis.com/css?family=Exo|Poiret+One" rel="stylesheet">
             <link rel="shortcut icon" href="../img/favicon.png" type="image/x-icon">
             <link rel="manifest" href="./manifest.json">
-            <script type="text/javascript" src="../js/admin.js"></script>
-        <title>Store Manus</title>
-    </head>
-    <body style="background-color: white; color:#000a3f;">
-        <div>
-            <nav class="navbar">
+            <script type="text/javascript" src="../js/updateProfile.js"></script>
+            <title>Store Manus</title>
+        </head>
+        <body style="background-color: white; color:#000a3f;">
+            <div>
+                <nav class="navbar">
                     <div class="navLogo">
                         <p><a href="../index.html" style="color: white"> <i class="fas free fa-stream" ></i> &nbsp; <span>Store Manus</span></a></p>
                         <p>
-                            <i class="fa fa-bars hanburgerButton" ></i>
-                            <i class="fa fa-times close" ></i>
+                                <i class="fa fa-bars hanburgerButton" onclick="openNav();" ></i>
+                                <i class="fa fa-times close"  onclick="closeNav();"></i>
                         </p>                 
                     </div>
                     <ul class="nav-items">                      
                         <li onclick="signOut();"  style="color: white; cursor: pointer;">Logout</li>
                     </ul>
-            </nav>
-            <!-- attendant Dashboard content div -->
-            <div class="att-dashboard-div">
-                <div class="att-dashboard-img-div">
-                    <a href=""> <img src="../img/avatar.jpg" alt="" class="Avatar"></a>&nbsp;
-                    Hi, Xrole
+                </nav>
+                <!-- attendant Dashboard content div -->
+                <div class="att-dashboard-div">
+                    <div class="att-dashboard-img-div">
+                        <a href=""> <img src="../img/avatar2.jpg" alt="" class="Avatar"></a>&nbsp;
+                        Hi, Xrole
+                    </div>
+                    <div class="att-dashboard-middle-item-div">
+                        <p class="att-dashboard-item"> <a href="att-pro-update.html"><i class="fas fa-pen-nib"> &nbsp;</i>Update Profile</a> </p>                  
+                        <p class="att-dashboard-item"> <a href="att-sales-record.html"><i class="fas fa-arrows-alt"></i>&nbsp; Sales Record</a>  </p>
+                    </div>
+                    <div>
+                        <a href="create-sales.html">
+                            <p class="att-dashboard-item"><i class="fas fa-cart-plus"></i> &nbsp; Create Sales</p>
+                        </a>
+                    </div>
                 </div>
-                <div class="att-dashboard-middle-item-div">
-                    <p class="att-dashboard-item"> <a href="att-pro-update.html"><i class="fas fa-pen-nib"> &nbsp;</i>Update Profile</a> </p>                  
-                    <p class="att-dashboard-item"> <a href="att-sales-record.html"><i class="fas fa-arrows-alt"></i>&nbsp; Sales Record</a>  </p>
-                </div>
-                <div>
-                    <a href="create-sales.html">
-                        <p class="att-dashboard-item"><i class="fas fa-cart-plus"></i> &nbsp; Create Sales</p>
-                    </a>
-                </div>
-            </div>
-            <!-- display functionality content            -->
-            <div class="attendant-display-functionality-div">
-                <div>
-                    <form action="" id="att-pro-update-form">
+                <!-- display functionality content            -->
+                <div class="attendant-display-functionality-div">
+                    <div>
+                        <form action="" id="att-pro-update-form">
+                            <div>
+                                <p>UPDATE PROFILE</p>
+                            </div>
+                            <div>
+                                <input type="text" id="firstName"  placeholder="First Name" value="Wes" readonly>
+                            </div>
+                            <div>
+                                <input type="text" id="lastName"  placeholder="Last Name" value="Boss" readonly>
+                            </div>                        
                         <div>
-                            <p>UPDATE PROFILE</p>
+                            <input type="email" id="email"  placeholder="Email" value="wesb@gmail.com" readonly>
                         </div>
                         <div>
-                            <input type="text" name="" id="" placeholder="First Name">
+                            <input type="number"  id="phoneno" placeholder="Phone Number">
                         </div>
                         <div>
-                            <input type="text" name="" id="" placeholder="Last Name">
-                        </div>                        
-                        <div>
-                            <input type="email" name="" id="" placeholder="Email">
+                            <input type="password"  id="password" placeholder="Password">
                         </div>
                         <div>
-                            <input type="number" name="" id="" placeholder="Phone Number">
+                            <input type="password"  id="confirmpassword" placeholder="Confirm Password">
                         </div>
                         <div class="att-pro-pix-div" >
                             <div>
                                 <label for="">Gender: </label>
-                                <select name="" id="" style="padding: none" >
-                                    <option value="">--Select Gender--</option>
-                                    <option value=""> Male </option>
-                                    <option value=""> Female </option>
-                                </select>
+                                <select name="gender" id="gender" style="padding: none" >
+                                    <option name="gender">--Select Gender--</option>
+                                    <option name="gender"> Male </option>
+                                    <option name="gender"> Female </option>
+                                </select>                                
                             </div>
-                            <input type="file" name="" id=""  >
+                            <input type="file"  id="profilepics"  >
                         </div>
                         <div >
-                            <button class="link" >UPDATE</button>
+                            <button class="link"  id="updateProfileButton"  >UPDATE</button>
                         </div>
                     </form>
                 </div>
             </div>
-        </div>        
+        </div>   
+        
+        
+        <script type="text/javascript" src="../js/jwt-decode.min.js"></script>
+        <script type="text/javascript" src="../js/navbar.js"></script>
     </body>
-</html>
+    </html>

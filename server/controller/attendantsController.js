@@ -1,10 +1,18 @@
 import bcrypt from 'bcrypt';
+import cloudinary from 'cloudinary';
 import generatePassword from 'password-generator';
 import { addAttendants } from '../model/attendants';
 import { isEmailInUse } from '../model/attendants';
 import { getAttendants } from '../model/attendants';
 import { getOneAttendantById } from '../model/attendants';
 import { updateAttendant } from '../model/attendants';
+
+// CONFIGURE CLOUDINARY
+cloudinary.config({ 
+    cloud_name: process.env.cloud_name, 
+    api_key: process.env.API_key, 
+    api_secret: process.env.API_Secrete
+});
 
 class Attendants {
     static addAttendants(req, res){
@@ -37,7 +45,7 @@ class Attendants {
         getAttendants()
             .then((attendants) => {
                 if(attendants.length === 0){
-                    res.status(200).json({
+                    return  res.status(200).json({
                         Success: true,
                         Message: 'No attendant has been registered yet'
                     });
@@ -68,23 +76,34 @@ class Attendants {
     }
     static editOneAttendant(req, res){  // EDIT ONE ATTENDANT
         const {firstName, lastName, email, password, phoneno, gender, profilepics} = req.body;
-        const id = req.params.id;
-        bcrypt.hash(password, 10).then((hashpassword) => {
-            updateAttendant(firstName, lastName, email, hashpassword, phoneno, gender, profilepics, id)
-                .then((attendant) => {
-                    if(attendant.length === 0){
-                        res.status(200).json({
-                            Success: true,
-                            Message: 'No attendant with such ID exist'
-                        });
-                    }
-                    return res.status(200).json({
-                        Success: true,
-                        Message: 'Profile updated successfully',                 
-                        profile: attendant
-                    });
+        const id = req.params.id;        
+        cloudinary.v2.uploader.upload(profilepics, (error, result) => { // Upload image to cloudinary
+            if(error){
+                console.log(error);                
+                return res.status(500).json({
+                    Success: false,
+                    Message: 'internal server error occured while uploading your image, please make sure you have internet connection and try again'
                 });
+            }
+            const cloudinaryImageUrl = result.secure_url;
+            bcrypt.hash(password, 10).then((hashpassword) => {
+                updateAttendant(firstName, lastName, email, hashpassword, phoneno, gender, cloudinaryImageUrl, id)
+                    .then((attendant) => {
+                        if(attendant.length === 0){
+                            res.status(200).json({
+                                Success: true,
+                                Message: 'No attendant with such ID exist'
+                            });
+                        }                     
+                        return res.status(200).json({
+                            Success: true,
+                            Message: 'Profile updated successfully',                 
+                            profile: attendant
+                        });
+                    });
+            });
         });
+       
     }
     static signInAttendants(req, res){   // SIGN IN AN ATTENDANT
         const Token = req.token;       

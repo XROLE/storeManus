@@ -12,26 +12,25 @@
             <link href="https://fonts.googleapis.com/css?family=Exo|Poiret+One" rel="stylesheet">
             <link rel="shortcut icon" href="../img/favicon.png" type="image/x-icon">
             <link rel="manifest" href="./manifest.json">
-            <script type="text/javascript" src="../js/admin.js"></script>
-        <title>Store Manus</title>
-    </head>
-    <body style="background-color: white; color:#000a3f;">
-        <div>
-            <nav class="navbar">
+            <title>Store Manus</title>
+        </head>
+        <body style="background-color: white; color:#000a3f;">
+            <div>
+                <nav class="navbar">
                     <div class="navLogo">
                         <p><a href="../index.html" style="color: white"> <i class="fas free fa-stream" ></i> &nbsp; <span>Store Manus</span></a></p>
                         <p>
-                            <i class="fa fa-bars hanburgerButton" ></i>
-                            <i class="fa fa-times close" ></i>
+                            <i class="fa fa-bars hanburgerButton" onclick="openNav();" ></i>
+                            <i class="fa fa-times close"  onclick="closeNav();"></i>
                         </p>                 
                     </div>
                     <ul class="nav-items">                     
-                            <li onclick="signOut();"  style="color: white; cursor: pointer;">Logout</li>
+                        <li onclick="signOut();"  style="color: white; cursor: pointer;">Logout</li>
                     </ul>
-            </nav>
-            <div class="dasboardDiv">
-                <div class="dasboard-content">
-                    <div class="dashboard-toggler-div">
+                </nav>
+                <div class="dasboardDiv">
+                    <div class="dasboard-content">
+                        <div class="dashboard-toggler-div">
                         <p class="toggler">
                             <i class="fa fa-bars dasboard-content-toggle-show" ></i>
                             <i class="fa fa-times close-toggle" style="color: red" ></i>
@@ -85,7 +84,7 @@
                         <!-- add product form -->
                         <form action="" id="add-product">
                             <div class="form-label">
-                                    <label for="add-product"> <i class="far fa-plus-square"></i> &nbsp;ADD PRODUCT</label>
+                                <label for="add-product"> <i class="far fa-plus-square"></i> &nbsp;ADD PRODUCT</label>
                             </div>
                             <div>
                                 <input type="text"  id="product-Name" placeholder="NAME" >
@@ -110,5 +109,7 @@
                 </div>
             </div>
         </div>        
+        <script type="text/javascript" src="../js/admin.js"></script>
+        <script type="text/javascript" src="../js/navbar.js"></script>
     </body>
-</html>
+    </html>
