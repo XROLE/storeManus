@@ -1,7 +1,11 @@
 import { Pool } from 'pg';
 import dotenv from 'dotenv';
 
+
 dotenv.config();
+
+
+
 
 const pool = new Pool({
     connectionString: process.env.DEV_DB_URI
@@ -36,7 +40,7 @@ const createAttendantTable = () => { // ======================================= 
 const addAttendants =(firstName, lastName, email, password) => { // =========================================== Insert into attendants table
     
     const queryText = 'INSERT INTO attendants(firstName, lastName, email, password, phoneNo, gender, profilePics) VALUES($1, $2, $3, $4, $5, $6, $7) RETURNING *';
-    const values = [firstName, lastName, email, password, '11111111111', 'update', 'avatar2.jpg'];
+    const values = [firstName, lastName, email, password, '11111111111', 'update', '../img/avatar.jpg'];
     const addedAttendant = pool.query(queryText, values)
         .then((res) => {
             return new Promise((resolve) => {
@@ -123,6 +127,8 @@ const dropAttendantsTable = () => { // =========================================
         });
 };
 
+
+
 module.exports = {
     createAttendantTable,
     dropAttendantsTable,
@@ -131,7 +137,7 @@ module.exports = {
     getOneAttendant,
     getAttendants,
     getOneAttendantById,
-    updateAttendant  
+    updateAttendant     
 };
 
 require('make-runnable');

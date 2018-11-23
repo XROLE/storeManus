@@ -12,17 +12,16 @@
         <link href="https://fonts.googleapis.com/css?family=Exo|Poiret+One" rel="stylesheet">
         <link rel="shortcut icon" href="../img/favicon.png" type="image/x-icon">
         <link rel="manifest" href="./manifest.json">
-        <script type="text/javascript" src="../js/signin.js"></script>
-    <title>Store Manus</title>
-</head>
-<body style="background-color: white; color:#000a3f;">
-    <div>       
-        <nav class="navbar">
+        <title>Store Manus</title>
+    </head>
+    <body style="background-color: white; color:#000a3f;">
+        <div>       
+            <nav class="navbar">
             <div class="navLogo">
                 <p><a href="../index.html" style="color: white"> <i class="fas free fa-stream" ></i> &nbsp; <span>Store Manus</span></a></p>
                 <p>
-                    <i class="fa fa-bars hanburgerButton" ></i>
-                    <i class="fa fa-times close" ></i>
+                    <i class="fa fa-bars hanburgerButton" onclick="openNav();" ></i>
+                    <i class="fa fa-times close"  onclick="closeNav();"></i>
                 </p>                 
             </div>
             <ul class="nav-items">                
@@ -31,24 +30,26 @@
         </nav>
         <div class="signupDiv" style="margin-top: 180px">
             <form action="" class="signup-form">
-                 <div>
+                <div>
                     <input type="email" name="email" id="signInEmail" placeholder="Email">
                 </div>
                 <div>
                         <input type="password" name="password" id="signInPassword" placeholder="Password">
                     </div>               
-                <div class="signup-button-div">
+                    <div class="signup-button-div">
                     <button class="link signin-button">SIGN IN</button>
                 </div>
             </form>
         </div>
-      
+        
     </div>
- 
+    
    <footer class="signin-footer">
        <div class="footerDiv">
            <p class="copy-right"> &copy; xrole </p>
-       </div>
-   </footer>
+        </div>
+    </footer>
+    <script type="text/javascript" src="../js/signin.js"></script>
+    <script type="text/javascript" src="../js/navbar.js"></script>
 </body>
 </html>

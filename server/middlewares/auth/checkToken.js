@@ -4,7 +4,7 @@ const checkToken = (req, res, next) => {
     if(!token){
         return res.status(401).json({
             Success:false,
-            Message: 'Unauthorized user access'
+            Message: 'Unauthorized user access. Please make sure you are signed in'
         });
     }
     return next();

@@ -12,27 +12,26 @@
             <link href="https://fonts.googleapis.com/css?family=Exo|Poiret+One" rel="stylesheet">
             <link rel="shortcut icon" href="../img/favicon.png" type="image/x-icon">
             <link rel="manifest" href="./manifest.json">
-            <script type="text/javascript" src="../js/create-sales.js"></script>
-        <title>Store Manus</title>
-    </head>
-    <body style="background-color: white; color:#000a3f;">
-        <div>
-            <nav class="navbar">
+            <title>Store Manus</title>
+        </head>
+        <body style="background-color: white; color:#000a3f;">
+            <div>
+                <nav class="navbar">
                     <div class="navLogo">
                         <p><a href="../index.html" style="color: white"> <i class="fas free fa-stream" ></i> &nbsp; <span>Store Manus</span></a></p>
                         <p>
-                            <i class="fa fa-bars hanburgerButton" ></i>
-                            <i class="fa fa-times close" ></i>
+                                <i class="fa fa-bars hanburgerButton" onclick="openNav();" ></i>
+                                <i class="fa fa-times close"  onclick="closeNav();"></i>
                         </p>                 
                     </div>
                     <ul class="nav-items">
                         <li onclick="signOut();"  style="color: white; cursor: pointer;">Logout</li>
                     </ul>
-            </nav>
+                </nav>
             <!-- attendant Dashboard content div -->
             <div class="att-dashboard-div">
                 <div class="att-dashboard-img-div">
-                    <a href=""> <img src="../img/avatar.jpg" alt="" class="Avatar"></a>&nbsp;
+                    <a href=""> <img src="https://res.cloudinary.com/xrole/image/upload/v1542793508/mks0mafcukuejmd9ktwf.jpg" alt="" class="Avatar"></a>&nbsp;
                     Hi, Xrole
                 </div>
                 <div class="att-dashboard-middle-item-div">
@@ -57,34 +56,34 @@
                             <div class="shift-top space-content">
                                 <label for="">Category</label>
                                 <select name="" id="" class="create-sales-select-tag">
-                                        <option value="">-Select All-</option>
-                                        <option value="">Attendats</option>
-                                        <option value="">Categories</option>
-                                        <option value="">Date</option>
+                                    <option value="">-Select All-</option>
+                                    <option value="">Attendats</option>
+                                    <option value="">Categories</option>
+                                    <option value="">Date</option>
                                 </select>
                             </div>
                             <div class="create-sales-div-group space-content">
                                 <label for="" class="shift-top">Product</label>
                                 <select name="" id="" class="shift-top create-sales-select-tag">
-                                        <option value="">-Select All-</option>
-                                        <option value="">Louis Sugar</option>
-                                        <option value="">Nivea</option>
-                                        <option value="">Peak Sarchet</option>
-                                        <option value="">Tura Soap</option>
-                                        <option value="">Skineal</option>
-                                        <option value="">Maltina</option>
-                                        <option value="">Locuzade Boost</option>
-                                        <option value="">Silver line</option>
-                                        <option value="">Rob</option>
-                                        <option value="">Tigger Battery</option>
-                                        <option value="">Luna Milk</option>
-                                        <option value="">Cream Crackers</option>
-                                        <option value="">Chicken Perry</option>
-                                        <option value="">Three Crown</option>
-                                        <option value="">Whott</option>
-                                        <option value="">Bournvita</option>
-                                        <option value="">Joy Soap</option>
-                                        <option value="">Lux</option>
+                                    <option value="">-Select All-</option>
+                                    <option value="">Louis Sugar</option>
+                                    <option value="">Nivea</option>
+                                    <option value="">Peak Sarchet</option>
+                                    <option value="">Tura Soap</option>
+                                    <option value="">Skineal</option>
+                                    <option value="">Maltina</option>
+                                    <option value="">Locuzade Boost</option>
+                                    <option value="">Silver line</option>
+                                    <option value="">Rob</option>
+                                    <option value="">Tigger Battery</option>
+                                    <option value="">Luna Milk</option>
+                                    <option value="">Cream Crackers</option>
+                                    <option value="">Chicken Perry</option>
+                                    <option value="">Three Crown</option>
+                                    <option value="">Whott</option>
+                                    <option value="">Bournvita</option>
+                                    <option value="">Joy Soap</option>
+                                    <option value="">Lux</option>
                                 </select>
                             </div>
                             <div class="create-sales-div-group ">
@@ -105,36 +104,36 @@
                         </form>
                     </div>
                     <div class="shopping-cart-div">
-                            <table id="shopping-cart-table">
-                                    <thead>
-                                        <tr>
-                                            <th colspan="8" class="table-head"> SHOPPING CART</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <th class="shopping-cart-increase-th-padding">SN</th>
-                                            <th class="shopping-cart-increase-th-padding"> Name</th>
-                                            <th class="shopping-cart-increase-th-padding">Cate</th>
-                                            <th class="shopping-cart-increase-th-padding">Qty</th>
-                                            <th class="shopping-cart-increase-th-padding">Price</th>
-                                            <th class="shopping-cart-increase-th-padding">S-total</th>
-                                            <th class="shopping-cart-increase-th-padding"></th>
-                                            <th class="shopping-cart-increase-th-padding"></th>
-                                        </tr>
-                                        <tr>
-                                            <td>1</td>
-                                            <td> maltina</td>
-                                            <td>beverage</td>
-                                            <td>3</td>
-                                            <td>150</td>
-                                            <td>450</td>
-                                            <td><button  class="edit-cart-item  link">Edit</button></td>
-                                            <td><button class="delete-cart-item link">Del</button></td>
-                                        </tr>
-                                        
-                                        <tr>
-                                            <td>2</td>
+                        <table id="shopping-cart-table">
+                            <thead>
+                                <tr>
+                                    <th colspan="8" class="table-head"> SHOPPING CART</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th class="shopping-cart-increase-th-padding">SN</th>
+                                    <th class="shopping-cart-increase-th-padding"> Name</th>
+                                    <th class="shopping-cart-increase-th-padding">Cate</th>
+                                    <th class="shopping-cart-increase-th-padding">Qty</th>
+                                    <th class="shopping-cart-increase-th-padding">Price</th>
+                                    <th class="shopping-cart-increase-th-padding">S-total</th>
+                                    <th class="shopping-cart-increase-th-padding"></th>
+                                    <th class="shopping-cart-increase-th-padding"></th>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td> maltina</td>
+                                    <td>beverage</td>
+                                    <td>3</td>
+                                    <td>150</td>
+                                    <td>450</td>
+                                    <td><button  class="edit-cart-item  link">Edit</button></td>
+                                    <td><button class="delete-cart-item link">Del</button></td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>2</td>
                                             <td> lux</td>
                                             <td>soap</td>
                                             <td>25</td>
@@ -186,9 +185,10 @@
                                 <div style="text-align: left; margin-top: 15px">
                                     <button class="shop-now-button link">CHECKOUT</button>
                                 </div> 
-                    </div>
+                            </div>
                 </div>
             </div>
         </div>        
+        <script type="text/javascript" src="../js/navbar.js"></script>
     </body>
-</html>
+    </html>
