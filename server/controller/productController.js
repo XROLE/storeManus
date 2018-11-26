@@ -87,7 +87,6 @@ export default class ProductController{
     }
 
     static putProducts(req, res){   //=========================== EDIT PRODUCT 
-
         const id = req.params.id;
         const name = req.body.name; 
         const price = req.body.price;
