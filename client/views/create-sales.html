@@ -31,8 +31,8 @@
             <!-- attendant Dashboard content div -->
             <div class="att-dashboard-div">
                 <div class="att-dashboard-img-div">
-                    <a href=""> <img src="https://res.cloudinary.com/xrole/image/upload/v1542793508/mks0mafcukuejmd9ktwf.jpg" alt="" class="Avatar"></a>&nbsp;
-                    Hi, Xrole
+                    <a href=""> <img src="https://res.cloudinary.com/xrole/image/upload/v1542793508/mks0mafcukuejmd9ktwf.jpg" alt="" class="Avatar" id="profileAvatar"></a>&nbsp;
+                     <span id="fullName" style="text-transform: capitalize;font-weight: bold">Xrole</span>
                 </div>
                 <div class="att-dashboard-middle-item-div">
                     <p class="att-dashboard-item"> <a href="att-pro-update.html"><i class="fas fa-pen-nib"> &nbsp;</i>Update Profile</a> </p>                  
@@ -55,51 +55,32 @@
                             </div>
                             <div class="shift-top space-content">
                                 <label for="">Category</label>
-                                <select name="" id="" class="create-sales-select-tag">
-                                    <option value="">-Select All-</option>
-                                    <option value="">Attendats</option>
-                                    <option value="">Categories</option>
-                                    <option value="">Date</option>
+                                <select name="" id="availableProCate" class="create-sales-select-tag">
+                                    <option value="false">--Selecte Category---</option>
+                                  <!-- THIS FIELD COMES FROM THE DATABASE -->
                                 </select>
                             </div>
                             <div class="create-sales-div-group space-content">
                                 <label for="" class="shift-top">Product</label>
-                                <select name="" id="" class="shift-top create-sales-select-tag">
-                                    <option value="">-Select All-</option>
-                                    <option value="">Louis Sugar</option>
-                                    <option value="">Nivea</option>
-                                    <option value="">Peak Sarchet</option>
-                                    <option value="">Tura Soap</option>
-                                    <option value="">Skineal</option>
-                                    <option value="">Maltina</option>
-                                    <option value="">Locuzade Boost</option>
-                                    <option value="">Silver line</option>
-                                    <option value="">Rob</option>
-                                    <option value="">Tigger Battery</option>
-                                    <option value="">Luna Milk</option>
-                                    <option value="">Cream Crackers</option>
-                                    <option value="">Chicken Perry</option>
-                                    <option value="">Three Crown</option>
-                                    <option value="">Whott</option>
-                                    <option value="">Bournvita</option>
-                                    <option value="">Joy Soap</option>
-                                    <option value="">Lux</option>
+                                <select name="" id="productField" class="shift-top create-sales-select-tag">
+                                    <option value="">-Select Product-</option>
+                                        <!-- THIS FIELD COMES FROM THE DATABASE -->                               
                                 </select>
-                            </div>
-                            <div class="create-sales-div-group ">
-                                <label for="" class="shift-top">Qtty</label>
-                                <input type="number" name="" id="" placeholder="000" class="shift-top">
                             </div>
                             <div class="create-sales-div-group">
                                 <label for="" class="shift-top">Price</label>
-                                <input type="number" name="" id="" placeholder="#00000" class="shift-top">
+                                <input type="number" name="" id="price" placeholder="#00000" class="shift-top" readonly>
+                            </div>
+                            <div class="create-sales-div-group ">
+                                <label for="" class="shift-top">Qtty</label>
+                                <input type="number" name="" id="quantity" placeholder="000" class="shift-top">
                             </div>
                             <div class="create-sales-div-group">
                                 <label for="" class="shift-top">Total</label>
-                                <input type="number" name="" id="" placeholder="#00000" class="shift-top">
+                                <input type="number" name="" id="unitTotal" placeholder="#00000" class="shift-top" readonly>
                             </div>
                             <div class="create-sales-button-div">
-                                <button class=" link"> + ADD</button>
+                                <button class=" link" id="addToCart"> + ADD</button>
                             </div>
                         </form>
                     </div>
@@ -110,7 +91,7 @@
                                     <th colspan="8" class="table-head"> SHOPPING CART</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody id="cart">
                                 <tr>
                                     <th class="shopping-cart-increase-th-padding">SN</th>
                                     <th class="shopping-cart-increase-th-padding"> Name</th>
@@ -120,75 +101,29 @@
                                     <th class="shopping-cart-increase-th-padding">S-total</th>
                                     <th class="shopping-cart-increase-th-padding"></th>
                                     <th class="shopping-cart-increase-th-padding"></th>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td> maltina</td>
-                                    <td>beverage</td>
-                                    <td>3</td>
-                                    <td>150</td>
-                                    <td>450</td>
-                                    <td><button  class="edit-cart-item  link">Edit</button></td>
-                                    <td><button class="delete-cart-item link">Del</button></td>
-                                </tr>
-                                
-                                <tr>
-                                    <td>2</td>
-                                            <td> lux</td>
-                                            <td>soap</td>
-                                            <td>25</td>
-                                            <td>200</td>
-                                            <td>5000</td>
-                                            <td><button  class="edit-cart-item  link">Edit</button></td>
-                                            <td><button class="delete-cart-item link">Del</button></td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td> lux</td>
-                                            <td>soap</td>
-                                            <td>25</td>
-                                            <td>200</td>
-                                            <td>5000</td>
-                                            <td><button  class="edit-cart-item  link">Edit</button></td>
-                                            <td><button class="delete-cart-item link">Del</button></td>
-                                        </tr>
-                                        <tr>
-                                            <td>4</td>
-                                            <td> lux</td>
-                                            <td>soap</td>
-                                            <td>25</td>
-                                            <td>200</td>
-                                            <td>5000</td>
-                                            <td><button  class="edit-cart-item  link">Edit</button></td>
-                                            <td><button class="delete-cart-item link">Del</button></td>
-                                        </tr>
-                                        <tr>
-                                            <td>5</td>
-                                            <td> lux</td>
-                                            <td>soap</td>
-                                            <td>25</td>
-                                            <td>200</td>
-                                            <td>5000</td>
-                                            <td><button  class="edit-cart-item  link">Edit</button></td>
-                                            <td><button class="delete-cart-item link">Del</button></td>
-                                        </tr>                                       
-                                        <tr>
-                                            <th>TOTAL</th>
-                                            <th></th>
-                                            <th></th>
-                                            <th></th>
-                                            <th></th>
-                                            <th>#2450</th>
-                                        </tr>                                        
-                                    </tbody>
-                                </table>
+                                </tr>                                                                 
+                            </tbody>
+                            <tbody>
+                                    <tr>
+                                        <th>TOTAL</th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th id="total"># 0.00</th>
+                                    </tr>
+                                </tbody>
+                            </table>
                                 <div style="text-align: left; margin-top: 15px">
-                                    <button class="shop-now-button link">CHECKOUT</button>
+                                    <button class="shop-now-button link" id="checkout">CHECKOUT</button>
                                 </div> 
                             </div>
                 </div>
             </div>
         </div>        
+        <script type="text/javascript" src="../js/checktoken.js"></script>
+        <script type="text/javascript" src="../js/jwt-decode.min.js"></script>      
+        <script type="text/javascript" src="../js/create-sales.js"></script>
         <script type="text/javascript" src="../js/navbar.js"></script>
     </body>
     </html>

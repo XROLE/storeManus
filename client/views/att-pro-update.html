@@ -32,8 +32,8 @@
                 <!-- attendant Dashboard content div -->
                 <div class="att-dashboard-div">
                     <div class="att-dashboard-img-div">
-                        <a href=""> <img src="../img/avatar2.jpg" alt="" class="Avatar"></a>&nbsp;
-                        Hi, Xrole
+                        <a href=""> <img src="../img/avatar2.jpg" alt="" class="Avatar" id="profileAvatar"></a>&nbsp;
+                        <span id="fullName" style="text-transform: capitalize;font-weight: bold">Xrole</span>
                     </div>
                     <div class="att-dashboard-middle-item-div">
                         <p class="att-dashboard-item"> <a href="att-pro-update.html"><i class="fas fa-pen-nib"> &nbsp;</i>Update Profile</a> </p>                  
@@ -53,7 +53,7 @@
                                 <p>UPDATE PROFILE</p>
                             </div>
                             <div>
-                                <input type="text" id="firstName"  placeholder="First Name" value="Wes" readonly>
+                                <input type="text" id="firstName"  placeholder="First Name"  readonly>
                             </div>
                             <div>
                                 <input type="text" id="lastName"  placeholder="Last Name" value="Boss" readonly>
@@ -90,6 +90,7 @@
         </div>   
         
         
+        <script type="text/javascript" src="../js/checktoken.js"></script>
         <script type="text/javascript" src="../js/jwt-decode.min.js"></script>
         <script type="text/javascript" src="../js/navbar.js"></script>
     </body>
