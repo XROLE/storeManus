@@ -53,44 +53,27 @@
                                 <th colspan="6" class="table-head"><i class="fas fa-arrows-alt"></i>&nbsp; SALES RECORD </th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody id="attSalesTable">
                             <tr>
                                 <th>Names</th>
                                 <th>Price</th>
                                 <th>Quantity</th>
-                                <th>Total</th>
                                 <th>Types</th>
                                 <th>Categories</th>                                    
+                                <th>Total</th>
                             </tr>
-                            <tr>
-                                <td>Luis Sugar</td>
-                                <td>200</td>
-                                <td>5</td>
-                                <td>1000</td>
-                                <td>Sugar</td>
-                                <td>Beverages</td>
-                            </tr>
-                            <tr>
-                                <td>Cowbell</td>
-                                <td>600</td>
-                                <td>3</td>
-                                <td>18000</td>
-                                <td>Milk</td>
-                                <td>Beverages</td>
-                            </tr>
-                            <tr style="font-weight: bold">
-                                <td>TOTAL</td>
-                            <td></td>
-                            <td></td>
-                            <td>2800</td>
-                            <td></td>
-                            <td></td>
+                            
                         </tr>
+                    </tbody>
+                    <tbody id="total">
+                        <!-- THIS WILL ALSO COME FROM DATABASE? -->
                     </tbody>                    
                 </table>                                      
             </div>
         </div>        
         <script type="text/javascript" src="../js/checktoken.js"></script>
+        <script type="text/javascript" src="../js/jwt-decode.min.js"></script>
+        <script type="text/javascript" src="../js/salesRecord.js"></script>
         <script type="text/javascript" src="../js/navbar.js"></script>
     </body>
     </html>
