@@ -334,8 +334,7 @@ function createSalesRecord(getData){  // Proceed to create sales record
     })
         .then(res => res.json())
         .then(res => { 
-            if(res.Success){ 
-                console.log('result from database', res);                           
+            if(res.Success){                                           
                 return;
             }
             alert(res.Message);
@@ -345,5 +344,5 @@ function createSalesRecord(getData){  // Proceed to create sales record
 }
 function printReceipt(){
     alert('I will print your receipt soon');
-    return location.reload();
+    return;
 }
