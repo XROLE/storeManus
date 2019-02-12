@@ -3,15 +3,15 @@
 window.onload = (() => { 
     // CHECK TOKEN BEFORE SERVING PAGE
    
-    
     // ADD PRODUCT FUNCTIONALITY
-    const loc = 'file:///C:/Users/XROLE%20VALSIDO%20DIAMON/Desktop/Apps/storeManus/client/views/admin-add-products.html';
+    const loc = 'file:///Users/goodnesseze/Desktop/project/storeManus/client/views/admin-add-products.html?';
     const add = document.querySelector('#add-product-button');
     if(location.href === loc){
         add.addEventListener('click', (e) =>{
           
             e.preventDefault();
-          
+            
+        
             const name = document.getElementById('product-Name').value.trim();
             const price = document.getElementById('product-Price').value.trim();
             const quantity = document.getElementById('product-Quantity').value.trim();
@@ -40,7 +40,6 @@ window.onload = (() => {
                 })
                 .catch(err => console.error('Error :', err));
         });
-                
                 
     }
 

@@ -8,7 +8,7 @@ dotenv.config();
 
 
 const pool = new Pool({
-    connectionString: process.env.DEV_DB_URI
+    connectionString: process.env.DB_URI
 });
 
 /**
@@ -22,10 +22,10 @@ const createAttendantTable = () => { // ======================================= 
         firstName VARCHAR(128) NOT NULL,
         lastName VARCHAR(128) NOT NULL,
         email VARCHAR(128) NOT NULL,
-        password VARCHAR(128) NOT NULL,  
+        password VARCHAR(128) NOT NULL,
         phoneNo BIGINT ,
         gender VARCHAR(255),
-        profilePics VARCHAR(255)         
+        profilePics VARCHAR(255)
       )`;
 
     pool.query(queryText)
@@ -33,19 +33,19 @@ const createAttendantTable = () => { // ======================================= 
             console.log(res);
         })
         .catch((err) => {
-            console.log(err);         
+            console.log(err);
         });
 };
 
 const addAttendants =(firstName, lastName, email, password) => { // =========================================== Insert into attendants table
-    
+
     const queryText = 'INSERT INTO attendants(firstName, lastName, email, password, phoneNo, gender, profilePics) VALUES($1, $2, $3, $4, $5, $6, $7) RETURNING *';
     const values = [firstName, lastName, email, password, '11111111111', 'update', '../img/avatar.jpg'];
     const addedAttendant = pool.query(queryText, values)
         .then((res) => {
             return new Promise((resolve) => {
-                resolve(res.rows[0]);                
-            }); 
+                resolve(res.rows[0]);
+            });
         })
         .catch((e) => {
             console.log(e);
@@ -53,34 +53,34 @@ const addAttendants =(firstName, lastName, email, password) => { // ============
     return addedAttendant;
 };
 const isEmailInUse = (email) => { // ======================================= CHECK IF EMAIL IS IN USE
-    const queryText = 'SELECT * FROM attendants WHERE email=$1';   
-    return pool.query(queryText, [email]);        
-   
+    const queryText = 'SELECT * FROM attendants WHERE email=$1';
+    return pool.query(queryText, [email]);
+
 };
 
 /**
   * =============================== UPDATE ATTENDANT PROFILE
 */
-const  updateAttendant = (firstName, lastName, email, password, phoneno, gender, profilepics, id ) =>{    
+const  updateAttendant = (firstName, lastName, email, password, phoneno, gender, profilepics, id ) =>{
     const queryText = 'UPDATE attendants SET firstName=$1, lastName=$2, email=$3, password=$4, phoneno=$5, gender=$6, profilepics=$7 WHERE id= $8 RETURNING *';
     const values = [firstName, lastName, email, password, phoneno, gender, profilepics, id];
     const updatedAttendant = pool.query(queryText, values)
-        .then((res) => {          
-            return new Promise((resolve) =>{                
+        .then((res) => {
+            return new Promise((resolve) =>{
                 resolve(res.rows[0]);
             });
         })
         .catch((e) => console.log(e));
-        
+
     return updatedAttendant;
 };
 
 
 
-const  getOneAttendant = (email) =>{    
+const  getOneAttendant = (email) =>{
     const queryText = 'SELECT * FROM attendants WHERE email=$1';
     const attendant = pool.query(queryText, email)
-        .then((res) => {          
+        .then((res) => {
             return new Promise((resolve) =>{
                 resolve(res.rows);
             });
@@ -90,23 +90,23 @@ const  getOneAttendant = (email) =>{
         });
     return attendant;
 };
-const  getOneAttendantById = (id) =>{    
+const  getOneAttendantById = (id) =>{
     const queryText = 'SELECT * FROM attendants WHERE id=$1';
     const attendant = pool.query(queryText, id)
-        .then((res) => {          
-            return new Promise((resolve) =>{                
+        .then((res) => {
+            return new Promise((resolve) =>{
                 resolve(res.rows);
             });
         })
         .catch((e) => {
-            console.log(e);            
+            console.log(e);
         });
     return attendant;
 };
-const  getAttendants = () =>{    
+const  getAttendants = () =>{
     const queryText = 'SELECT * FROM attendants';
     const attendants = pool.query(queryText)
-        .then((res) => {          
+        .then((res) => {
             return new Promise((resolve) =>{
                 resolve(res.rows);
             });
@@ -123,11 +123,9 @@ const dropAttendantsTable = () => { // =========================================
             console.log(res);
         })
         .catch((err) => {
-            console.log(err);           
+            console.log(err);
         });
 };
-
-
 
 module.exports = {
     createAttendantTable,
@@ -137,7 +135,7 @@ module.exports = {
     getOneAttendant,
     getAttendants,
     getOneAttendantById,
-    updateAttendant     
+    updateAttendant
 };
 
 require('make-runnable');

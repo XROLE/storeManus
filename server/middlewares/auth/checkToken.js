@@ -10,4 +10,4 @@ const checkToken = (req, res, next) => {
     return next();
 };
 
-export default checkToken;
+export default checkToken; 

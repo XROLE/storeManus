@@ -25,12 +25,8 @@ function AvailableProducts(){
         .then(res => res.json())
         .then(result => {       
             if(result.Success){
-                
-            
                 createFinishedProductTable();   // CREATE TABLE 
                 return  populateFinishedProductTable(result);  //POPULATE TABLE
-            
-            
             }            
             alert(result.Message);
             return window.location.href = './signin.html';

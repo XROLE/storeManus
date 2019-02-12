@@ -10,7 +10,11 @@
     "coveralls": "node ./node_modules/coveralls/bin/coveralls.js ./coverage/lcov.info",
     "coverage": "nyc npm test && nyc report --reporter=text-lcov | coveralls",
     "createSalesTable": "node --require babel-register server/model/sales createSalesTable",
-    "createAttendantTable": "node --require babel-register server/model/sales createSalesTable"
+    "dropSalesTable": "node --require babel-register server/model/sales dropSalesTable",
+    "createAttendantTable": "node --require babel-register server/model/attendants createAttendantTable",
+    "dropAttendantsTable": "node --require babel-register server/model/attendants dropAttendantsTable",
+    "createProductsTable": "node --require babel-register server/model/products createProductsTable",
+    "dropProductsTable": "node --require babel-register server/model/products dropProductsTable"
   },
   "repository": {
     "type": "git",

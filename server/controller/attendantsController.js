@@ -117,9 +117,3 @@ class Attendants {
 }
 
 export default Attendants;
-
-
-
-
-
-

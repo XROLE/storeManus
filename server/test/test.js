@@ -40,13 +40,13 @@ describe('STOREMANUS', () => {  // ====================================== Empty 
             chai.request(server)
                 .post('/api/v1/admin/auth/signin')
                 .send({
-                    mail: 'xrolediamond@gmil.com',
-                    pass: 'xrolevalsido27'                                                   
+                    email: 'xrolediamond@gmil.com',
+                    password: 'xrolevalsido27'                                                   
                 })            
                 .end((err, res) => {
                     expect(err).to.be.null;
                     expect(res).to.have.headers;
-                    expect(res).to.have.status(401);
+                    expect(res).to.have.status(400);
                     expect(res).to.not.redirect;
                     expect(res).to.be.an('object');
                     expect(res.body).to.have.property('Success').eql(false);                    
@@ -56,10 +56,10 @@ describe('STOREMANUS', () => {  // ====================================== Empty 
         });
         it('Admin sign in', (done) => {
             chai.request(server)
-                .post('/api/v1/admin/auth/signin')
+                .post('/api/v1/admin/auth/signin') 
                 .send({
-                    mail: 'xrolediamond@gmail.com',
-                    pass: 'xrolevalsido2634'                                                   
+                    email: 'xrolediamond@gmail.com',
+                    password: 'xrolevalsido2634'                                                   
                 })            
                 .end((err, res) => {
                     expect(err).to.be.null;
